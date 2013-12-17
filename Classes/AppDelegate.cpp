@@ -14,7 +14,16 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     
+    //初始化ShareSDK
     C2DXShareSDK::open(CCString::create("api20"), false);
+    
+    CCDictionary *sinaConfigDict = CCDictionary::create();
+    sinaConfigDict -> setObject(CCString::create("568898243"), "app_key");
+    sinaConfigDict -> setObject(CCString::create("38a4f8204cc784f81f9f0daaf31e02e3"), "app_secret");
+    sinaConfigDict -> setObject(CCString::create("http://www.sharesdk.cn"), "redirect_uri");
+    C2DXShareSDK::setPlatformConfig(C2DXPlatTypeSinaWeibo, sinaConfigDict);
+    
+    
     
     // initialize director
     CCDirector* pDirector = CCDirector::sharedDirector();
