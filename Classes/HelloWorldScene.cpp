@@ -19,6 +19,34 @@ void authResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDiction
     }
 }
 
+void getUserResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDictionary *userInfo, CCDictionary *error)
+{
+    if (state == C2DXResponseStateSuccess)
+    {
+        //输出用户信息
+        CCArray *allKeys = userInfo -> allKeys();
+        for (int i = 0; i < allKeys -> count(); i++)
+        {
+            CCString *key = (CCString *)allKeys -> objectAtIndex(i);
+            CCObject *obj = userInfo -> objectForKey(key -> getCString());
+            
+            CCLog("key = %s", key -> getCString());
+            if (dynamic_cast<CCString *>(obj))
+            {
+                CCLog("value = %s", dynamic_cast<CCString *>(obj) -> getCString());
+            }
+            else if (dynamic_cast<CCInteger *>(obj))
+            {
+                CCLog("value = %d", dynamic_cast<CCInteger *>(obj) -> getValue());
+            }
+            else if (dynamic_cast<CCDouble *>(obj))
+            {
+                CCLog("value = %f", dynamic_cast<CCDouble *>(obj) -> getValue());
+            }
+        }
+    }
+}
+
 void shareResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDictionary *shareInfo, CCDictionary *error)
 {
     switch (state) {
@@ -60,6 +88,21 @@ bool HelloWorld::init()
     
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+    
+    CCMenuItemLabel *authMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("授权", "Arial", 40),
+                                                            this,
+                                                            menu_selector(HelloWorld::authMenuItemClick));
+    CCMenuItemLabel *getUserMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("用户信息", "Arial", 40),
+                                                               this,
+                                                               menu_selector(HelloWorld::getUserInfoMenuItemClick));
+    CCMenuItemLabel *shareMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("分享", "Arial", 40),
+                                                             this,
+                                                             menu_selector(HelloWorld::shareMenuItemClick));
+
+    CCMenu *itemsMenu = CCMenu::create(authMenuItem, getUserMenuItem, shareMenuItem, NULL);
+    itemsMenu -> alignItemsHorizontallyWithPadding(20);
+    itemsMenu -> setPosition(ccp(CCDirector::sharedDirector() -> getWinSize().width / 2, 50));
+    this -> addChild(itemsMenu);
 
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
@@ -110,17 +153,28 @@ bool HelloWorld::init()
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)
 {
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-//	CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-//#else
-//    CCDirector::sharedDirector()->end();
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//    exit(0);
-//#endif
-//#endif
-    
-//    C2DXShareSDK::authorize(C2DXPlatTypeSinaWeibo, authResultHandler);
-    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+	CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
+#else
+    CCDirector::sharedDirector()->end();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    exit(0);
+#endif
+#endif
+}
+
+void HelloWorld::authMenuItemClick(CCObject* pSender)
+{
+    C2DXShareSDK::authorize(C2DXPlatTypeSinaWeibo, authResultHandler);
+}
+
+void HelloWorld::getUserInfoMenuItemClick(CCObject* pSender)
+{
+    C2DXShareSDK::getUserInfo(C2DXPlatTypeSinaWeibo, getUserResultHandler);
+}
+
+void HelloWorld::shareMenuItemClick(CCObject* pSender)
+{
     CCDictionary *content = CCDictionary::create();
     content -> setObject(CCString::create("这是一条测试内容"), "content");
     content -> setObject(CCString::create("http://img0.bdstatic.com/img/image/308342ac65c10385343da168d569113b07ecb8088ef.jpg"), "image");
@@ -130,5 +184,4 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
     content -> setObject(CCInteger::create(C2DXContentTypeNews), "type");
     
     C2DXShareSDK::showShareMenu(NULL, content, shareResultHandler);
-    
 }

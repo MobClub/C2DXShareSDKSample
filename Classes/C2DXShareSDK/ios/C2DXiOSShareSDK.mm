@@ -190,7 +190,7 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
         if (imagePathStr)
         {
             NSString *imagePath = [NSString stringWithCString:imagePathStr -> getCString() encoding:NSUTF8StringEncoding];
-            if ([imagePath isMatchedByRegex:@"\\w://.*"])
+            if ([imagePath isMatchedByRegex:@"^\\w://.*"])
             {
                 image = [ShareSDK imageWithUrl:imagePath];
             }
@@ -254,16 +254,19 @@ void C2DXiOSShareSDK::setPlatformConfig(C2DXPlatType platType, CCDictionary *con
         
         //转换配置信息
         CCArray *configInfoKeys = configInfo -> allKeys();
-        for (int i = 0; i < configInfoKeys -> count(); i++)
+        if (configInfoKeys)
         {
-            CCString *key = (CCString *)configInfoKeys -> objectAtIndex(i);
-            CCString *value = (CCString *)configInfo -> objectForKey(key -> getCString());
-            
-            NSString *keyStr = [NSString stringWithCString:key -> getCString() encoding:NSUTF8StringEncoding];
-            NSString *valueStr = [NSString stringWithCString:value -> getCString() encoding:NSUTF8StringEncoding];
-            if (keyStr && valueStr)
+            for (int i = 0; i < configInfoKeys -> count(); i++)
             {
-                [configDict setObject:valueStr forKey:keyStr];
+                CCString *key = (CCString *)configInfoKeys -> objectAtIndex(i);
+                CCString *value = (CCString *)configInfo -> objectForKey(key -> getCString());
+                
+                NSString *keyStr = [NSString stringWithCString:key -> getCString() encoding:NSUTF8StringEncoding];
+                NSString *valueStr = [NSString stringWithCString:value -> getCString() encoding:NSUTF8StringEncoding];
+                if (keyStr && valueStr)
+                {
+                    [configDict setObject:valueStr forKey:keyStr];
+                }
             }
         }
         
@@ -308,7 +311,31 @@ bool C2DXiOSShareSDK::hasAutorized(C2DXPlatType platType)
 
 void C2DXiOSShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEvent callback)
 {
-    
+    [ShareSDK getUserInfoWithType:(ShareType)platType
+                      authOptions:nil
+                           result:^(BOOL result, id<ISSPlatformUser> userInfo, id<ICMErrorInfo> error) {
+                               
+                               CCDictionary *userInfoDict = NULL;
+                               CCDictionary *errorInfo = NULL;
+                               
+                               if (result)
+                               {
+                                   userInfoDict = convertNSDictToCCDict([userInfo sourceData]);
+                               }
+                               
+                               if (error)
+                               {
+                                   errorInfo = CCDictionary::create();
+                                   errorInfo -> setObject(CCInteger::create([error errorCode]), "error_code");
+                                   errorInfo -> setObject(CCString::create([[error errorDescription] UTF8String]), "error_msg");
+                               }
+                               
+                               if (callback)
+                               {
+                                   callback (result ? C2DXResponseStateSuccess : C2DXResponseStateFail, platType, userInfoDict, errorInfo);
+                               }
+                               
+                           }];
 }
 
 void C2DXiOSShareSDK::shareContent(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback)
