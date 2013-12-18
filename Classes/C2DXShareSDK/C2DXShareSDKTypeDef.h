@@ -91,7 +91,12 @@ namespace cn
         /**
          *	@brief	授权返回回调事件
          */
-        typedef void(*C2DXAuthResultEvent) (C2DXResponseState state, C2DXPlatType platType, CCDictionary *user, CCDictionary *error);
+        typedef void(*C2DXAuthResultEvent) (C2DXResponseState state, C2DXPlatType platType, CCDictionary *error);
+        
+        /**
+         *	@brief	获取用户信息返回回调事件
+         */
+        typedef void(*C2DXGetUserInfoResultEvent) (C2DXResponseState state, C2DXPlatType platType, CCDictionary *userInfo, CCDictionary *error);
         
         /**
          *	@brief	分享返回回调事件

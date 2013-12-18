@@ -103,6 +103,20 @@ bool C2DXShareSDK::hasAutorized(C2DXPlatType platType)
     return false;
 }
 
+void C2DXShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEvent callback)
+{
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    
+    //TODO: Andorid
+    
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    
+    //TODO: iOS
+    C2DXiOSShareSDK::getUserInfo(platType, callback);
+    
+#endif
+}
+
 void C2DXShareSDK::shareContent(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback)
 {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID

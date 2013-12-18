@@ -279,17 +279,7 @@ void C2DXiOSShareSDK::authorize(C2DXPlatType platType, C2DXAuthResultEvent callb
                    options:nil
                     result:^(SSAuthState state, id<ICMErrorInfo> error) {
                         
-                        CCDictionary *userInfo = NULL;
                         CCDictionary *errorInfo = NULL;
-                        
-                        if (state == SSAuthStateSuccess)
-                        {
-                            id<ISSPlatformUser> user = [ShareSDK currentAuthUserWithType:(ShareType)platType];
-                            if (user)
-                            {
-                                userInfo = convertNSDictToCCDict([user sourceData]);
-                            }
-                        }
                         
                         if (error)
                         {
@@ -300,7 +290,7 @@ void C2DXiOSShareSDK::authorize(C2DXPlatType platType, C2DXAuthResultEvent callb
                         
                         if (callback)
                         {
-                            callback ((C2DXResponseState)state, platType, userInfo, errorInfo);
+                            callback ((C2DXResponseState)state, platType, errorInfo);
                         }
                         
                     }];
@@ -314,6 +304,11 @@ void C2DXiOSShareSDK::cancelAuthorize(C2DXPlatType platType)
 bool C2DXiOSShareSDK::hasAutorized(C2DXPlatType platType)
 {
     return [ShareSDK hasAuthorizedWithType:(ShareType)platType];
+}
+
+void C2DXiOSShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEvent callback)
+{
+    
 }
 
 void C2DXiOSShareSDK::shareContent(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback)

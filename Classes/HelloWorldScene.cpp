@@ -5,7 +5,7 @@
 USING_NS_CC;
 using namespace cn::sharesdk;
 
-void authResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDictionary *user, CCDictionary *error)
+void authResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDictionary *error)
 {
     switch (state) {
         case C2DXResponseStateSuccess:

@@ -72,6 +72,14 @@ namespace cn
             static bool hasAutorized(C2DXPlatType platType);
             
             /**
+             *	@brief	获取用户信息
+             *
+             *	@param 	platType 	平台类型
+             *	@param 	callback 	回调方法
+             */
+            static void getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEvent callback);
+            
+            /**
              *	@brief	分享内容
              *
              *	@param 	platType 	平台类型
