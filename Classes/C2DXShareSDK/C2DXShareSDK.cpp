@@ -14,6 +14,8 @@
 
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 
+#include "ShareSDKUtils.h"
+
 #endif
 
 using namespace cn::sharesdk;
@@ -23,6 +25,8 @@ void C2DXShareSDK::open(CCString *appKey, bool useAppTrusteeship)
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 
     //TODO: Andorid
+    initShareSDK(appKey->getCString(), useAppTrusteeship);
+
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -37,6 +41,7 @@ void C2DXShareSDK::close()
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    stopSDK();
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
