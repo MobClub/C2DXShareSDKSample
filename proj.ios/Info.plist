@@ -23,7 +23,7 @@
 		<string>Icon-152.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>cn.sharesdk</string>
+	<string>cn.appgo.sharebyone</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -44,6 +44,33 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>cn.appgo.sharebyone</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cn.appgo.sharebyone</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pocketapp1234</string>
+				<string>fb107704292745179</string>
+				<string>wb801307650</string>
+				<string>tencent100371282</string>
+				<string>wx4868b35061f87885</string>
+				<string>QQ05FB8B52</string>
+				<string>pin1432928</string>
+				<string>rm226427cn.appgo.sharebyone</string>
+				<string>wb568898243</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

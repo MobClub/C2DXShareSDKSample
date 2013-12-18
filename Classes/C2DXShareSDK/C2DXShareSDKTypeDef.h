@@ -27,7 +27,7 @@ namespace cn
             C2DXPlatTypeSohuWeibo = 3,         /**< 搜狐微博 */
             C2DXPlatType163Weibo = 4,          /**< 网易微博 */
             C2DXPlatTypeDouBan = 5,            /**< 豆瓣社区 */
-            C2DXPlatTypeQQSpace = 6,           /**< QQ空间 */
+            C2DXPlatTypeQZone = 6,             /**< QQ空间 */
             C2DXPlatTypeRenren = 7,            /**< 人人网 */
             C2DXPlatTypeKaixin = 8,            /**< 开心网 */
             C2DXPlatTypePengyou = 9,           /**< 朋友网 */

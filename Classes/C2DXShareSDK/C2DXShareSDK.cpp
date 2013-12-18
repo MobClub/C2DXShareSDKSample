@@ -107,9 +107,10 @@ bool C2DXShareSDK::hasAutorized(C2DXPlatType platType)
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
     //TODO: iOS
-    C2DXiOSShareSDK::hasAutorized(platType);
+    return C2DXiOSShareSDK::hasAutorized(platType);
     
 #endif
+    
     return false;
 }
 
