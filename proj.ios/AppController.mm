@@ -4,6 +4,14 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import <ShareSDK/ShareSDK.h>
+#import "WXApi.h"
+#import "WBApi.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <RennSDK/RennSDK.h>
+#import <Pinterest/Pinterest.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <GooglePlus/GooglePlus.h>
 
 @implementation AppController
 
@@ -16,6 +24,13 @@ static AppDelegate s_sharedApplication;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
+    
+    [ShareSDK importWeChatClass:[WXApi class]];
+    [ShareSDK importTencentWeiboClass:[WBApi class]];
+    [ShareSDK importQQClass:[QQApiInterface class] tencentOAuthCls:[TencentOAuth class]];
+    [ShareSDK importRenRenClass:[RennClient class]];
+    [ShareSDK importPinterestClass:[Pinterest class]];
+    [ShareSDK importGooglePlusClass:[GPPSignIn class] shareClass:[GPPShare class]];
 
     // Add the view controller's view to the window and display.
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];

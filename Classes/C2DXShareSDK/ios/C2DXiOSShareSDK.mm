@@ -180,17 +180,17 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
     
     if (content)
     {
-        CCString *messageStr = (CCString *)content -> objectForKey("content");
+        CCString *messageStr = dynamic_cast<CCString *>(content -> objectForKey("content"));
         if (messageStr)
         {
             message = [NSString stringWithCString:messageStr -> getCString() encoding:NSUTF8StringEncoding];
         }
         
-        CCString *imagePathStr = (CCString *)content -> objectForKey("image");
+        CCString *imagePathStr = dynamic_cast<CCString *>(content -> objectForKey("image"));
         if (imagePathStr)
         {
             NSString *imagePath = [NSString stringWithCString:imagePathStr -> getCString() encoding:NSUTF8StringEncoding];
-            if ([imagePath isMatchedByRegex:@"^\\w://.*"])
+            if ([imagePath isMatchedByRegex:@"\\w://.*"])
             {
                 image = [ShareSDK imageWithUrl:imagePath];
             }
@@ -200,31 +200,30 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
             }
         }
         
-        CCString *titleStr = (CCString *)content -> objectForKey("title");
+        CCString *titleStr = dynamic_cast<CCString *>(content -> objectForKey("title"));
         if (titleStr)
         {
             title = [NSString stringWithCString:titleStr -> getCString() encoding:NSUTF8StringEncoding];
         }
         
-        CCString *urlStr = (CCString *)content -> objectForKey("url");
+        CCString *urlStr = dynamic_cast<CCString *>(content -> objectForKey("url"));
         if (urlStr)
         {
             url = [NSString stringWithCString:urlStr -> getCString() encoding:NSUTF8StringEncoding];
         }
         
-        CCString *descStr = (CCString *)content -> objectForKey("description");
+        CCString *descStr = dynamic_cast<CCString *>(content -> objectForKey("description"));
         if (descStr)
         {
             desc = [NSString stringWithCString:descStr -> getCString() encoding:NSUTF8StringEncoding];
         }
         
-        CCInteger *typeValue = (CCInteger *)content -> objectForKey("type");
+        CCString *typeValue = dynamic_cast<CCString *>(content -> objectForKey("type"));
         if (typeValue)
         {
-            type = (SSPublishContentMediaType)typeValue -> getValue();
+            type = (SSPublishContentMediaType)typeValue -> intValue();
         }
     }
-    
     
     return  [ShareSDK content:message
                defaultContent:nil
@@ -248,14 +247,16 @@ void C2DXiOSShareSDK::close()
 
 void C2DXiOSShareSDK::setPlatformConfig(C2DXPlatType platType, CCDictionary *configInfo)
 {
+    NSMutableDictionary *configDict = nil;
+    
     if (configInfo)
     {
-        NSMutableDictionary *configDict = [NSMutableDictionary dictionary];
-        
         //转换配置信息
         CCArray *configInfoKeys = configInfo -> allKeys();
         if (configInfoKeys)
         {
+            configDict = [NSMutableDictionary dictionary];
+            
             for (int i = 0; i < configInfoKeys -> count(); i++)
             {
                 CCString *key = (CCString *)configInfoKeys -> objectAtIndex(i);
@@ -269,11 +270,11 @@ void C2DXiOSShareSDK::setPlatformConfig(C2DXPlatType platType, CCDictionary *con
                 }
             }
         }
-        
-        [ShareSDK connectPlatformWithType:(ShareType)platType
-                                 platform:nil
-                                  appInfo:configDict];
     }
+    
+    [ShareSDK connectPlatformWithType:(ShareType)platType
+                             platform:nil
+                              appInfo:configDict];
 }
 
 void C2DXiOSShareSDK::authorize(C2DXPlatType platType, C2DXAuthResultEvent callback)
@@ -345,7 +346,7 @@ void C2DXiOSShareSDK::shareContent(C2DXPlatType platType, CCDictionary *content,
                       type:(ShareType)platType
                authOptions:nil
               shareOptions:nil
-             statusBarTips:YES
+             statusBarTips:NO
                     result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                         
                         CCDictionary *shareInfo = NULL;
@@ -390,7 +391,7 @@ void C2DXiOSShareSDK::oneKeyShareContent(CCArray *platTypes, CCDictionary *conte
                        shareList:shareList
                      authOptions:nil
                     shareOptions:nil
-                   statusBarTips:YES
+                   statusBarTips:NO
                           result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                               
                               CCDictionary *shareInfo = NULL;
@@ -434,7 +435,7 @@ void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C
     [ShareSDK showShareActionSheet:nil
                          shareList:shareList
                            content:publishContent
-                     statusBarTips:YES
+                     statusBarTips:NO
                        authOptions:nil
                       shareOptions:nil
                             result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {

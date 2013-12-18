@@ -295,6 +295,13 @@
 		41A91CED186049D70063C2EF /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CEC186049D70063C2EF /* libz.1.2.5.dylib */; };
 		41D204E818613CEE007AB934 /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D204E218613CEE007AB934 /* C2DXShareSDK.cpp */; };
 		41D204E918613CEE007AB934 /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41D204E718613CEE007AB934 /* C2DXiOSShareSDK.mm */; };
+		41D204EB186186DE007AB934 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204EA186186DE007AB934 /* CoreMotion.framework */; };
+		41D204ED186186EC007AB934 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204EC186186EC007AB934 /* Security.framework */; };
+		41D204EF1861874B007AB934 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204EE1861874B007AB934 /* libsqlite3.dylib */; };
+		41D204F118618B35007AB934 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204F018618B35007AB934 /* CoreLocation.framework */; };
+		41D204F318618B47007AB934 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204F218618B47007AB934 /* MediaPlayer.framework */; };
+		41D204F518618B4F007AB934 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204F418618B4F007AB934 /* CoreText.framework */; };
+		41D204F718618B57007AB934 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D204F618618B57007AB934 /* AssetsLibrary.framework */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -861,6 +868,13 @@
 		41D204E418613CEE007AB934 /* C2DXShareSDKTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXShareSDKTypeDef.h; sourceTree = "<group>"; };
 		41D204E618613CEE007AB934 /* C2DXiOSShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXiOSShareSDK.h; sourceTree = "<group>"; };
 		41D204E718613CEE007AB934 /* C2DXiOSShareSDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = C2DXiOSShareSDK.mm; sourceTree = "<group>"; };
+		41D204EA186186DE007AB934 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		41D204EC186186EC007AB934 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		41D204EE1861874B007AB934 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		41D204F018618B35007AB934 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		41D204F218618B47007AB934 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		41D204F418618B4F007AB934 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		41D204F618618B57007AB934 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -883,6 +897,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D204F718618B57007AB934 /* AssetsLibrary.framework in Frameworks */,
+				41D204F518618B4F007AB934 /* CoreText.framework in Frameworks */,
+				41D204F318618B47007AB934 /* MediaPlayer.framework in Frameworks */,
+				41D204F118618B35007AB934 /* CoreLocation.framework in Frameworks */,
+				41D204EF1861874B007AB934 /* libsqlite3.dylib in Frameworks */,
+				41D204ED186186EC007AB934 /* Security.framework in Frameworks */,
+				41D204EB186186DE007AB934 /* CoreMotion.framework in Frameworks */,
 				41A91CED186049D70063C2EF /* libz.1.2.5.dylib in Frameworks */,
 				41A91CEB186049D10063C2EF /* libstdc++.dylib in Frameworks */,
 				41A91CE9186049C70063C2EF /* libicucore.dylib in Frameworks */,
@@ -1578,6 +1599,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41D204F618618B57007AB934 /* AssetsLibrary.framework */,
+				41D204F418618B4F007AB934 /* CoreText.framework */,
+				41D204F218618B47007AB934 /* MediaPlayer.framework */,
+				41D204F018618B35007AB934 /* CoreLocation.framework */,
+				41D204EE1861874B007AB934 /* libsqlite3.dylib */,
+				41D204EC186186EC007AB934 /* Security.framework */,
+				41D204EA186186DE007AB934 /* CoreMotion.framework */,
 				41A91CEC186049D70063C2EF /* libz.1.2.5.dylib */,
 				41A91CEA186049D10063C2EF /* libstdc++.dylib */,
 				41A91CE8186049C70063C2EF /* libicucore.dylib */,
@@ -2498,6 +2526,7 @@
 					"$(SRCROOT)/ShareSDK_v2.6.1/Extend/WeChatSDK",
 				);
 				OTHER_CFLAGS = "-O2";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = C2DXShareSDKSample;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2559,6 +2588,7 @@
 					"$(SRCROOT)/ShareSDK_v2.6.1/Extend/TencentWeiboSDK",
 					"$(SRCROOT)/ShareSDK_v2.6.1/Extend/WeChatSDK",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = C2DXShareSDKSample;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
