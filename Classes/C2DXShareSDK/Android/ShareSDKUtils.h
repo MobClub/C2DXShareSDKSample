@@ -5,6 +5,10 @@
 #include "platform/android/jni/JniHelper.h"
 #include <jni.h>
 #include <android/log.h>
+#include "C2DXShareSDKTypeDef.h"
+
+USING_NS_CC;
+using namespace cn::sharesdk;
 
 /* Header for class ShareSDKUtils */
 #ifndef _Included_ShareSDKUtils
@@ -36,9 +40,33 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onComplete
 JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onError
 		(JNIEnv * env, jobject thiz, jobject platform, jint action, jobject res);
 
+bool getMethod(JniMethodInfo &mi, const char *methodName, const char *paramCode);
+
+void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic);
+
+void CCDictionaryToHashMap(CCDictionary *info, jobject &hashmap);
+
+const char* throwableToString(jobject t);
+
 bool initShareSDK(const char* appKey, bool useAppTrusteeship);
 
 bool stopSDK();
+
+bool setPlatformDevInfo(int platformId, CCDictionary *info);
+
+bool doAuthorize(int platformId, C2DXAuthResultEvent callback);
+
+bool removeAccount(int platformId);
+
+bool isValid(int platformId);
+
+bool showUser(int platformId, C2DXGetUserInfoResultEvent callback);
+
+bool doShare(int platformId, CCDictionary *content, C2DXShareResultEvent callback);
+
+bool multiShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent callback);
+
+bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent callback);
 
 #ifdef __cplusplus
 }

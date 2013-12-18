@@ -209,7 +209,8 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/C2DXShareSDK/C2DXSh
  jni/../../Classes/C2DXShareSDK/C2DXShareSDK.h \
  /cygdrive/d/cocos2d-x/C2DXShareSDKSample/proj.android/../../cocos2dx/include/CCEventType.h \
  /cygdrive/d/cocos2d-x/C2DXShareSDKSample/proj.android/../../cocos2dx/platform/android/jni/JniHelper.h \
- /cygdrive/d/android-ndk/platforms/android-14/arch-arm/usr/include/jni.h
+ /cygdrive/d/android-ndk/platforms/android-14/arch-arm/usr/include/jni.h \
+ jni/../../Classes/C2DXShareSDK/C2DXShareSDKTypeDef.h
 
 jni/../../Classes/C2DXShareSDK/C2DXShareSDK.h:
 
@@ -630,3 +631,5 @@ jni/../../Classes/C2DXShareSDK/C2DXShareSDK.h:
 /cygdrive/d/cocos2d-x/C2DXShareSDKSample/proj.android/../../cocos2dx/platform/android/jni/JniHelper.h:
 
 /cygdrive/d/android-ndk/platforms/android-14/arch-arm/usr/include/jni.h:
+
+jni/../../Classes/C2DXShareSDK/C2DXShareSDKTypeDef.h:

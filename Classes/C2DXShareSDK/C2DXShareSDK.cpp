@@ -56,6 +56,8 @@ void C2DXShareSDK::setPlatformConfig(C2DXPlatType platType, CCDictionary *config
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    // This is not a necessary method for Android, you can setup your platform configs more efficiently in "assets/ShareSDK.xml"
+    // setPlatformDevInfo((int)platType, configInfo);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -70,6 +72,7 @@ void C2DXShareSDK::authorize(C2DXPlatType platType, C2DXAuthResultEvent callback
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    doAuthorize((int)platType, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -84,6 +87,7 @@ void C2DXShareSDK::cancelAuthorize(C2DXPlatType platType)
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    removeAccount((int)platType);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -98,6 +102,7 @@ bool C2DXShareSDK::hasAutorized(C2DXPlatType platType)
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    isValid((int)platType);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -113,7 +118,7 @@ void C2DXShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEvent
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
-    
+    showUser((int)platType, callback);
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
     //TODO: iOS
@@ -127,6 +132,7 @@ void C2DXShareSDK::shareContent(C2DXPlatType platType, CCDictionary *content, C2
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    doShare((int)platType, content, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -141,6 +147,7 @@ void C2DXShareSDK::oneKeyShareContent(CCArray *platTypes, CCDictionary *content,
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    multiShare(platTypes, content, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
