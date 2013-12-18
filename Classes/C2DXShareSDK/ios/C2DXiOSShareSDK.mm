@@ -307,7 +307,7 @@ void C2DXiOSShareSDK::cancelAuthorize(C2DXPlatType platType)
 
 bool C2DXiOSShareSDK::hasAutorized(C2DXPlatType platType)
 {
-    return [ShareSDK hasAuthorizedWithType:(ShareType)platType];
+    return [ShareSDK hasAuthorizedWithType:(ShareType)platType] ? true : false;
 }
 
 void C2DXiOSShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEvent callback)

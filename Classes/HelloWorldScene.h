@@ -20,6 +20,10 @@ public:
     
     void authMenuItemClick(CCObject* pSender);
     
+    void cancelAuthMenuItemClick(CCObject* pSender);
+    
+    void hasAuthMenuItemClick(CCObject* pSender);
+    
     void getUserInfoMenuItemClick(CCObject* pSender);
     
     void shareMenuItemClick(CCObject* pSender);

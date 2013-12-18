@@ -92,6 +92,12 @@ bool HelloWorld::init()
     CCMenuItemLabel *authMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("授权", "Arial", 40),
                                                             this,
                                                             menu_selector(HelloWorld::authMenuItemClick));
+    CCMenuItemLabel *cancelAuthMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("取消授权", "Arial", 40),
+                                                                  this,
+                                                                  menu_selector(HelloWorld::cancelAuthMenuItemClick));
+    CCMenuItemLabel *hasAuthMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("是否授权", "Arial", 40),
+                                                               this,
+                                                               menu_selector(HelloWorld::hasAuthMenuItemClick));
     CCMenuItemLabel *getUserMenuItem = CCMenuItemLabel::create(CCLabelTTF::create("用户信息", "Arial", 40),
                                                                this,
                                                                menu_selector(HelloWorld::getUserInfoMenuItemClick));
@@ -99,9 +105,9 @@ bool HelloWorld::init()
                                                              this,
                                                              menu_selector(HelloWorld::shareMenuItemClick));
 
-    CCMenu *itemsMenu = CCMenu::create(authMenuItem, getUserMenuItem, shareMenuItem, NULL);
+    CCMenu *itemsMenu = CCMenu::create(authMenuItem, cancelAuthMenuItem, hasAuthMenuItem, getUserMenuItem, shareMenuItem, NULL);
     itemsMenu -> alignItemsHorizontallyWithPadding(20);
-    itemsMenu -> setPosition(ccp(CCDirector::sharedDirector() -> getWinSize().width / 2, 50));
+    itemsMenu -> setPosition(ccp(CCDirector::sharedDirector() -> getWinSize().width / 2, 100));
     this -> addChild(itemsMenu);
 
     /////////////////////////////
@@ -166,6 +172,23 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
 void HelloWorld::authMenuItemClick(CCObject* pSender)
 {
     C2DXShareSDK::authorize(C2DXPlatTypeSinaWeibo, authResultHandler);
+}
+
+void HelloWorld::cancelAuthMenuItemClick(CCObject* pSender)
+{
+    C2DXShareSDK::cancelAuthorize(C2DXPlatTypeSinaWeibo);
+}
+
+void HelloWorld::hasAuthMenuItemClick(CCObject* pSender)
+{
+    if (C2DXShareSDK::hasAutorized(C2DXPlatTypeSinaWeibo))
+    {
+        CCLog("用户已授权");
+    }
+    else
+    {
+        CCLog("用户尚未授权");
+    }
 }
 
 void HelloWorld::getUserInfoMenuItemClick(CCObject* pSender)
