@@ -7,7 +7,14 @@
 //
 
 #include "C2DXShareSDK.h"
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+
 #include "C2DXiOSShareSDK.h"
+
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+
+#endif
 
 using namespace cn::sharesdk;
 

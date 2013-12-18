@@ -62,6 +62,21 @@ namespace cn
         };
         
         /**
+         *	@brief	内容类型
+         */
+        enum C2DXContentType
+        {
+            C2DXContentTypeText = 0, /**< 文本 */
+            C2DXContentTypeImage = 1, /**< 图片 */
+            C2DXContentTypeNews = 2, /**< 新闻 */
+            C2DXContentTypeMusic = 3, /**< 音乐 */
+            C2DXContentTypeVideo = 4, /**< 视频 */
+            C2DXContentTypeApp = 5, /**< 应用,仅供微信使用 */
+            C2DXContentTypeNonGif = 6, /**< 非Gif消息,仅供微信使用 */
+            C2DXContentTypeGif = 7 /**< Gif消息,仅供微信使用 */
+        };
+        
+        /**
          *	@brief	返回状态
          */
         enum C2DXResponseState

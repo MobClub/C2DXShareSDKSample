@@ -233,8 +233,6 @@
 		379BB9D217F03F3700829B88 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = 379BB98D17F03F3700829B88 /* sconscript */; };
 		379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* CCSGUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* CCSSceneReader.cpp */; };
-		41A91C5C186035C90063C2EF /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41A91C5A186035C90063C2EF /* C2DXShareSDK.cpp */; };
-		41A91C60186045660063C2EF /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41A91C5E186045660063C2EF /* C2DXiOSShareSDK.mm */; };
 		41A91CAC186048B40063C2EF /* CopyConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91C64186048B30063C2EF /* CopyConnection.framework */; };
 		41A91CAD186048B40063C2EF /* DouBanConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91C65186048B30063C2EF /* DouBanConnection.framework */; };
 		41A91CAE186048B40063C2EF /* DropboxConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91C66186048B30063C2EF /* DropboxConnection.framework */; };
@@ -295,6 +293,8 @@
 		41A91CE9186049C70063C2EF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CE8186049C70063C2EF /* libicucore.dylib */; };
 		41A91CEB186049D10063C2EF /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CEA186049D10063C2EF /* libstdc++.dylib */; };
 		41A91CED186049D70063C2EF /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CEC186049D70063C2EF /* libz.1.2.5.dylib */; };
+		41D204E818613CEE007AB934 /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D204E218613CEE007AB934 /* C2DXShareSDK.cpp */; };
+		41D204E918613CEE007AB934 /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41D204E718613CEE007AB934 /* C2DXiOSShareSDK.mm */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -790,11 +790,6 @@
 		379BB99217F03F3700829B88 /* CCSGUIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSGUIReader.h; sourceTree = "<group>"; };
 		379BB99317F03F3700829B88 /* CCSSceneReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSSceneReader.cpp; sourceTree = "<group>"; };
 		379BB99417F03F3700829B88 /* CCSSceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSSceneReader.h; sourceTree = "<group>"; };
-		41A91C5A186035C90063C2EF /* C2DXShareSDK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = C2DXShareSDK.cpp; path = ../Classes/C2DXShareSDK.cpp; sourceTree = "<group>"; };
-		41A91C5B186035C90063C2EF /* C2DXShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = C2DXShareSDK.h; path = ../Classes/C2DXShareSDK.h; sourceTree = "<group>"; };
-		41A91C5E186045660063C2EF /* C2DXiOSShareSDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = C2DXiOSShareSDK.mm; sourceTree = SOURCE_ROOT; };
-		41A91C5F186045660063C2EF /* C2DXiOSShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXiOSShareSDK.h; sourceTree = SOURCE_ROOT; };
-		41A91C61186045ED0063C2EF /* C2DXShareSDKTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = C2DXShareSDKTypeDef.h; path = ../Classes/C2DXShareSDKTypeDef.h; sourceTree = "<group>"; };
 		41A91C64186048B30063C2EF /* CopyConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CopyConnection.framework; sourceTree = "<group>"; };
 		41A91C65186048B30063C2EF /* DouBanConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DouBanConnection.framework; sourceTree = "<group>"; };
 		41A91C66186048B30063C2EF /* DropboxConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxConnection.framework; sourceTree = "<group>"; };
@@ -861,6 +856,11 @@
 		41A91CE8186049C70063C2EF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		41A91CEA186049D10063C2EF /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		41A91CEC186049D70063C2EF /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		41D204E218613CEE007AB934 /* C2DXShareSDK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = C2DXShareSDK.cpp; sourceTree = "<group>"; };
+		41D204E318613CEE007AB934 /* C2DXShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXShareSDK.h; sourceTree = "<group>"; };
+		41D204E418613CEE007AB934 /* C2DXShareSDKTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXShareSDKTypeDef.h; sourceTree = "<group>"; };
+		41D204E618613CEE007AB934 /* C2DXiOSShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXiOSShareSDK.h; sourceTree = "<group>"; };
+		41D204E718613CEE007AB934 /* C2DXiOSShareSDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = C2DXiOSShareSDK.mm; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -964,8 +964,6 @@
 				1AC3624616D4A1E8000847F2 /* Prefix.pch */,
 				1AFCDA8016D4A25900906EA6 /* RootViewController.h */,
 				1AFCDA8116D4A25900906EA6 /* RootViewController.mm */,
-				41A91C5E186045660063C2EF /* C2DXiOSShareSDK.mm */,
-				41A91C5F186045660063C2EF /* C2DXiOSShareSDK.h */,
 			);
 			name = ios;
 			path = Classes;
@@ -1448,13 +1446,11 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				41D204E018613CEE007AB934 /* C2DXShareSDK */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
-				41A91C5A186035C90063C2EF /* C2DXShareSDK.cpp */,
-				41A91C5B186035C90063C2EF /* C2DXShareSDK.h */,
-				41A91C61186045ED0063C2EF /* C2DXShareSDKTypeDef.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2064,6 +2060,27 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		41D204E018613CEE007AB934 /* C2DXShareSDK */ = {
+			isa = PBXGroup;
+			children = (
+				41D204E218613CEE007AB934 /* C2DXShareSDK.cpp */,
+				41D204E318613CEE007AB934 /* C2DXShareSDK.h */,
+				41D204E418613CEE007AB934 /* C2DXShareSDKTypeDef.h */,
+				41D204E518613CEE007AB934 /* ios */,
+			);
+			name = C2DXShareSDK;
+			path = ../Classes/C2DXShareSDK;
+			sourceTree = "<group>";
+		};
+		41D204E518613CEE007AB934 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				41D204E618613CEE007AB934 /* C2DXiOSShareSDK.h */,
+				41D204E718613CEE007AB934 /* C2DXiOSShareSDK.mm */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2206,7 +2223,6 @@
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,
-				41A91C60186045660063C2EF /* C2DXiOSShareSDK.mm in Sources */,
 				15A3D9121682F7D5002FB0C5 /* b2ContactManager.cpp in Sources */,
 				15A3D9131682F7D5002FB0C5 /* b2Fixture.cpp in Sources */,
 				15A3D9141682F7D5002FB0C5 /* b2Island.cpp in Sources */,
@@ -2289,9 +2305,10 @@
 				15A3DA491682F826002FB0C5 /* CCControl.cpp in Sources */,
 				15A3DA4A1682F826002FB0C5 /* CCControlButton.cpp in Sources */,
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
+				41D204E918613CEE007AB934 /* C2DXiOSShareSDK.mm in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
-				41A91C5C186035C90063C2EF /* C2DXShareSDK.cpp in Sources */,
+				41D204E818613CEE007AB934 /* C2DXShareSDK.cpp in Sources */,
 				15A3DA4E1682F826002FB0C5 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				15A3DA4F1682F826002FB0C5 /* CCControlSlider.cpp in Sources */,
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
