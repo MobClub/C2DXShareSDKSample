@@ -23,6 +23,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     sinaConfigDict -> setObject(CCString::create("http://www.sharesdk.cn"), "redirect_uri");
     C2DXShareSDK::setPlatformConfig(C2DXPlatTypeSinaWeibo, sinaConfigDict);
     
+    CCDictionary *tcConfigDict = CCDictionary::create();
+    tcConfigDict -> setObject(CCString::create("801307650"), "app_key");
+    tcConfigDict -> setObject(CCString::create("ae36f4ee3946e1cbb98d6965b0b2ff5c"), "app_secret");
+    tcConfigDict -> setObject(CCString::create("http://www.sharesdk.cn"), "redirect_uri");
+    C2DXShareSDK::setPlatformConfig(C2DXPlatTypeTencentWeibo, tcConfigDict);
+    
     
     
     // initialize director
