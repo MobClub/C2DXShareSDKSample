@@ -24,26 +24,34 @@ void getUserResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDict
     if (state == C2DXResponseStateSuccess)
     {
         //输出用户信息
-        CCArray *allKeys = userInfo -> allKeys();
-        for (int i = 0; i < allKeys -> count(); i++)
+        try
         {
-            CCString *key = (CCString *)allKeys -> objectAtIndex(i);
-            CCObject *obj = userInfo -> objectForKey(key -> getCString());
-            
-            CCLog("key = %s", key -> getCString());
-            if (dynamic_cast<CCString *>(obj))
+            CCArray *allKeys = userInfo -> allKeys();
+            for (int i = 0; i < allKeys -> count(); i++)
             {
-                CCLog("value = %s", dynamic_cast<CCString *>(obj) -> getCString());
-            }
-            else if (dynamic_cast<CCInteger *>(obj))
-            {
-                CCLog("value = %d", dynamic_cast<CCInteger *>(obj) -> getValue());
-            }
-            else if (dynamic_cast<CCDouble *>(obj))
-            {
-                CCLog("value = %f", dynamic_cast<CCDouble *>(obj) -> getValue());
+                CCString *key = (CCString *)allKeys -> objectAtIndex(i);
+                CCObject *obj = userInfo -> objectForKey(key -> getCString());
+                
+                CCLog("key = %s", key -> getCString());
+                if (dynamic_cast<CCString *>(obj))
+                {
+                    CCLog("value = %s", dynamic_cast<CCString *>(obj) -> getCString());
+                }
+                else if (dynamic_cast<CCInteger *>(obj))
+                {
+                    CCLog("value = %d", dynamic_cast<CCInteger *>(obj) -> getValue());
+                }
+                else if (dynamic_cast<CCDouble *>(obj))
+                {
+                    CCLog("value = %f", dynamic_cast<CCDouble *>(obj) -> getValue());
+                }
             }
         }
+        catch(...)
+        {
+            CCLog("==============error");
+        }
+        
     }
 }
 
