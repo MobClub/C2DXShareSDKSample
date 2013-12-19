@@ -102,7 +102,7 @@ bool C2DXShareSDK::hasAutorized(C2DXPlatType platType)
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
-    isValid((int)platType);
+    return isValid((int)platType);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -163,6 +163,7 @@ void C2DXShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C2DX
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
+    onekeyShare(platTypes, content, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     

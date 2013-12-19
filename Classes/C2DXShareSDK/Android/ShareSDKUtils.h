@@ -68,6 +68,16 @@ bool multiShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent 
 
 bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent callback);
 
+int getJObjectType(jobject value);
+
+double jObjectToJDouble(jobject value);
+
+bool jObjectToJBoolean(jobject value);
+
+const char* jObjectToJString(JniMethodInfo mi, jobject value);
+
+void arraylistToCCArray(jobject arraylist, CCArray* arr);
+
 #ifdef __cplusplus
 }
 #endif

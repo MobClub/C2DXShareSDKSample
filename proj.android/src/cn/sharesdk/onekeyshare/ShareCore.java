@@ -64,7 +64,7 @@ public class ShareCore {
 		return true;
 	}
 	
-	public Platform.ShareParams getShareParams(Platform plat, 
+	private Platform.ShareParams getShareParams(Platform plat, 
 			HashMap<String, Object> data) throws Throwable {
 		String className = plat.getClass().getName() + "$ShareParams";
 		Class<?> cls = Class.forName(className);
