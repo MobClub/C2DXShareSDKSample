@@ -1,6 +1,4 @@
 #C2DX ShareSDK Sample
-==================
-
 Sample project to demonstrate how to integrate cocos2d-. 
 
 ## Detail information:
