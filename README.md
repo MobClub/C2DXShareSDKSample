@@ -4,7 +4,7 @@ Sample project to demonstrate how to integrate cocos2d-.
 ## Detail information:
 We will constantly post updated information & tutorials on wikis:
 
-Chinese: http://wiki.sharesdk.cn/cocos2d-x%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97 
+Chinese: cocos2d-x快速集成指南 (http://wiki.sharesdk.cn/cocos2d-x%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97)
 English: In progress 
 Common Questions: https://github.com/ShareSDKPlatform/C2DXShareSDKSample/wiki/Common-Questions
 
