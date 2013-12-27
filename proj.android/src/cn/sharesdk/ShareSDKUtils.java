@@ -17,11 +17,14 @@ import android.os.Message;
 import android.os.Handler.Callback;
 
 public class ShareSDKUtils {
+	private static boolean DEBUG = true; 
 	private static Context context;
 	private static PlatformActionListener paListaner 
 		= new PlatformActionListener() {
 		public void onError(Platform platform, int action, Throwable t) {
-			System.out.println("onError");
+			if (DEBUG) {
+				System.out.println("onError");
+			}
 			Message msg = new Message();
 			msg.what = 3;
 			msg.arg1 = action;
@@ -30,7 +33,9 @@ public class ShareSDKUtils {
 		}
 		
 		public void onComplete(Platform platform, int action, HashMap<String, Object> res) {
-			System.out.println("onComplete");
+			if (DEBUG) {
+				System.out.println("onComplete");
+			}
 			Message msg = new Message();
 			msg.what = 1;
 			msg.arg1 = action;
@@ -39,7 +44,9 @@ public class ShareSDKUtils {
 		}
 		
 		public void onCancel(Platform platform, int action) {
-			System.out.println("onCancel");
+			if (DEBUG) {
+				System.out.println("onCancel");
+			}
 			Message msg = new Message();
 			msg.what = 2;
 			msg.arg1 = action;
@@ -48,7 +55,6 @@ public class ShareSDKUtils {
 		}
 	};
 	private static Callback cb = new Callback() {
-		
 		@SuppressWarnings("unchecked")
 		public boolean handleMessage(Message msg) {
 			switch(msg.what) {
@@ -84,7 +90,9 @@ public class ShareSDKUtils {
 	}
 	
 	public static void initSDK(String appKey, boolean networkDevInfoEnable) {
-		System.out.println("initSDK");
+		if (DEBUG) {
+			System.out.println("initSDK");
+		}
 		if (networkDevInfoEnable) {
 			ShareSDK.initSDK(context, appKey);
 			ShareSDK.setNetworkDevInfoEnable(true);
@@ -94,12 +102,16 @@ public class ShareSDKUtils {
 	}
 	
 	public static void stopSDK() {
-		System.out.println("stopSDK");
+		if (DEBUG) {
+			System.out.println("stopSDK");
+		}
 		ShareSDK.stopSDK(context);
 	}
 	
 	public static void setPlatformConfig(int platformId, HashMap<String, Object> configs) {
-		System.out.println("setPlatformConfig");
+		if (DEBUG) {
+			System.out.println("setPlatformConfig");
+		}
 		String name = ShareSDK.platformIdToName(context, platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		for (Entry<String, Object> ent : configs.entrySet()) {
@@ -108,7 +120,9 @@ public class ShareSDKUtils {
 	}
 	
 	public static void authorize(int platformId) {
-		System.out.println("authorize");
+		if (DEBUG) {
+			System.out.println("authorize");
+		}
 		String name = ShareSDK.platformIdToName(context, platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.setPlatformActionListener(paListaner);
@@ -116,21 +130,27 @@ public class ShareSDKUtils {
 	}
 	
 	public static void removeAccount(int platformId) {
-		System.out.println("removeAccount");
+		if (DEBUG) {
+			System.out.println("removeAccount");
+		}
 		String name = ShareSDK.platformIdToName(context, platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.removeAccount();
 	}
 	
 	public static boolean isValid(int platformId) {
-		System.out.println("isValid");
+		if (DEBUG) {
+			System.out.println("isValid");
+		}
 		String name = ShareSDK.platformIdToName(context, platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		return plat.isValid();
 	}
 	
 	public static void showUser(int platformId) {
-		System.out.println("showUser");
+		if (DEBUG) {
+			System.out.println("showUser");
+		}
 		String name = ShareSDK.platformIdToName(context, platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.setPlatformActionListener(paListaner);
@@ -138,7 +158,9 @@ public class ShareSDKUtils {
 	}
 	
 	public static void share(int platformId, HashMap<String, String> content) {
-		System.out.println("share");
+		if (DEBUG) {
+			System.out.println("share");
+		}
 		String name = ShareSDK.platformIdToName(context, platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.setPlatformActionListener(paListaner);
@@ -225,7 +247,9 @@ public class ShareSDKUtils {
 	}
 	
 	public static void onekeyShare(HashMap<String, String> content) {
-		System.out.println("OnekeyShare");
+		if (DEBUG) {
+			System.out.println("OnekeyShare");
+		}
 		HashMap<String, Object> map = nativeMapToJavaMap(content);
 		OnekeyShare oks = new OnekeyShare();
 		oks.setText(String.valueOf(map.get("text")));
@@ -247,17 +271,23 @@ public class ShareSDKUtils {
 	// =================== jni tools ================
 	
 	public static HashMap<String, String> newHashMap() {
-		System.out.println("newHashMap");
+		if (DEBUG) {
+			System.out.println("newHashMap");
+		}
 		return new HashMap<String, String>();
 	}
 	
 	public static void putData(HashMap<String, String> map, String key, String value) {
-		System.out.println("putData");
+		if (DEBUG) {
+			System.out.println("putData -- " + key + "=" + value);
+		}
 		map.put(key, value);
 	}
 	
 	public static ArrayList<String> getMapKeys(HashMap<String, Object> map) {
-		System.out.println("getMapKeys");
+		if (DEBUG) {
+			System.out.println("getMapKeys");
+		}
 		ArrayList<String> keys = new ArrayList<String>();
 		for (Entry<String, Object> ent : map.entrySet()) {
 			keys.add(ent.getKey());
@@ -266,17 +296,26 @@ public class ShareSDKUtils {
 	}
 	
 	public static Object getData(HashMap<String, Object> map, String key) {
-		return map.get(key);
+		Object value = map.get(key);
+		if (DEBUG) {
+			System.out.println("getData -- " + key + "=" + value);
+		}
+		return value;
 	}
 	
 	public static int platformToId(Platform platform) {
-		System.out.println("platformToId");
+		if (DEBUG) {
+			System.out.println("platformToId");
+		}
 		String name = platform.getName();
 		return ShareSDK.platformNameToId(context, name);
 	}
 	
 	public static String throwableToJson(Throwable t) {
-		System.out.println("throwableToJson");
+		if (DEBUG) {
+			System.out.println("throwableToJson");
+			t.printStackTrace();
+		}
 		HashMap<String, Object> map = throwableToMap(t);
 		return new JSONObject(map).toString();
 	}
@@ -302,27 +341,38 @@ public class ShareSDKUtils {
 	}
 	
 	public static ArrayList<Integer> newArrayList() {
-		System.out.println("newArrayList");
+		if (DEBUG) {
+			System.out.println("newArrayList");
+		}
 		return new ArrayList<Integer>();
 	}
 	
 	public static void putData(ArrayList<Integer> list, int item) {
-		System.out.println("putData");
+		if (DEBUG) {
+			System.out.println("putData -- " + list.size() + "=" + item);
+		}
 		list.add(item);
 	}
 	
 	public static int getListSize(ArrayList<Integer> list) {
-		System.out.println("getListSize");
+		if (DEBUG) {
+			System.out.println("getListSize");
+		}
 		return list == null ? 0 : list.size();
 	}
 	
 	public static String getData(ArrayList<String> list, int index) {
-		System.out.println("getData");
-		return list.get(index);
+		String value = list.get(index);
+		if (DEBUG) {
+			System.out.println("getData -- " + index + "=" + value);
+		}
+		return value;
 	}
 	
 	public static int getObjectType(Object data) {
-		System.out.println("getObjectType");
+		if (DEBUG) {
+			System.out.println("getObjectType");
+		}
 		if (data instanceof Integer) {
 			return 1;
 		} else if(data instanceof Long) {
@@ -342,7 +392,9 @@ public class ShareSDKUtils {
 	}
 	
 	public static double jObjectToJDouble(Object data) {
-		System.out.println("jObjectToJDouble");
+		if (DEBUG) {
+			System.out.println("jObjectToJDouble");
+		}
 		if (data instanceof Integer) {
 			return ((Integer) data).intValue();
 		} else if(data instanceof Long) {
@@ -356,7 +408,9 @@ public class ShareSDKUtils {
 	}
 	
 	public static int getListType(ArrayList<Object> list) {
-		System.out.println("getListType");
+		if (DEBUG) {
+			System.out.println("getListType");
+		}
 		if (list.size() <= 0) {
 			return 0;
 		}
@@ -366,8 +420,11 @@ public class ShareSDKUtils {
 	}
 	
 	public static Object getObjectData(ArrayList<Object> list, int index) {
-		System.out.println("getObjectData");
-		return list.get(index);
+		Object value = list.get(index);;
+		if (DEBUG) {
+			System.out.println("getObjectData -- " + index + "=" + value);
+		}
+		return value;
 	}
 	
 }
