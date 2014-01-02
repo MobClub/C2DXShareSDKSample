@@ -23,7 +23,7 @@
 		<string>Icon-152.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>cn.appgo.sharebyone</string>
+	<string>cn.appgo.sharebyone.cocos2dx</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -49,10 +49,10 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>cn.appgo.sharebyone</string>
+			<string>cn.appgo.sharebyone.cocos2dx</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>cn.appgo.sharebyone</string>
+				<string>cn.appgo.sharebyone.cocos2dx</string>
 			</array>
 		</dict>
 		<dict>
