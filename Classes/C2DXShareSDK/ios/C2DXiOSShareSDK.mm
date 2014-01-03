@@ -272,6 +272,23 @@ void C2DXiOSShareSDK::setPlatformConfig(C2DXPlatType platType, CCDictionary *con
         }
     }
     
+    switch (platType)
+    {
+        case C2DXPlatTypeWeixiSession:
+        case C2DXPlatTypeYiXinSession:
+            [configDict setObject:[NSNumber numberWithInt:0] forKey:@"scene"];
+            break;
+        case C2DXPlatTypeWeixiTimeline:
+        case C2DXPlatTypeYiXinTimeline:
+            [configDict setObject:[NSNumber numberWithInt:1] forKey:@"scene"];
+            break;
+        case C2DXPlatTypeWeixiFav:
+            [configDict setObject:[NSNumber numberWithInt:2] forKey:@"scene"];
+            break;
+        default:
+            break;
+    }
+    
     [ShareSDK connectPlatformWithType:(ShareType)platType
                              platform:nil
                               appInfo:configDict];
