@@ -95,7 +95,6 @@ public class ShareSDKUtils {
 		}
 		if (networkDevInfoEnable) {
 			ShareSDK.initSDK(context, appKey);
-			ShareSDK.setNetworkDevInfoEnable(true);
 		} else {
 			ShareSDK.initSDK(context);
 		}
@@ -113,10 +112,7 @@ public class ShareSDKUtils {
 			System.out.println("setPlatformConfig");
 		}
 		String name = ShareSDK.platformIdToName(context, platformId);
-		Platform plat = ShareSDK.getPlatform(context, name);
-		for (Entry<String, Object> ent : configs.entrySet()) {
-			plat.setDevInfoParam(ent.getKey(), String.valueOf(ent.getValue()));
-		}
+		ShareSDK.setPlatformDevInfo(name, configs);
 	}
 	
 	public static void authorize(int platformId) {
@@ -234,15 +230,15 @@ public class ShareSDKUtils {
 	}
 
 	public static void onekeyShare(ArrayList<Integer> platformIds, HashMap<String, String> content) {
-		Platform[] plats = ShareSDK.getPlatformList(context);
-		for (Platform p : plats) {
-			p.setDevInfoParam("Enable", "false");
-		}
-		for (int pid : platformIds) {
-			String name = ShareSDK.platformIdToName(context, pid);
-			Platform plat = ShareSDK.getPlatform(context, name);
-			plat.setDevInfoParam("Enable", "true");
-		}
+//		Platform[] plats = ShareSDK.getPlatformList(context);
+//		for (Platform p : plats) {
+//			p.setDevInfoParam("Enable", "false");
+//		}
+//		for (int pid : platformIds) {
+//			String name = ShareSDK.platformIdToName(context, pid);
+//			Platform plat = ShareSDK.getPlatform(context, name);
+//			plat.setDevInfoParam("Enable", "true");
+//		}
 		onekeyShare(content);
 	}
 	

@@ -24,6 +24,7 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onCancel
 	}
 
 	int platformId = mi.env->CallStaticIntMethod(mi.classID, mi.methodID, platform);
+	releaseMethod(mi);
 	if (action == 1) { // 1 = ACTION_AUTHORIZING
 		if (NULL != authCb) {
 			authCb(C2DXResponseStateCancel, (C2DXPlatType) platformId, NULL);
@@ -47,6 +48,7 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onComplete
 		return;
 	}
 	int platformId = mi.env->CallStaticIntMethod(mi.classID, mi.methodID, platform);
+	releaseMethod(mi);
 	if (action == 1) { // 1 = ACTION_AUTHORIZING
 		if (NULL != authCb) {
 			authCb(C2DXResponseStateSuccess, (C2DXPlatType) platformId, NULL);
@@ -64,6 +66,7 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onComplete
 			}
 		}
 		dic->autorelease();
+		env->DeleteLocalRef(res);
 	}
 }
 
@@ -76,10 +79,12 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onError
 	}
 
 	int platformId = mi.env->CallStaticIntMethod(mi.classID, mi.methodID, platform);
+	releaseMethod(mi);
 	CCDictionary *dic = CCDictionary::create();
 	const char* errMsg = throwableToString(res);
 	CCString* valueStr = CCString::create(errMsg);
 	dic->setObject(valueStr, "error_msg");
+	env->DeleteLocalRef(res);
 	if (action == 1) { // 1 = ACTION_AUTHORIZING
 		if (NULL != authCb) {
 			authCb(C2DXResponseStateFail, (C2DXPlatType) platformId, dic);
@@ -103,6 +108,7 @@ void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic) {
 	}
 
 	jobject keys = mimGetKeys.env->CallStaticObjectMethod(mimGetKeys.classID, mimGetKeys.methodID, hashmap);
+	releaseMethod(mimGetKeys);
 	JniMethodInfo mimListSize;
 	isHave = getMethod(mimListSize, "getListSize", "(Ljava/util/ArrayList;)I");
 	if (!isHave) {
@@ -110,27 +116,33 @@ void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic) {
 	}
 
 	int count = mimListSize.env->CallStaticIntMethod(mimListSize.classID, mimListSize.methodID, keys);
+	releaseMethod(mimListSize);
 	if (count <= 0) {
-		return;
-	}
-
-	JniMethodInfo mimGetListData;
-	isHave = getMethod(mimGetListData, "getData", "(Ljava/util/ArrayList;I)Ljava/lang/String;");
-	if (!isHave) {
-		return;
-	}
-
-	JniMethodInfo miGetMapData;
-	isHave = getMethod(miGetMapData, "getData", "(Ljava/util/HashMap;Ljava/lang/String;)Ljava/lang/Object;");
-	if (!isHave) {
 		return;
 	}
 
 	int index = 0;
 	while (index < count) {
-		jstring key = (jstring) mimGetListData.env->CallStaticObjectMethod(mimGetListData.classID, mimGetListData.methodID, keys, index);
-		const char* ccKey = mimGetListData.env->GetStringUTFChars(key, JNI_FALSE);
+		JniMethodInfo mimGetListData;
+		isHave = getMethod(mimGetListData, "getData", "(Ljava/util/ArrayList;I)Ljava/lang/String;");
+		if (!isHave) {
+			continue;
+		}
+
+		JNIEnv *env = mimGetListData.env;
+		jstring key = (jstring) env->CallStaticObjectMethod(mimGetListData.classID, mimGetListData.methodID, keys, index);
+		releaseMethod(mimGetListData);
+		const char* ccKey = env->GetStringUTFChars(key, JNI_FALSE);
+		env->ReleaseStringUTFChars(key, ccKey);
+		
+		JniMethodInfo miGetMapData;
+		isHave = getMethod(miGetMapData, "getData", "(Ljava/util/HashMap;Ljava/lang/String;)Ljava/lang/Object;");
+		if (!isHave) {
+			continue;
+		}
+
 		jobject value = miGetMapData.env->CallStaticObjectMethod(miGetMapData.classID, miGetMapData.methodID, hashmap, key);
+		releaseMethod(miGetMapData);
 		int type = getJObjectType(value);
 		switch(type) {
 			case 1:
@@ -138,48 +150,39 @@ void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic) {
 			case 3: { // jint, ilong, jdouble
 				double jValue = jObjectToJDouble(value);
 				CCDouble* ccValue = CCDouble::create(jValue);
-//				CCLog("=========== %f", jValue);
-//				CCLog("=========== %s", ccKey);
 				dic->setObject(ccValue, ccKey);
 			}
 			break;
 			case 4: { // jboolean
 				bool jValue = jObjectToJBoolean(value);
 				CCBool* ccValue = CCBool::create(jValue);
-//				CCLog("=========== %d", jValue);
-//				CCLog("=========== %s", ccKey);
 				dic->setObject(ccValue, ccKey);
 			}
 			break;
 			case 5: { // jstring
-				const char* jValue = jObjectToJString(mimGetListData, value);
+				const char* jValue = jObjectToJString(env, value);
 				if (NULL != jValue) {
 					CCString* ccValue = CCString::create(jValue);
-//					CCLog("=========== %s", jValue);
-//					CCLog("=========== %s", ccKey);
 					dic->setObject(ccValue, ccKey);
 				}
 			}
 			break;
 			case 6: { // arraylist
 				CCArray* ccValue = new CCArray();
-//				CCLog("=========== arraylist[]");
 				arraylistToCCArray(value, ccValue);
-//				CCLog("=========== %s", ccKey);
 				dic->setObject(ccValue, ccKey);
 				ccValue->autorelease();
 			}
 			break;
 			case 7: { // hashmap
 				CCDictionary* ccValue = new CCDictionary();
-//				CCLog("=========== hashmap{}");
 				hashmapToCCDictionary(value, ccValue);
-//				CCLog("=========== %s", ccKey);
 				dic->setObject(ccValue, ccKey);
 				ccValue->autorelease();
 			}
 			break;
 		}
+		env->DeleteLocalRef(value);
 		index++;
 	}
 }
@@ -191,7 +194,9 @@ int getJObjectType(jobject value) {
 		return 0;
 	}
 
-	return mi.env->CallStaticIntMethod(mi.classID, mi.methodID, value);
+	int type = mi.env->CallStaticIntMethod(mi.classID, mi.methodID, value);
+	releaseMethod(mi);
+	return type;
 }
 
 double jObjectToJDouble(jobject value) {
@@ -201,7 +206,9 @@ double jObjectToJDouble(jobject value) {
 		return 0;
 	}
 
-	return mi.env->CallStaticDoubleMethod(mi.classID, mi.methodID, value);
+	double dValue = mi.env->CallStaticDoubleMethod(mi.classID, mi.methodID, value);
+	releaseMethod(mi);
+	return dValue;
 }
 
 bool jObjectToJBoolean(jobject value) {
@@ -209,8 +216,11 @@ bool jObjectToJBoolean(jobject value) {
 	return 1 == jValue;
 }
 
-const char* jObjectToJString(JniMethodInfo mi, jobject value) {
-	return mi.env->GetStringUTFChars((jstring)value, JNI_FALSE);
+const char* jObjectToJString(JNIEnv *env, jobject value) {
+	jstring str = (jstring)value;
+	const char* cStr = env->GetStringUTFChars((jstring)value, JNI_FALSE);
+	env->ReleaseStringUTFChars(str, cStr);
+	return cStr;
 }
 
 void arraylistToCCArray(jobject arraylist, CCArray* arr) {
@@ -221,6 +231,7 @@ void arraylistToCCArray(jobject arraylist, CCArray* arr) {
 	}
 
 	int count = mimListSize.env->CallStaticIntMethod(mimListSize.classID, mimListSize.methodID, arraylist);
+	releaseMethod(mimListSize);
 	if (count <= 0) {
 		return;
 	}
@@ -232,15 +243,19 @@ void arraylistToCCArray(jobject arraylist, CCArray* arr) {
 	}
 
 	int type = miGetListType.env->CallStaticIntMethod(miGetListType.classID, miGetListType.methodID, arraylist);
-	JniMethodInfo miGetItem;
-	isHave = getMethod(miGetItem, "getObjectData", "(Ljava/util/ArrayList;I)Ljava/lang/Object;");
-	if (!isHave) {
-		return;
-	}
-	
+	releaseMethod(miGetListType);
 	int index = 0;
 	while(index < count) {
-		jobject jItem = miGetItem.env->CallStaticObjectMethod(miGetItem.classID, miGetItem.methodID, arraylist, index);
+		JniMethodInfo miGetItem;
+		isHave = getMethod(miGetItem, "getObjectData", "(Ljava/util/ArrayList;I)Ljava/lang/Object;");
+		if (!isHave) {
+			continue;
+		}
+
+		JNIEnv *env = miGetItem.env;
+		jobject jItem = env->CallStaticObjectMethod(miGetItem.classID, miGetItem.methodID, arraylist, index);
+		releaseMethod(miGetItem);
+		
 		switch (type) {
 			case 1:
 			case 2:
@@ -257,7 +272,7 @@ void arraylistToCCArray(jobject arraylist, CCArray* arr) {
 			}
 			break;
 			case 5: { // jstring
-				const char* jValue = jObjectToJString(miGetItem, jItem);
+				const char* jValue = jObjectToJString(env, jItem);
 				if (NULL != jValue) {
 					CCString* ccItem = CCString::create(jValue);
 					arr->addObject(ccItem);
@@ -280,6 +295,7 @@ void arraylistToCCArray(jobject arraylist, CCArray* arr) {
 			break;
 		}
 		index++;
+		env->DeleteLocalRef(jItem);
 	}
 }
 
@@ -291,13 +307,19 @@ const char* throwableToString(jobject t) {
 	}
 
 	jstring msg = (jstring) mi.env->CallStaticObjectMethod(mi.classID, mi.methodID, t);
-	return (const char*)mi.env->GetStringUTFChars(msg, JNI_FALSE);  
+	const char* cMsg = (const char*)mi.env->GetStringUTFChars(msg, JNI_FALSE);
+	mi.env->ReleaseStringUTFChars(msg, cMsg);
+	releaseMethod(mi);
+	return cMsg;
 }
 
 bool getMethod(JniMethodInfo &mi, const char *methodName, const char *paramCode) {
 	return JniHelper::getStaticMethodInfo(mi, "cn/sharesdk/ShareSDKUtils", methodName, paramCode);
 }
 
+void releaseMethod(JniMethodInfo &mi) {
+	mi.env->DeleteLocalRef(mi.classID);
+}
 
 void CCDictionaryToHashMap(CCDictionary *info, jobject &hashmap) {
 	JniMethodInfo miPut;
@@ -314,6 +336,7 @@ void CCDictionaryToHashMap(CCDictionary *info, jobject &hashmap) {
 			miPut.env->CallStaticVoidMethod(miPut.classID, miPut.methodID, hashmap, keyStr, valueStr);
 			index++;
 		}
+		releaseMethod(miPut);
 	}
 }
 
@@ -326,6 +349,7 @@ bool initShareSDK(const char* appKey, bool useAppTrusteeship) {
  
 	jstring appKeyStr = mi.env->NewStringUTF(appKey);
 	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, appKeyStr, useAppTrusteeship);
+	releaseMethod(mi);
 	return true;
 }
 
@@ -337,6 +361,7 @@ bool stopSDK() {
 	}
 	
 	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID);
+	releaseMethod(mi);
 	return true;
 }
 
@@ -348,6 +373,7 @@ bool setPlatformDevInfo(int platformId, CCDictionary *info) {
 	}
 
 	jobject hashmap = miNew.env->CallStaticObjectMethod(miNew.classID, miNew.methodID);
+	releaseMethod(miNew);
 	CCDictionaryToHashMap(info, hashmap);
 	
 	JniMethodInfo mi;
@@ -356,6 +382,7 @@ bool setPlatformDevInfo(int platformId, CCDictionary *info) {
 		return false;
 	}
 	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, platformId, hashmap);
+	releaseMethod(mi);
 	return true;
 }
 
@@ -367,6 +394,7 @@ bool doAuthorize(int platformId, C2DXAuthResultEvent callback) {
 	}
 
 	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, platformId);
+	releaseMethod(mi);
 	authCb = callback;
 	return true;
 }
@@ -379,6 +407,7 @@ bool removeAccount(int platformId) {
 	}
 
 	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, platformId);
+	releaseMethod(mi);
 	return true;
 }
 
@@ -390,6 +419,7 @@ bool isValid(int platformId) {
 	}
 
 	jboolean valid = mi.env->CallStaticBooleanMethod(mi.classID, mi.methodID, platformId);
+	releaseMethod(mi);
 	return valid == JNI_TRUE;
 }
 
@@ -400,6 +430,7 @@ bool showUser(int platformId, C2DXGetUserInfoResultEvent callback){
 		return false;
 	}
 	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, platformId);
+	releaseMethod(mi);
 	infoCb = callback;
 	return true;
 }
@@ -412,14 +443,16 @@ bool doShare(int platformId, CCDictionary *content, C2DXShareResultEvent callbac
 	}
 
 	jobject hashmap = miNew.env->CallStaticObjectMethod(miNew.classID, miNew.methodID);
+	releaseMethod(miNew);
 	CCDictionaryToHashMap(content, hashmap);
 	JniMethodInfo mi;
 	isHave = getMethod(mi, "share", "(ILjava/util/HashMap;)V");
 	if (!isHave) {
 		return false;
 	}
-	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, platformId, hashmap);
 	
+	mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, platformId, hashmap);
+	releaseMethod(mi);
 	shareCb = callback;
 	return true;
 }
@@ -444,6 +477,7 @@ bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent
 	}
 
 	jobject hashmap = miNewMap.env->CallStaticObjectMethod(miNewMap.classID, miNewMap.methodID);
+	releaseMethod(miNewMap);
 	CCDictionaryToHashMap(content, hashmap);
 	
 	if (NULL == platTypes || platTypes->count() <= 0) {
@@ -454,6 +488,7 @@ bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent
 		}
 
 		miOks.env->CallStaticVoidMethod(miOks.classID, miOks.methodID, hashmap);
+		releaseMethod(miOks);
 	} else {
 		JniMethodInfo miNew;
 		isHave = getMethod(miNew, "newArrayList", "()Ljava/util/ArrayList;");
@@ -462,6 +497,7 @@ bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent
 		}
 
 		jobject arraylist = miNew.env->CallStaticObjectMethod(miNew.classID, miNew.methodID);
+		releaseMethod(miNew);
 		JniMethodInfo mi;
 		isHave = getMethod(mi, "putData", "(Ljava/util/ArrayList;I)V");
 		if (!isHave) {
@@ -476,6 +512,7 @@ bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent
 			mi.env->CallStaticVoidMethod(mi.classID, mi.methodID, arraylist, platformId);
 			index++;
 		}
+		releaseMethod(mi);
 		
 		JniMethodInfo miOks;
 		isHave = getMethod(miOks, "onekeyShare", "(Ljava/util/ArrayList;Ljava/util/HashMap;)V");
@@ -484,6 +521,7 @@ bool onekeyShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent
 		}
 
 		miOks.env->CallStaticVoidMethod(miOks.classID, miOks.methodID, arraylist, hashmap);
+		releaseMethod(miOks);
 	}
 		
 	shareCb = callback;

@@ -42,6 +42,8 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onError
 
 bool getMethod(JniMethodInfo &mi, const char *methodName, const char *paramCode);
 
+void releaseMethod(JniMethodInfo &mi);
+
 void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic);
 
 void CCDictionaryToHashMap(CCDictionary *info, jobject &hashmap);
@@ -74,7 +76,7 @@ double jObjectToJDouble(jobject value);
 
 bool jObjectToJBoolean(jobject value);
 
-const char* jObjectToJString(JniMethodInfo mi, jobject value);
+const char* jObjectToJString(JNIEnv *env, jobject value);
 
 void arraylistToCCArray(jobject arraylist, CCArray* arr);
 
