@@ -1,12 +1,10 @@
-//#if def{lang} == cn
 /*
- * 官网地站:http://www.ShareSDK.cn
- * 技术支持QQ: 4006852216
- * 官方微信:ShareSDK   （如果发布新版本的话，我们将会第一时间通过微信将版本更新内容推送给您。如果使用过程中有任何问题，也可以通过微信与我们取得联系，我们将会在24小时内给予回复）
- * 
- * Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
+ * Offical Website:http://www.ShareSDK.cn
+ * Support QQ: 4006852216
+ * Offical Wechat Account:ShareSDK   (We will inform you our updated news at the first time by Wechat, if we release a new version. If you get any problem, you can also contact us with Wechat, we will reply you within 24 hours.)
+ *
+ * Copyright (c) 2013 ShareSDK.cn. All rights reserved.
  */
-//#endif
 
 package cn.sharesdk.onekeyshare;
 
@@ -47,9 +45,12 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.TitleLayout;
 import cn.sharesdk.framework.utils.UIHandler;
 
-//#if def{lang} == cn
-/** 执行图文分享的页面，此页面不支持微信平台的分享 */
-//#endif
+/**
+ * Photo-text Sharing will be handling in this page
+ * <p>
+ * note:
+ * wechat, yixin, qzone, etc. are shared in their clients, not in this page
+ */
 public class EditPage extends FakeActivity implements OnClickListener, TextWatcher, Callback {
 	private static final int MAX_TEXT_COUNT = 140;
 	private static final int MSG_PLATFORM_LIST_GOT = 1;
@@ -57,51 +58,37 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 	private OnekeyShare parent;
 	private LinearLayout llPage;
 	private TitleLayout llTitle;
-	//#if def{lang} == cn
-	// 文本编辑框
-	//#endif
+	// share content editor
 	private EditText etContent;
-	//#if def{lang} == cn
-	// 字数计算器
-	//#endif
+	// Words counter
 	private TextView tvCounter;
-	//#if def{lang} == cn
-	// 别针图片
-	//#endif
+	// the pin
 	private ImageView ivPin;
-	//#if def{lang} == cn
-	// 输入区域的图片
-	//#endif
+	// shared image container
 	private ImageView ivImage;
 	private Bitmap image;
 	private boolean shareImage;
 	private LinearLayout llPlat;
 	private LinearLayout llAt;
-	//#if def{lang} == cn
-	// 平台列表
-	//#endif
+	// platform list
 	private Platform[] platformList;
-	private View[] views;	
-	//#if def{lang} == cn
-	// 设置显示模式为Dialog模式
-	//#endif
+	private View[] views;
+	// set to display as a dialog
 	private boolean dialogMode;
-	
+
 	public void setShareData(HashMap<String, Object> data) {
 		reqData = data;
 	}
-	
+
 	public void setParent(OnekeyShare parent) {
 		this.parent = parent;
 	}
-	
-	//#if def{lang} == cn
-	/** 设置显示模式为Dialog模式 */
-	//#endif
+
+	/** set to display as a dialog */
 	public void setDialogMode() {
 		dialogMode = true;
 	}
-	
+
 	public void setActivity(Activity activity) {
 		super.setActivity(activity);
 		if (dialogMode) {
@@ -111,27 +98,25 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		activity.getWindow().setSoftInputMode(
 			       WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 	}
-	
+
 	public void onCreate() {
 		if (reqData == null) {
 			finish();
 			return;
 		}
-		
+
 		initPageView();
 		activity.setContentView(llPage);
 		onTextChanged(etContent.getText(), 0, etContent.length(), 0);
-		
-		//#if def{lang} == cn
-		// 获取平台列表并过滤微信
-		//#endif
+
+		// requests platform list and remove platforms share in their clients
 		new Thread(){
 			public void run() {
 				platformList = ShareSDK.getPlatformList(activity);
 				if (platformList == null) {
 					return;
 				}
-				
+
 				ArrayList<Platform> list = new ArrayList<Platform>();
 				for (Platform plat : platformList) {
 					String name = plat.getName();
@@ -144,20 +129,18 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				for (int i = 0; i < platformList.length; i++) {
 					platformList[i] = list.get(i);
 				}
-				
+
 				UIHandler.sendEmptyMessage(MSG_PLATFORM_LIST_GOT, EditPage.this);
 			}
 		}.start();
 	}
-	
+
 	private void initPageView() {
 		llPage = new LinearLayout(getContext());
 		llPage.setBackgroundColor(0xff323232);
 		llPage.setOrientation(LinearLayout.VERTICAL);
-		
-		//#if def{lang} == cn
-		// 标题栏
-		//#endif
+
+		// title bar
 		llTitle = new TitleLayout(getContext());
 		int resId = getBitmapRes(activity, "title_back");
 		if (resId > 0) {
@@ -177,17 +160,15 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		llTitle.setLayoutParams(new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		llPage.addView(llTitle);
-		
+
 		FrameLayout flPage = new FrameLayout(getContext());
 		LinearLayout.LayoutParams lpFl = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		lpFl.weight = 1;
 		flPage.setLayoutParams(lpFl);
 		llPage.addView(flPage);
-		
-		//#if def{lang} == cn
-		// 页面主体
-		//#endif
+
+		// page body
 		LinearLayout llBody = new LinearLayout(getContext());
 		llBody.setOrientation(LinearLayout.VERTICAL);
 		FrameLayout.LayoutParams lpLl = new FrameLayout.LayoutParams(
@@ -195,10 +176,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpLl.gravity = Gravity.LEFT | Gravity.TOP;
 		llBody.setLayoutParams(lpLl);
 		flPage.addView(llBody);
-		
-		//#if def{lang} == cn
-		// 别针图片
-		//#endif
+
+		// the pin
 		ivPin = new ImageView(getContext());
 		resId = getBitmapRes(activity, "pin");
 		if (resId > 0) {
@@ -211,7 +190,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpPin.gravity = Gravity.RIGHT | Gravity.TOP;
 		ivPin.setLayoutParams(lpPin);
 		flPage.addView(ivPin);
-		
+
 		ImageView ivShadow = new ImageView(getContext());
 		resId = getBitmapRes(activity, "title_shadow");
 		if (resId > 0) {
@@ -221,7 +200,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		ivShadow.setLayoutParams(lpSd);
 		flPage.addView(ivShadow);
-		
+
 		LinearLayout llInput = new LinearLayout(getContext());
 		llInput.setMinimumHeight(cn.sharesdk.framework.utils.R.dipToPx(getContext(), 150));
 		resId = getBitmapRes(activity, "edittext_back");
@@ -235,10 +214,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpInput.weight = 1;
 		llInput.setLayoutParams(lpInput);
 		llBody.addView(llInput);
-		
-		//#if def{lang} == cn
-		// 平台Logo列表
-		//#endif
+
+		// platform logos
 		LinearLayout llToolBar = new LinearLayout(getContext());
 		resId = getBitmapRes(activity, "share_tb_back");
 		if (resId > 0) {
@@ -250,7 +227,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpTb.setMargins(dp_4, 0, dp_4, dp_4);
 		llToolBar.setLayoutParams(lpTb);
 		llBody.addView(llToolBar);
-		
+
 		LinearLayout llContent = new LinearLayout(getContext());
 		llContent.setOrientation(LinearLayout.VERTICAL);
 		LinearLayout.LayoutParams lpEt = new LinearLayout.LayoutParams(
@@ -258,10 +235,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpEt.weight = 1;
 		llContent.setLayoutParams(lpEt);
 		llInput.addView(llContent);
-		
-		//#if def{lang} == cn
-		// 文字输入区域
-		//#endif
+
+		// share content editor
 		etContent = new EditText(getContext());
 		etContent.setGravity(Gravity.LEFT | Gravity.TOP);
 		etContent.setBackgroundDrawable(null);
@@ -269,7 +244,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		etContent.addTextChangedListener(this);
 		etContent.setLayoutParams(lpEt);
 		llContent.addView(etContent);
-		
+
 		String platform = String.valueOf(reqData.get("platform"));
 		checkAtMth(llContent, platform);
 
@@ -282,10 +257,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			llRight.setLayoutParams(new LinearLayout.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
 			llInput.addView(llRight);
-			
-			//#if def{lang} == cn
-			// 输入区域的图片
-			//#endif
+
+			// shared image container
 			ivImage = new ImageView(getContext());
 			resId = getBitmapRes(activity, "btn_back_nor");
 			if (resId > 0) {
@@ -324,10 +297,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			shareImage = false;
 			ivPin.setVisibility(View.GONE);
 		}
-		
-		//#if def{lang} == cn
-		// 输入区域的图片
-		//#endif
+
+		// shared image container
 		if(shareImage){
 			Button btn = new Button(getContext());
 			btn.setTag("img_cancel");
@@ -347,10 +318,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			btn.setLayoutParams(lpBtn);
 			flPage.addView(btn);
 		}
-		
-		//#if def{lang} == cn
-		// 字数统计
-		//#endif
+
+		// Words counter
 		tvCounter = new TextView(getContext());
 		tvCounter.setText(String.valueOf(MAX_TEXT_COUNT));
 		tvCounter.setTextColor(0xffcfcfcf);
@@ -364,7 +333,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		tvCounter.setPadding(0, 0, dp_16, 0);
 		tvCounter.setLayoutParams(lpCounter);
 		flPage.addView(tvCounter);
-		
+
 		TextView tvShareTo = new TextView(getContext());
 		resId = getStringRes(activity, "share_to");
 		if (resId > 0) {
@@ -379,7 +348,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpShareTo.setMargins(dp_9, 0, 0, 0);
 		tvShareTo.setLayoutParams(lpShareTo);
 		llToolBar.addView(tvShareTo);
-		
+
 		HorizontalScrollView sv = new HorizontalScrollView(getContext());
 		sv.setHorizontalScrollBarEnabled(false);
 		sv.setHorizontalFadingEdgeEnabled(false);
@@ -388,16 +357,16 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		lpSv.setMargins(dp_9, dp_9, dp_9, dp_9);
 		sv.setLayoutParams(lpSv);
 		llToolBar.addView(sv);
-		
+
 		llPlat = new LinearLayout(getContext());
 		llPlat.setLayoutParams(new HorizontalScrollView.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
 		sv.addView(llPlat);
 	}
-	
-	//#if def{lang} == cn
-	// 进新浪微博、腾讯微博、Facebook和Twitter支持At功能
-	//#endif
+
+	// if platform selected form platform gridview is SinaWeibo,
+	// TencentWeibo, Facebook, or Twitter, there will be a button
+	// in the left-bottom of the page, which provides At-friends function
 	private void checkAtMth(LinearLayout llInput, String platform) {
 		if ("SinaWeibo".equals(platform) || "TencentWeibo".equals(platform)
 				|| "Facebook".equals(platform) || "Twitter".equals(platform)) {
@@ -410,7 +379,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			llAt.setLayoutParams(lpAt);
 			llAt.setOnClickListener(this);
 			llInput.addView(llAt);
-			
+
 			TextView tvAt = new TextView(getContext());
 			int resId = getBitmapRes(activity, "btn_back_nor");
 			if (resId > 0) {
@@ -426,7 +395,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			tvAt.setTextColor(0xff000000);
 			tvAt.setGravity(Gravity.CENTER);
 			llAt.addView(tvAt);
-			
+
 			TextView tvName = new TextView(getContext());
 			tvName.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 			tvName.setTextColor(0xff000000);
@@ -440,16 +409,16 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			llAt.addView(tvName);
 		}
 	}
-	
+
 	private String getName(String platform) {
 		if (platform == null) {
 			return "";
 		}
-		
+
 		int resId = cn.sharesdk.framework.utils.R.getStringRes(getContext(), platform);
 		return getContext().getString(resId);
 	}
-	
+
 	public void onClick(View v) {
 		if (v.equals(ivImage)) {
 			if (image != null && !image.isRecycled()) {
@@ -459,7 +428,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			}
 			return;
 		}
-		
+
 		if (v.equals(llTitle.getBtnBack())) {
 			Platform plat = null;
 			for (int i = 0; i < views.length; i++) {
@@ -468,28 +437,24 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 					break;
 				}
 			}
-			
-			//#if def{lang} == cn
-			// 取消分享的统计
-			//#endif
+
+			// a statistics of Cancel-sharing
 			if (plat != null) {
 				ShareSDK.logDemoEvent(5, plat);
 			}
 			finish();
 			return;
 		}
-		
-		//#if def{lang} == cn
-		// 取消分享的统计
-		//#endif
+
+		// a statistics of Cancel-sharing
 		if (v.equals(llTitle.getBtnRight())) {
 			String text = etContent.getText().toString();
 			reqData.put("text", text);
 			if(!shareImage){
 				reqData.put("imagePath", null);
 			}
-			
-			HashMap<Platform, HashMap<String, Object>> editRes 
+
+			HashMap<Platform, HashMap<String, Object>> editRes
 					= new HashMap<Platform, HashMap<String,Object>>();
 			boolean selected = false;
 			for (int i = 0; i < views.length; i++) {
@@ -498,7 +463,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 					selected = true;
 				}
 			}
-			
+
 			if (selected) {
 				if (parent != null) {
 					parent.share(editRes);
@@ -513,7 +478,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			}
 			return;
 		}
-		
+
 		if (v.equals(llAt)) {
 			FollowList subPage = new FollowList();
 			String platform = String.valueOf(reqData.get("platform"));
@@ -522,22 +487,20 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			subPage.show(activity, null);
 			return;
 		}
-		
-		//#if def{lang} == cn
-		// 取消分享图片
-		//#endif
+
+		// remove the photo to share
 		if("img_cancel".equals(v.getTag())){
 			v.setVisibility(View.GONE);
 			ivPin.setVisibility(View.GONE);
 			ivImage.setVisibility(View.GONE);
 			shareImage = false;
 		}
-		
+
 		if (v instanceof FrameLayout) {
 			((FrameLayout) v).getChildAt(1).performClick();
 			return;
 		}
-		
+
 		if (v.getVisibility() == View.INVISIBLE) {
 			v.setVisibility(View.VISIBLE);
 		}
@@ -545,7 +508,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			v.setVisibility(View.INVISIBLE);
 		}
 	}
-	
+
 	public boolean handleMessage(Message msg) {
 		switch(msg.what) {
 			case MSG_PLATFORM_LIST_GOT: {
@@ -555,15 +518,13 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		}
 		return false;
 	}
-	
-	//#if def{lang} == cn
-	/** 显示平台列表 */
-	//#endif
+
+	/** display platform list */
 	public void afterPlatformListGot() {
 		String name = String.valueOf(reqData.get("platform"));
 		int size = platformList == null ? 0 : platformList.length;
 		views = new View[size];
-		
+
 		final int dp_36 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 36);
 		LinearLayout.LayoutParams lpItem = new LinearLayout.LayoutParams(dp_36, dp_36);
 		final int dp_9 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 9);
@@ -580,30 +541,28 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			}
 			llPlat.addView(fl);
 			fl.setOnClickListener(this);
-			
+
 			ImageView iv = new ImageView(getContext());
 			iv.setScaleType(ScaleType.CENTER_INSIDE);
 			iv.setImageBitmap(getPlatLogo(platformList[i]));
 			iv.setLayoutParams(new FrameLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 			fl.addView(iv);
-			
+
 			views[i] = new View(getContext());
 			views[i].setBackgroundColor(0xcfffffff);
 			views[i].setOnClickListener(this);
 			if (name != null && name.equals(platformList[i].getName())) {
 				views[i].setVisibility(View.INVISIBLE);
 				selection = i;
-				
-				//#if def{lang} == cn
-				// 编辑分享内容的统计
-				//#endif
+
+				// a statistics of Sharing
 				ShareSDK.logDemoEvent(3, platformList[i]);
 			}
 			views[i].setLayoutParams(lpMask);
 			fl.addView(views[i]);
 		}
-		
+
 		final int postSel = selection;
 		UIHandler.sendEmptyMessageDelayed(0, 333, new Callback() {
 			public boolean handleMessage(Message msg) {
@@ -613,25 +572,25 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			}
 		});
 	}
-	
+
 	private Bitmap getPlatLogo(Platform plat) {
 		if (plat == null) {
 			return null;
 		}
-		
+
 		String name = plat.getName();
 		if (name == null) {
 			return null;
 		}
-		
+
 		String resName = "logo_" + plat.getName();
 		int resId = getBitmapRes(activity, resName);
 		return BitmapFactory.decodeResource(activity.getResources(), resId);
 	}
-	
+
 	public void beforeTextChanged(CharSequence s, int start, int count,
 			int after) {
-		
+
 	}
 
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -639,11 +598,11 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		tvCounter.setText(String.valueOf(remain));
 		tvCounter.setTextColor(remain > 0 ? 0xffcfcfcf : 0xffff0000);
 	}
-	
+
 	public void afterTextChanged(Editable s) {
-		
+
 	}
-	
+
 	public void onResult(ArrayList<String> selected) {
 		StringBuilder sb = new StringBuilder();
 		for (String sel : selected) {
@@ -651,7 +610,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		}
 		etContent.append(sb.toString());
 	}
-	
+
 	public void finish() {
 		InputMethodManager imm = null;
 		try {
@@ -661,12 +620,12 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			t.printStackTrace();
 			imm = null;
 		}
-		
+
 		if (imm != null) {
 			imm.hideSoftInputFromWindow(etContent.getWindowToken(), 0);
 		}
-		
+
 		super.finish();
 	}
-	
+
 }

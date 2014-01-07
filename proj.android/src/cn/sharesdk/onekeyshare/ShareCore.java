@@ -1,12 +1,10 @@
-//#if def{lang} == cn
 /*
- * 官网地站:http://www.ShareSDK.cn
- * 技术支持QQ: 4006852216
- * 官方微信:ShareSDK   （如果发布新版本的话，我们将会第一时间通过微信将版本更新内容推送给您。如果使用过程中有任何问题，也可以通过微信与我们取得联系，我们将会在24小时内给予回复）
- * 
- * Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
+ * Offical Website:http://www.ShareSDK.cn
+ * Support QQ: 4006852216
+ * Offical Wechat Account:ShareSDK   (We will inform you our updated news at the first time by Wechat, if we release a new version. If you get any problem, you can also contact us with Wechat, we will reply you within 24 hours.)
+ *
+ * Copyright (c) 2013 ShareSDK.cn. All rights reserved.
  */
-//#endif
 
 package cn.sharesdk.onekeyshare;
 
@@ -15,46 +13,39 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import android.content.Context;
+import android.text.TextUtils;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 
-//#if def{lang} == cn
 /**
- * ShareCore是快捷分享的实际出口，此类使用了反射的方式，配合传递进来的HashMap，
- *构造{@link ShareParams}对象，并执行分享，使快捷分享不再需要考虑目标平台
+ * ShareCore the actual export of OnekeyShare, which reflects
+ * the pass in HashMap to a {@link ShareParams} of the target platform,
+ * and shares it
  */
-//#endif
 public class ShareCore {
 	private ShareContentCustomizeCallback customizeCallback;
-	
-	//#if def{lang} == cn
-	/** 设置用于分享过程中，根据不同平台自定义分享内容的回调 */
-	//#endif
+
+	/**
+	 * add a customize share content callback which will be
+	 * involved before the target platform sharing
+	 */
 	public void setShareContentCustomizeCallback(ShareContentCustomizeCallback callback) {
 		customizeCallback = callback;
 	}
-	
-	//#if def{lang} == cn
-	/**
-	 * 向指定平台分享内容
-	 * <p>
-	 * <b>注意：</b><br>
-	 * 参数data的键值需要严格按照{@link ShareParams}不同子类具体字段来命名，
-	 *否则无法反射此字段，也无法设置其值。
-	 */
-	//#endif
+
+	/** perform sharing */
 	public boolean share(Platform plat, HashMap<String, Object> data) {
 		if (plat == null || data == null) {
 			return false;
 		}
-		
+
 		Platform.ShareParams sp = null;
 		try {
 			sp = getShareParams(plat, data);
 		} catch(Throwable t) {
 			sp = null;
 		}
-		
+
 		if (sp != null) {
 			if (customizeCallback != null) {
 				customizeCallback.onShare(plat, sp);
@@ -63,41 +54,51 @@ public class ShareCore {
 		}
 		return true;
 	}
-	
-	private Platform.ShareParams getShareParams(Platform plat, 
+
+	private Platform.ShareParams getShareParams(Platform plat,
 			HashMap<String, Object> data) throws Throwable {
 		String className = plat.getClass().getName() + "$ShareParams";
 		Class<?> cls = Class.forName(className);
 		if (cls == null) {
 			return null;
 		}
-		
+
 		Object sp = cls.newInstance();
 		if (sp == null) {
 			return null;
 		}
-		
+
 		for (Entry<String, Object> ent : data.entrySet()) {
+			Object value= ent.getValue();
+			if (value == null) {
+				continue;
+			}
+
+			if (value instanceof String) {
+				String strValue = (String) value;
+				if (TextUtils.isEmpty(strValue)) {
+					continue;
+				}
+			}
+
 			try {
 				Field fld = cls.getField(ent.getKey());
 				if (fld != null) {
 					fld.setAccessible(true);
-					fld.set(sp, ent.getValue());
+					fld.set(sp, value);
 				}
 			} catch(Throwable t) {}
 		}
-		
+
 		return (Platform.ShareParams) sp;
 	}
-	
-	//#if def{lang} == cn
-	/** 判断指定平台是否使用客户端分享 */
-	//#endif
+
+	/** Determine whether the platform shares by its client or not */
 	public static boolean isUseClientToShare(Context context, String platform) {
 		if ("Wechat".equals(platform) || "WechatMoments".equals(platform)
-				|| "WechatFavorite".equals(platform) || "ShortMessage".equals(platform) 
-				|| "Email".equals(platform) || "GooglePlus".equals(platform) 
-				|| "QQ".equals(platform) || "Pinterest".equals(platform) 
+				|| "WechatFavorite".equals(platform) || "ShortMessage".equals(platform)
+				|| "Email".equals(platform) || "GooglePlus".equals(platform)
+				|| "QQ".equals(platform) || "Pinterest".equals(platform)
 				|| "Instagram".equals(platform) || "Yixin".equals(platform)
 				|| "YixinMoments".equals(platform) || "QZone".equals(platform)) {
 			return true;
@@ -107,22 +108,20 @@ public class ShareCore {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
-	//#if def{lang} == cn
-	/** 判断指定平台是否可以用来授权 */
-	//#endif
+
+	/** Determine whether the platform can authorize */
 	public static boolean canAuthorize(Context context, String platform) {
 		if ("Wechat".equals(platform) || "WechatMoments".equals(platform)
-				|| "WechatFavorite".equals(platform) || "ShortMessage".equals(platform) 
-				|| "Email".equals(platform) || "GooglePlus".equals(platform) 
+				|| "WechatFavorite".equals(platform) || "ShortMessage".equals(platform)
+				|| "Email".equals(platform) || "GooglePlus".equals(platform)
 				|| "QQ".equals(platform) || "Pinterest".equals(platform)
 				|| "Yixin".equals(platform) || "YixinMoments".equals(platform)) {
 			return false;
-		} 
+		}
 		return true;
 	}
-	
+
 }

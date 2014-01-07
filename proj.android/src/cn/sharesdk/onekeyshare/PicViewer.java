@@ -1,12 +1,10 @@
-//#if def{lang} == cn
 /*
- * 官网地站:http://www.ShareSDK.cn
- * 技术支持QQ: 4006852216
- * 官方微信:ShareSDK   （如果发布新版本的话，我们将会第一时间通过微信将版本更新内容推送给您。如果使用过程中有任何问题，也可以通过微信与我们取得联系，我们将会在24小时内给予回复）
- * 
- * Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
+ * Offical Website:http://www.ShareSDK.cn
+ * Support QQ: 4006852216
+ * Offical Wechat Account:ShareSDK   (We will inform you our updated news at the first time by Wechat, if we release a new version. If you get any problem, you can also contact us with Wechat, we will reply you within 24 hours.)
+ *
+ * Copyright (c) 2013 ShareSDK.cn. All rights reserved.
  */
-//#endif
 
 
 package cn.sharesdk.onekeyshare;
@@ -18,23 +16,19 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import cn.sharesdk.framework.FakeActivity;
 
-//#if def{lang} == cn
-/** 查看编辑页面中图片的例子 */
-//#endif
+/** Preview photo to be shared page */
 public class PicViewer extends FakeActivity implements OnClickListener {
 	private ImageView ivViewer;
 	private Bitmap pic;
-	
-	//#if def{lang} == cn
-	/** 设置图片用于浏览 */
-	//#endif
+
+	/** set the picture */
 	public void setImageBitmap(Bitmap pic) {
 		this.pic = pic;
 		if (ivViewer != null) {
 			ivViewer.setImageBitmap(pic);
 		}
 	}
-	
+
 	public void onCreate() {
 		ivViewer = new ImageView(activity);
 		ivViewer.setScaleType(ScaleType.CENTER_INSIDE);
@@ -45,9 +39,9 @@ public class PicViewer extends FakeActivity implements OnClickListener {
 			ivViewer.setImageBitmap(pic);
 		}
 	}
-	
+
 	public void onClick(View v) {
 		finish();
 	}
-	
+
 }
