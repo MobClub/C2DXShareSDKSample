@@ -5,7 +5,7 @@
 #import "RootViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
-#import "WBApi.h"
+#import "WeiboApi.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <RennSDK/RennSDK.h>
@@ -29,7 +29,7 @@ static AppDelegate s_sharedApplication;
     [ShareSDK importWeChatClass:[WXApi class]];
     
     //导入腾讯微博类型
-    [ShareSDK importTencentWeiboClass:[WBApi class]];
+    [ShareSDK importTencentWeiboClass:[WeiboApi class]];
     
     //导入QQ类型
     [ShareSDK importQQClass:[QQApiInterface class] tencentOAuthCls:[TencentOAuth class]];
