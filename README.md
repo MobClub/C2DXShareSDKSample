@@ -263,6 +263,6 @@ setPlatformDevInfo
 ```
 This is not a necessary method in Android, since we have a more convenient way to configure your applications information in the file “ShareSDK.xml”.
 
-*View Chinese Integration Guide, please click [here](http://wiki.sharesdk.cn/iOS%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97)*
+**View Chinese Integration Guide, please click [here](http://wiki.sharesdk.cn/iOS%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97)**
 
 
