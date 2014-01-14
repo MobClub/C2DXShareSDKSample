@@ -248,12 +248,24 @@ public class ShareSDKUtils {
 		}
 		HashMap<String, Object> map = nativeMapToJavaMap(content);
 		OnekeyShare oks = new OnekeyShare();
-		oks.setText(String.valueOf(map.get("text")));
-		oks.setImagePath(String.valueOf(map.get("imagePath")));
-		oks.setImageUrl(String.valueOf(map.get("imageUrl")));
-		oks.setTitle(String.valueOf(map.get("title")));
-		oks.setComment(String.valueOf(map.get("comment")));
-		oks.setUrl(String.valueOf(map.get("url")));
+		if (map.containsKey("text")) {
+			oks.setImagePath(String.valueOf(map.get("text")));
+		}
+		if (map.containsKey("imagePath")) {
+			oks.setImagePath(String.valueOf(map.get("imagePath")));
+		}
+		if (map.containsKey("imageUrl")) {
+			oks.setImageUrl(String.valueOf(map.get("imageUrl")));
+		}
+		if (map.containsKey("title")) {
+			oks.setImageUrl(String.valueOf(map.get("title")));
+		}
+		if (map.containsKey("comment")) {
+			oks.setImageUrl(String.valueOf(map.get("comment")));
+		}
+		if (map.containsKey("url")) {
+			oks.setImageUrl(String.valueOf(map.get("url")));
+		}
 		oks.setCallback(paListaner);
 		oks.show(context);
 	}
