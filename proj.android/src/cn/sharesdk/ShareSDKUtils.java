@@ -111,7 +111,7 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("setPlatformConfig");
 		}
-		String name = ShareSDK.platformIdToName(context, platformId);
+		String name = ShareSDK.platformIdToName(platformId);
 		ShareSDK.setPlatformDevInfo(name, configs);
 	}
 	
@@ -119,7 +119,7 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("authorize");
 		}
-		String name = ShareSDK.platformIdToName(context, platformId);
+		String name = ShareSDK.platformIdToName(platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.setPlatformActionListener(paListaner);
 		plat.authorize();
@@ -129,7 +129,7 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("removeAccount");
 		}
-		String name = ShareSDK.platformIdToName(context, platformId);
+		String name = ShareSDK.platformIdToName(platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.removeAccount();
 	}
@@ -138,7 +138,7 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("isValid");
 		}
-		String name = ShareSDK.platformIdToName(context, platformId);
+		String name = ShareSDK.platformIdToName(platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		return plat.isValid();
 	}
@@ -147,7 +147,7 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("showUser");
 		}
-		String name = ShareSDK.platformIdToName(context, platformId);
+		String name = ShareSDK.platformIdToName(platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.setPlatformActionListener(paListaner);
 		plat.showUser(null);
@@ -157,7 +157,7 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("share");
 		}
-		String name = ShareSDK.platformIdToName(context, platformId);
+		String name = ShareSDK.platformIdToName(platformId);
 		Platform plat = ShareSDK.getPlatform(context, name);
 		plat.setPlatformActionListener(paListaner);
 		try {
@@ -316,7 +316,7 @@ public class ShareSDKUtils {
 			System.out.println("platformToId");
 		}
 		String name = platform.getName();
-		return ShareSDK.platformNameToId(context, name);
+		return ShareSDK.platformNameToId(name);
 	}
 	
 	public static String throwableToJson(Throwable t) {
