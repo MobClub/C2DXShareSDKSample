@@ -343,9 +343,15 @@ void C2DXiOSShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEv
                                
                                if (error)
                                {
+                                   NSInteger errCode = [error errorCode];
+                                   NSString *errDesc = [error errorDescription];
                                    errorInfo = CCDictionary::create();
-                                   errorInfo -> setObject(CCInteger::create([error errorCode]), "error_code");
-                                   errorInfo -> setObject(CCString::create([[error errorDescription] UTF8String]), "error_msg");
+                                   errorInfo -> setObject(CCInteger::create(errCode), "error_code");
+                                   if (errDesc)
+                                   {
+                                       errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
+                                   }
+                                   
                                }
                                
                                if (callback)
@@ -376,9 +382,16 @@ void C2DXiOSShareSDK::shareContent(C2DXPlatType platType, CCDictionary *content,
                         
                         if (error)
                         {
+                            NSInteger errCode = [error errorCode];
+                            NSString *errDesc = [error errorDescription];
+                            
                             errorInfo = CCDictionary::create();
-                            errorInfo -> setObject(CCInteger::create([error errorCode]), "error_code");
-                            errorInfo -> setObject(CCString::create([[error errorDescription] UTF8String]), "error_msg");
+                            errorInfo -> setObject(CCInteger::create(errCode), "error_code");
+                            if (errDesc)
+                            {
+                                errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
+                            }
+                            
                         }
                         
                         if (callback)
@@ -421,9 +434,15 @@ void C2DXiOSShareSDK::oneKeyShareContent(CCArray *platTypes, CCDictionary *conte
                               
                               if (error)
                               {
+                                  NSInteger errCode = [error errorCode];
+                                  NSString *errDesc = [error errorDescription];
+                                  
                                   errorInfo = CCDictionary::create();
-                                  errorInfo -> setObject(CCInteger::create([error errorCode]), "error_code");
-                                  errorInfo -> setObject(CCString::create([[error errorDescription] UTF8String]), "error_msg");
+                                  errorInfo -> setObject(CCInteger::create(errCode), "error_code");
+                                  if (errDesc)
+                                  {
+                                      errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
+                                  }
                               }
                               
                               if (callback)
@@ -467,9 +486,15 @@ void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C
                                 
                                 if (error)
                                 {
+                                    NSInteger errCode = [error errorCode];
+                                    NSString *errDesc = [error errorDescription];
+                                    
                                     errorInfo = CCDictionary::create();
-                                    errorInfo -> setObject(CCInteger::create([error errorCode]), "error_code");
-                                    errorInfo -> setObject(CCString::create([[error errorDescription] UTF8String]), "error_msg");
+                                    errorInfo -> setObject(CCInteger::create(errCode), "error_code");
+                                    if (errDesc)
+                                    {
+                                        errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
+                                    }
                                 }
                                 
                                 if (callback)
