@@ -11,7 +11,6 @@ package cn.sharesdk.onekeyshare;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map.Entry;
-
 import android.content.Context;
 import android.text.TextUtils;
 import cn.sharesdk.framework.Platform;
@@ -58,9 +57,14 @@ public class ShareCore {
 	private Platform.ShareParams getShareParams(Platform plat,
 			HashMap<String, Object> data) throws Throwable {
 		String className = plat.getClass().getName() + "$ShareParams";
-		Class<?> cls = Class.forName(className);
+		Class<?> cls = null;
+		try {
+			cls = Class.forName(className);
+		} catch (Throwable t) {
+			cls = null;
+		}
 		if (cls == null) {
-			return null;
+			cls = Platform.ShareParams.class;
 		}
 
 		Object sp = cls.newInstance();
@@ -103,6 +107,11 @@ public class ShareCore {
 				|| "YixinMoments".equals(platform) || "QZone".equals(platform)) {
 			return true;
 		} else if ("Evernote".equals(platform)) {
+			Platform plat = ShareSDK.getPlatform(context, platform);
+			if ("true".equals(plat.getDevinfo("ShareByAppClient"))) {
+				return true;
+			}
+		} else if ("SinaWeibo".equals(platform)) {
 			Platform plat = ShareSDK.getPlatform(context, platform);
 			if ("true".equals(plat.getDevinfo("ShareByAppClient"))) {
 				return true;
