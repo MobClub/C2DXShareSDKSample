@@ -81,10 +81,10 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onError
 	int platformId = mi.env->CallStaticIntMethod(mi.classID, mi.methodID, platform);
 	releaseMethod(mi);
 	CCDictionary *dic = CCDictionary::create();
-	const char* errMsg = throwableToString(res);
+	const std::string errMsg = throwableToString(res);
 	CCString* valueStr = CCString::create(errMsg);
 	dic->setObject(valueStr, "error_msg");
-	env->DeleteLocalRef(res);
+	
 	if (action == 1) { // 1 = ACTION_AUTHORIZING
 		if (NULL != authCb) {
 			authCb(C2DXResponseStateFail, (C2DXPlatType) platformId, dic);
@@ -95,9 +95,27 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onError
 		}
 	} else if (action == 9) { // 9 = ACTION_SHARE
 		if (NULL != shareCb) {
+			dic = parseShareError(platformId, res);
 			shareCb(C2DXResponseStateFail, (C2DXPlatType) platformId, NULL, dic);
 		}
 	}
+	env->DeleteLocalRef(res);
+}
+
+CCDictionary* parseShareError(int platformId, jobject err) {
+	JniMethodInfo mi;
+	bool isHave = false;
+	isHave = getMethod(mi, "shareErrorToHashmap", "(ILjava/lang/Throwable;)Ljava/util/HashMap;");
+	if (!isHave) {
+		return NULL;
+	}
+	JNIEnv *env = mi.env;
+	jobject obj = env->CallStaticObjectMethod(mi.classID, mi.methodID, platformId, err);
+	releaseMethod(mi);
+	CCDictionary* dic = new CCDictionary();
+	hashmapToCCDictionary(obj, dic);
+	env->DeleteLocalRef(obj);
+	return dic;
 }
 
 void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic) {
@@ -133,6 +151,7 @@ void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic) {
 		jstring key = (jstring) env->CallStaticObjectMethod(mimGetListData.classID, mimGetListData.methodID, keys, index);
 		releaseMethod(mimGetListData);
 		const char* ccKey = env->GetStringUTFChars(key, JNI_FALSE);
+		std::string str(ccKey);
 		env->ReleaseStringUTFChars(key, ccKey);
 		
 		JniMethodInfo miGetMapData;
@@ -150,34 +169,34 @@ void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic) {
 			case 3: { // jint, ilong, jdouble
 				double jValue = jObjectToJDouble(value);
 				CCDouble* ccValue = CCDouble::create(jValue);
-				dic->setObject(ccValue, ccKey);
+				dic->setObject(ccValue, str);
 			}
 			break;
 			case 4: { // jboolean
 				bool jValue = jObjectToJBoolean(value);
 				CCBool* ccValue = CCBool::create(jValue);
-				dic->setObject(ccValue, ccKey);
+				dic->setObject(ccValue, str);
 			}
 			break;
 			case 5: { // jstring
-				const char* jValue = jObjectToJString(env, value);
-				if (NULL != jValue) {
+				const std::string jValue = jObjectToJString(env, value);
+				// if (NULL != jValue) {
 					CCString* ccValue = CCString::create(jValue);
-					dic->setObject(ccValue, ccKey);
-				}
+					dic->setObject(ccValue, str);
+				// }
 			}
 			break;
 			case 6: { // arraylist
 				CCArray* ccValue = new CCArray();
 				arraylistToCCArray(value, ccValue);
-				dic->setObject(ccValue, ccKey);
+				dic->setObject(ccValue, str);
 				ccValue->autorelease();
 			}
 			break;
 			case 7: { // hashmap
 				CCDictionary* ccValue = new CCDictionary();
 				hashmapToCCDictionary(value, ccValue);
-				dic->setObject(ccValue, ccKey);
+				dic->setObject(ccValue, str);
 				ccValue->autorelease();
 			}
 			break;
@@ -216,11 +235,12 @@ bool jObjectToJBoolean(jobject value) {
 	return 1 == jValue;
 }
 
-const char* jObjectToJString(JNIEnv *env, jobject value) {
+const std::string jObjectToJString(JNIEnv *env, jobject value) {
 	jstring str = (jstring)value;
 	const char* cStr = env->GetStringUTFChars((jstring)value, JNI_FALSE);
+	const std::string mystr(cStr);
 	env->ReleaseStringUTFChars(str, cStr);
-	return cStr;
+	return mystr;
 }
 
 void arraylistToCCArray(jobject arraylist, CCArray* arr) {
@@ -272,11 +292,11 @@ void arraylistToCCArray(jobject arraylist, CCArray* arr) {
 			}
 			break;
 			case 5: { // jstring
-				const char* jValue = jObjectToJString(env, jItem);
-				if (NULL != jValue) {
+				const std::string jValue = jObjectToJString(env, jItem);
+				// if (NULL != jValue) {
 					CCString* ccItem = CCString::create(jValue);
 					arr->addObject(ccItem);
-				}
+				// }
 			}
 			break;
 			case 6: { // arraylist
@@ -299,7 +319,7 @@ void arraylistToCCArray(jobject arraylist, CCArray* arr) {
 	}
 }
 
-const char* throwableToString(jobject t) {
+const std::string throwableToString(jobject t) {
 	JniMethodInfo mi;
 	bool isHave = getMethod(mi, "throwableToJson", "(Ljava/lang/Throwable;)Ljava/lang/String;");
 	if (!isHave) {
@@ -308,9 +328,10 @@ const char* throwableToString(jobject t) {
 
 	jstring msg = (jstring) mi.env->CallStaticObjectMethod(mi.classID, mi.methodID, t);
 	const char* cMsg = (const char*)mi.env->GetStringUTFChars(msg, JNI_FALSE);
+	const std::string str(cMsg);
 	mi.env->ReleaseStringUTFChars(msg, cMsg);
 	releaseMethod(mi);
-	return cMsg;
+	return str;
 }
 
 bool getMethod(JniMethodInfo &mi, const char *methodName, const char *paramCode) {

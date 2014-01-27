@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.json.JSONObject;
+
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -17,6 +18,7 @@ import android.os.Message;
 import android.os.Handler.Callback;
 
 public class ShareSDKUtils {
+	private static final String TAG = ShareSDK.class.getSimpleName();
 	private static boolean DEBUG = true; 
 	private static Context context;
 	private static PlatformActionListener paListaner 
@@ -56,27 +58,47 @@ public class ShareSDKUtils {
 	};
 	private static Callback cb = new Callback() {
 		@SuppressWarnings("unchecked")
-		public boolean handleMessage(Message msg) {
+		public boolean handleMessage(final Message msg) {
 			switch(msg.what) {
 			case 1: {
-				Object[] objs = (Object[]) msg.obj;
-				ShareSDKUtils.onComplete((Platform) objs[0], msg.arg1, (HashMap<String, Object>) objs[1]);
+				runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						Object[] objs = (Object[]) msg.obj;
+						ShareSDKUtils.onComplete((Platform) objs[0], msg.arg1, (HashMap<String, Object>) objs[1]);
+					}
+				});
 			}
 			break;
 			case 2: {
-				Object[] objs = (Object[]) msg.obj;
-				ShareSDKUtils.onCancel((Platform) objs[0], msg.arg1);
+				runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						Object[] objs = (Object[]) msg.obj;
+						ShareSDKUtils.onCancel((Platform) objs[0], msg.arg1);
+					}
+				});
 			}
 			break;
 			case 3: {
-				Object[] objs = (Object[]) msg.obj;
-				ShareSDKUtils.onError((Platform) objs[0], msg.arg1, (Throwable) objs[1]);
+				runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						Object[] objs = (Object[]) msg.obj;
+						ShareSDKUtils.onError((Platform) objs[0], msg.arg1, (Throwable) objs[1]);
+					}
+				});
 			}
 			break;
 			}
 			return false;
 		}
 	};
+	
+	private static void runOnGLThread(Runnable r) {
+		Cocos2dxActivity activity =  (Cocos2dxActivity) Cocos2dxActivity.getContext();
+		activity.runOnGLThread(r);
+	}
 	
 	public static void prepare() {
 		UIHandler.prepare();
@@ -111,6 +133,20 @@ public class ShareSDKUtils {
 		if (DEBUG) {
 			System.out.println("setPlatformConfig");
 		}
+		
+		if(configs.containsKey("app_key")) {
+			configs.put("AppKey", configs.get("app_key"));
+			configs.remove("app_key");
+		}
+		if(configs.containsKey("app_secret")) {
+			configs.put("AppSecret", configs.get("app_secret"));
+			configs.remove("app_secret");
+		}
+		if(configs.containsKey("redirect_uri")) {
+			configs.put("RedirectUrl", configs.get("redirect_uri"));
+			configs.remove("redirect_uri");
+		}
+    	
 		String name = ShareSDK.platformIdToName(platformId);
 		ShareSDK.setPlatformDevInfo(name, configs);
 	}
@@ -319,6 +355,10 @@ public class ShareSDKUtils {
 		return ShareSDK.platformNameToId(name);
 	}
 	
+	public static HashMap<String, String> shareErrorToHashmap(int platformId, Throwable t) {
+		return ShareErrorParser.parse(platformId, t.getMessage());
+	}
+	
 	public static String throwableToJson(Throwable t) {
 		if (DEBUG) {
 			System.out.println("throwableToJson");
@@ -327,7 +367,7 @@ public class ShareSDKUtils {
 		HashMap<String, Object> map = throwableToMap(t);
 		return new JSONObject(map).toString();
 	}
-	
+
 	private static HashMap<String, Object> throwableToMap(Throwable t) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("msg", t.getMessage());

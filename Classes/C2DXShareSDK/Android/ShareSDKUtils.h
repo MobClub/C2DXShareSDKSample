@@ -8,7 +8,6 @@
 #include "C2DXShareSDKTypeDef.h"
 
 USING_NS_CC;
-using namespace cn::sharesdk;
 
 /* Header for class ShareSDKUtils */
 #ifndef _Included_ShareSDKUtils
@@ -48,7 +47,9 @@ void hashmapToCCDictionary(jobject hashmap, CCDictionary *dic);
 
 void CCDictionaryToHashMap(CCDictionary *info, jobject &hashmap);
 
-const char* throwableToString(jobject t);
+const std::string throwableToString(jobject t);
+
+CCDictionary* parseShareError(int platformId, jobject err);
 
 bool initShareSDK(const char* appKey, bool useAppTrusteeship);
 
@@ -76,7 +77,7 @@ double jObjectToJDouble(jobject value);
 
 bool jObjectToJBoolean(jobject value);
 
-const char* jObjectToJString(JNIEnv *env, jobject value);
+const std::string jObjectToJString(JNIEnv *env, jobject value);
 
 void arraylistToCCArray(jobject arraylist, CCArray* arr);
 
