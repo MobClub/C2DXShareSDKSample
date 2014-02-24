@@ -213,6 +213,8 @@ void HelloWorld::shareMenuItemClick(CCObject* pSender)
     content -> setObject(CCString::create("测试描述"), "description");
     content -> setObject(CCString::create("http://sharesdk.cn"), "url");
     content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
+	content -> setObject(CCString::create("ShareSDK"), "site");
+	content -> setObject(CCString::create("http://sharesdk.cn"), "siteUrl");
     
     C2DXShareSDK::showShareMenu(NULL, content, shareResultHandler);
 }
