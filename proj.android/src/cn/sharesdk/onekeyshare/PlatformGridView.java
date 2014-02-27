@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.utils.UIHandler;
@@ -221,7 +222,8 @@ public class PlatformGridView extends LinearLayout implements
 			reqData.put("platform", name);
 			// EditPage don't support Wechat, google+, QQ, pinterest, short message and email,
 			// these performs always share directly
-			if (ShareCore.isUseClientToShare(getContext(), name)) {
+			if ((plat instanceof CustomPlatform)
+					|| ShareCore.isUseClientToShare(getContext(), name)) {
 				HashMap<Platform, HashMap<String, Object>> shareData
 						= new HashMap<Platform, HashMap<String,Object>>();
 				shareData.put(plat, reqData);
@@ -363,7 +365,7 @@ public class PlatformGridView extends LinearLayout implements
 				lineSize++;
 			}
 			LayoutParams lp = new LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 			lp.weight = 1;
 			for (int i = 0; i < lines; i++) {
 				LinearLayout llLine = new LinearLayout(getContext());

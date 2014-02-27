@@ -19,6 +19,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Message;
@@ -38,6 +39,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.FrameLayout.LayoutParams;
+import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.FakeActivity;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -214,7 +216,7 @@ public class OnekeyShare extends FakeActivity implements
 	}
 
 	/** disable SSO authorizing before sharing */
-	public void disableSSOWhenAuthorize() {
+ 	public void disableSSOWhenAuthorize() {
 		disableSSO = true;
 	}
 
@@ -246,13 +248,21 @@ public class OnekeyShare extends FakeActivity implements
 				shareData.put(ShareSDK.getPlatform(activity, name), copy);
 				share(shareData);
 			} else {
-				EditPage page = new EditPage();
-				page.setShareData(copy);
-				page.setParent(this);
-				if (dialogMode) {
-					page.setDialogMode();
+				Platform pp = ShareSDK.getPlatform(activity, name);
+				if (pp instanceof CustomPlatform) {
+					HashMap<Platform, HashMap<String, Object>> shareData
+							= new HashMap<Platform, HashMap<String,Object>>();
+					shareData.put(ShareSDK.getPlatform(activity, name), copy);
+					share(shareData);
+				} else {
+					EditPage page = new EditPage();
+					page.setShareData(copy);
+					page.setParent(this);
+					if (dialogMode) {
+						page.setDialogMode();
+					}
+					page.show(activity, null);
 				}
-				page.show(activity, null);
 			}
 			finish();
 			return;
@@ -445,14 +455,19 @@ public class OnekeyShare extends FakeActivity implements
 				continue;
 			}
 
-			boolean isInstagram = "Instagram".equals(name);
-			if (isInstagram && !plat.isValid()) {
-				Message msg = new Message();
-				msg.what = MSG_TOAST;
-				int resId = getStringRes(getContext(), "instagram_client_inavailable");
-				msg.obj = activity.getString(resId);
-				UIHandler.sendMessage(msg, this);
-				continue;
+			if ("Instagram".equals(name)) {
+				Intent test = new Intent(Intent.ACTION_SEND);
+				test.setPackage("com.instagram.android");
+				test.setType("image/*");
+				ResolveInfo ri = activity.getPackageManager().resolveActivity(test, 0);
+				if ( ri == null) {
+					Message msg = new Message();
+					msg.what = MSG_TOAST;
+					int resId = getStringRes(getContext(), "instagram_client_inavailable");
+					msg.obj = activity.getString(resId);
+					UIHandler.sendMessage(msg, this);
+					continue;
+				}
 			}
 
 			boolean isYixin = "YixinMoments".equals(name) || "Yixin".equals(name);

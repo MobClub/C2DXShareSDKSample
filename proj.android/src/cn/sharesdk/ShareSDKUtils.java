@@ -207,6 +207,9 @@ public class ShareSDKUtils {
 		map.put("title", content.get("title"));
 		map.put("comment", content.get("description"));
 		map.put("url", content.get("url"));
+		map.put("titleUrl", content.get("url"));
+		map.put("site",content.get("site"));
+		map.put("siteUrl",content.get("siteUrl"));
 		String type = content.get("type");
 		if (type != null) {
 			int shareType = iosTypeToAndroidType(Integer.parseInt(type));
@@ -265,6 +268,15 @@ public class ShareSDKUtils {
 		}
 		if (map.containsKey("url")) {
 			oks.setUrl(String.valueOf(map.get("url")));
+		}
+		if (map.containsKey("titleUrl")) {
+			oks.setTitleUrl(String.valueOf(map.get("titleUrl")));
+		}
+		if (map.containsKey("site")) {
+			oks.setSite(String.valueOf(map.get("site")));
+		}
+		if (map.containsKey("siteUrl")) {
+			oks.setSiteUrl(String.valueOf(map.get("siteUrl")));
 		}
 		oks.setCallback(paListaner);
 		oks.show(context);

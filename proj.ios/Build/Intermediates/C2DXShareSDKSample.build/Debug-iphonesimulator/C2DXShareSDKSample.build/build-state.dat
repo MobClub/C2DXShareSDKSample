@@ -1,0 +1,1519 @@
+TC2DXShareSDKSample
+v6
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist
+cCpResource ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle
+cCopyStringsFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj/ShareSDKLocalizable.strings ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings
+cCpResource ShareSDK/Connection/InstapaperResource.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle
+cCopyStringsFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj/ShareSDKLocalizable.strings ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings
+cCpResource Default.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/PkgInfo
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj/ShareSDKLocalizable.strings
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj/ShareSDKLocalizable.strings
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Default.png
+c0000000052B0FC740000000000015DA4
+t1387330676
+s89508
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist
+c0000000052C4C8140000000000000864
+t1388627988
+s2148
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Connection/InstapaperResource.bundle
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle
+c00000000000000000000000000000000
+t2
+s0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/CDAudioManager.m
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/CDOpenALSupport.m
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/CocosDenshion.m
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/SimpleAudioEngine.mm
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/SimpleAudioEngine_objc.m
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/AssetsManager/AssetsManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBAnimationManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBFileLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBKeyframe.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBReader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBSequence.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBSequenceProperty.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBValue.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCControlButtonLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCControlLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCData.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLabelBMFontLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLabelTTFLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLayerColorLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLayerGradientLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLayerLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCMenuItemImageLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCMenuItemLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCNode+CCBRelativePositioning.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCNodeLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCNodeLoaderLibrary.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCParticleSystemQuadLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCScale9SpriteLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCScrollViewLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCSpriteLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionFrame.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionFrameEasing.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionNode.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionObject.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/CCArmature.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/CCBone.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/animation/CCArmatureAnimation.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/animation/CCProcessBase.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/animation/CCTween.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/datas/CCDatas.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCBatchNode.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCDecorativeDisplay.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCDisplayFactory.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCDisplayManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCSkin.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/physics/CCColliderDetector.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCArmatureDataManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCArmatureDefine.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCDataReaderHelper.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCSpriteFrameCacheHelper.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCTransformHelp.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCTweenFunction.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCUtilMath.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComAttribute.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComAudio.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComController.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComRender.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCInputDelegate.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/BaseClasses/UIRootWidget.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/BaseClasses/UIWidget.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/Layouts/Layout.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/Layouts/LayoutParameter.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/Layouts/UILayoutDefine.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/CocosGUI.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/UIHelper.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/UIInputManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/UILayer.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIDragPanel.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIListView.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIPageView.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIScrollView.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UIButton.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UICheckBox.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UIImageView.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILabel.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILabelAtlas.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILabelBMFont.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILoadingBar.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UISlider.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UISwitch.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UITextField.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/CSContentJsonDictionary.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/DictionaryHelper.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_reader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_value.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_writer.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Reader/CCSGUIReader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Reader/CCSSceneReader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControl.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlButton.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlColourPicker.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlHuePicker.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlPotentiometer.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlSaturationBrightnessPicker.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlSlider.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlStepper.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlSwitch.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlUtils.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCInvocation.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCScale9Sprite.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCEditBox/CCEditBox.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCEditBox/CCEditBoxImplAndroid.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCEditBox/CCEditBoxImplIOS.mm
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCScrollView.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCSorting.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCTableView.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCTableViewCell.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/network/HttpClient.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/network/WebSocket.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/physics_nodes/CCPhysicsDebugNode.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/physics_nodes/CCPhysicsSprite.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Animation.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AnimationState.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AnimationStateData.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Atlas.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AtlasAttachmentLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Attachment.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AttachmentLoader.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Bone.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/BoneData.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/CCSkeleton.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/CCSkeletonAnimation.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Json.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/RegionAttachment.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Skeleton.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/SkeletonData.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/SkeletonJson.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Skin.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Slot.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/SlotData.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/extension.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/spine-cocos2dx.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2ChainShape.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2CircleShape.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2EdgeShape.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2PolygonShape.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2BroadPhase.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2CollideCircle.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2CollideEdge.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2CollidePolygon.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2Collision.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2Distance.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2DynamicTree.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2TimeOfImpact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2BlockAllocator.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Draw.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Math.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Settings.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2StackAllocator.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Timer.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2CircleContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2Contact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2ContactSolver.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2PolygonContact.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2DistanceJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2FrictionJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2GearJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2Joint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2MouseJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2PulleyJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2RopeJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2WeldJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2WheelJoint.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2Body.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2ContactManager.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2Fixture.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2Island.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2World.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2WorldCallbacks.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Rope/b2Rope.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/chipmunk.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpConstraint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpDampedRotarySpring.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpDampedSpring.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpGearJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpGrooveJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpPinJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpPivotJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpRatchetJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpRotaryLimitJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpSimpleMotor.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpSlideJoint.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpArbiter.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpArray.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpBB.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpBBTree.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpBody.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpCollision.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpHashSet.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpPolyShape.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpShape.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpace.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceComponent.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceHash.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceQuery.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceStep.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpatialIndex.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSweep1D.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpVect.c
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/AppDelegate.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/C2DXShareSDK/C2DXShareSDK.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/C2DXShareSDK/ios/C2DXiOSShareSDK.mm
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/HelloWorldScene.cpp
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/AppController.mm
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/RootViewController.mm
+r0
+
+CBuild AST from /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies28b65a542ebfb841^b1f970542ebfb841^---0#1#1#--18"Check dependencies36"F8205A11-D05B-4EC7-A071-BB8130BCCC15-
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Animation.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Animation.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AnimationState.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AnimationState.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AnimationStateData.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AnimationStateData.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AppController.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/AppController.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AppDelegate.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/AppDelegate.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AssetsManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/AssetsManager/AssetsManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Atlas.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Atlas.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AtlasAttachmentLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AtlasAttachmentLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Attachment.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Attachment.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/AttachmentLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/AttachmentLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Bone.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Bone.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/BoneData.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/BoneData.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/C2DXShareSDK.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/C2DXShareSDK/C2DXShareSDK.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/C2DXiOSShareSDK.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/C2DXShareSDK/ios/C2DXiOSShareSDK.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCActionFrame.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionFrame.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCActionFrameEasing.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionFrameEasing.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCActionManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCActionNode.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionNode.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCActionObject.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Action/CCActionObject.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCArmature.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/CCArmature.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCArmatureAnimation.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/animation/CCArmatureAnimation.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCArmatureDataManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCArmatureDataManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCArmatureDefine.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCArmatureDefine.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBAnimationManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBAnimationManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBFileLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBFileLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBKeyframe.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBKeyframe.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBReader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBSequence.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBSequence.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBSequenceProperty.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBSequenceProperty.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBValue.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCBValue.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBatchNode.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCBatchNode.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCBone.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/CCBone.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCColliderDetector.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/physics/CCColliderDetector.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCComAttribute.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComAttribute.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCComAudio.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComAudio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCComController.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComController.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCComRender.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCComRender.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControl.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControl.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlButton.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlButton.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlButtonLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCControlButtonLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlColourPicker.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlColourPicker.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlHuePicker.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlHuePicker.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCControlLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlPotentiometer.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlPotentiometer.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlSaturationBrightnessPicker.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlSaturationBrightnessPicker.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlSlider.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlSlider.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlStepper.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlStepper.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlSwitch.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlSwitch.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCControlUtils.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCControlUtils.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCData.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCData.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCDataReaderHelper.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCDataReaderHelper.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCDatas.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/datas/CCDatas.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCDecorativeDisplay.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCDecorativeDisplay.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCDisplayFactory.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCDisplayFactory.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCDisplayManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCDisplayManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCEditBox.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCEditBox/CCEditBox.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCEditBoxImplAndroid.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCEditBox/CCEditBoxImplAndroid.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCEditBoxImplIOS.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCEditBox/CCEditBoxImplIOS.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCInputDelegate.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Components/CCInputDelegate.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCInvocation.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCInvocation.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCLabelBMFontLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLabelBMFontLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCLabelTTFLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLabelTTFLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCLayerColorLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLayerColorLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCLayerGradientLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLayerGradientLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCLayerLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCLayerLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCMenuItemImageLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCMenuItemImageLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCMenuItemLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCMenuItemLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCNode+CCBRelativePositioning.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCNode+CCBRelativePositioning.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCNodeLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCNodeLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCNodeLoaderLibrary.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCNodeLoaderLibrary.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCParticleSystemQuadLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCParticleSystemQuadLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCPhysicsDebugNode.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/physics_nodes/CCPhysicsDebugNode.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCPhysicsSprite.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/physics_nodes/CCPhysicsSprite.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCProcessBase.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/animation/CCProcessBase.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSGUIReader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Reader/CCSGUIReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSSceneReader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Reader/CCSSceneReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCScale9Sprite.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCControlExtension/CCScale9Sprite.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCScale9SpriteLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCScale9SpriteLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCScrollView.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCScrollView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCScrollViewLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCScrollViewLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSkeleton.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/CCSkeleton.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSkeletonAnimation.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/CCSkeletonAnimation.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSkin.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/display/CCSkin.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSorting.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCSorting.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSpriteFrameCacheHelper.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCSpriteFrameCacheHelper.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCSpriteLoader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CCBReader/CCSpriteLoader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCTableView.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCTableView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCTableViewCell.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/GUI/CCScrollView/CCTableViewCell.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCTransformHelp.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCTransformHelp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCTween.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/animation/CCTween.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCTweenFunction.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCTweenFunction.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CCUtilMath.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Armature/utils/CCUtilMath.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CDAudioManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/CDAudioManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CDOpenALSupport.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/CDOpenALSupport.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CSContentJsonDictionary.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/CSContentJsonDictionary.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CocosDenshion.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/CocosDenshion.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/CocosGUI.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/CocosGUI.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/DictionaryHelper.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/DictionaryHelper.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/HelloWorldScene.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Classes/HelloWorldScene.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/HttpClient.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/network/HttpClient.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Json.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Json.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Layout.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/Layouts/Layout.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/LayoutParameter.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/Layouts/LayoutParameter.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/RegionAttachment.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/RegionAttachment.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/RootViewController.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/RootViewController.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/SimpleAudioEngine.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/SimpleAudioEngine.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/SimpleAudioEngine_objc.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/CocosDenshion/ios/SimpleAudioEngine_objc.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Skeleton.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Skeleton.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/SkeletonData.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/SkeletonData.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/SkeletonJson.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/SkeletonJson.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Skin.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Skin.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/Slot.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/Slot.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/SlotData.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/SlotData.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIButton.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UIButton.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UICheckBox.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UICheckBox.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIDragPanel.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIDragPanel.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIHelper.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/UIHelper.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIImageView.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UIImageView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIInputManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/UIInputManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UILabel.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILabel.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UILabelAtlas.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILabelAtlas.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UILabelBMFont.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILabelBMFont.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UILayer.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/System/UILayer.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UILayoutDefine.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/Layouts/UILayoutDefine.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIListView.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIListView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UILoadingBar.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UILoadingBar.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIPageView.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIPageView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIRootWidget.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/BaseClasses/UIRootWidget.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIScrollView.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/ScrollWidget/UIScrollView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UISlider.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UISlider.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UISwitch.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UISwitch.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UITextField.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/UIWidgets/UITextField.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/UIWidget.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/GUI/BaseClasses/UIWidget.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/WebSocket.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/network/WebSocket.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2BlockAllocator.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2BlockAllocator.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Body.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2Body.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2BroadPhase.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2BroadPhase.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2ChainAndCircleContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2ChainAndPolygonContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2ChainShape.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2ChainShape.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2CircleContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2CircleContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2CircleShape.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2CircleShape.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2CollideCircle.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2CollideCircle.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2CollideEdge.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2CollideEdge.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2CollidePolygon.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2CollidePolygon.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Collision.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2Collision.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Contact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2Contact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2ContactManager.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2ContactManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2ContactSolver.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2ContactSolver.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Distance.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2Distance.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2DistanceJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2DistanceJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Draw.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Draw.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2DynamicTree.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2DynamicTree.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2EdgeAndCircleContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2EdgeAndPolygonContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2EdgeShape.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2EdgeShape.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Fixture.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2Fixture.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2FrictionJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2FrictionJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2GearJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2GearJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Island.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2Island.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Joint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2Joint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Math.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Math.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2MouseJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2MouseJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2PolygonAndCircleContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2PolygonContact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Contacts/b2PolygonContact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2PolygonShape.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/Shapes/b2PolygonShape.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2PrismaticJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2PulleyJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2PulleyJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2RevoluteJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Rope.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Rope/b2Rope.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2RopeJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2RopeJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Settings.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Settings.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2StackAllocator.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2StackAllocator.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2TimeOfImpact.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Collision/b2TimeOfImpact.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2Timer.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Common/b2Timer.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2WeldJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2WeldJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2WheelJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/Joints/b2WheelJoint.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2World.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2World.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/b2WorldCallbacks.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/Box2D/Dynamics/b2WorldCallbacks.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/chipmunk.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/chipmunk.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpArbiter.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpArbiter.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpArray.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpArray.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpBB.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpBB.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpBBTree.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpBBTree.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpBody.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpBody.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpCollision.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpCollision.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpConstraint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpConstraint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpDampedRotarySpring.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpDampedRotarySpring.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpDampedSpring.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpDampedSpring.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpGearJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpGearJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpGrooveJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpGrooveJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpHashSet.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpHashSet.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpPinJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpPinJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpPivotJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpPivotJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpPolyShape.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpPolyShape.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpRatchetJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpRatchetJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpRotaryLimitJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpRotaryLimitJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpShape.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpShape.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSimpleMotor.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpSimpleMotor.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSlideJoint.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/constraints/cpSlideJoint.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSpace.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpace.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSpaceComponent.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceComponent.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSpaceHash.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceHash.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSpaceQuery.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceQuery.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSpaceStep.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpaceStep.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSpatialIndex.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSpatialIndex.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpSweep1D.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpSweep1D.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/cpVect.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/cpVect.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/extension.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/extension.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/json_reader.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_reader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/json_value.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_value.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/json_writer.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_writer.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/main.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/C2DXShareSDKSample.build/Debug-iphonesimulator/C2DXShareSDKSample.build/Objects-normal/i386/spine-cocos2dx.o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/spine/spine-cocos2dx.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCopyStringsFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj/ShareSDKLocalizable.strings ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings
+s415182420.459552
+e415182420.557413
+r0
+xCopyStringsFile
+x/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj/ShareSDKLocalizable.strings
+xShareSDK/Core/en.lproj/ShareSDKLocalizable.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Copy ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings163"CopyStringsFile Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj/ShareSDKLocalizable.strings ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings56b875542ebfb841^0ec08e542ebfb841^-258"/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings:0: error: The file “ShareSDKLocalizable.strings” couldn’t be opened because there is no such file.1(21%IDEActivityLogMessage2@94"The file “ShareSDKLocalizable.strings” couldn’t be opened because there is no such file.-415182420#0#248#-2#-23%DVTTextDocumentLocation3@180"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#24"Copy .strings file Error--0#0#1#-19%DVTDocumentLocation4@180"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings00384c19deffdf42^783"CopyStringsFile Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj/ShareSDKLocalizable.strings ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings    cd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/en.lproj -- ShareSDK/Core/en.lproj/ShareSDKLocalizable.strings36"F0DD8EAE-49C5-410F-AE90-342874F0254C-
+b7C9539E4-7284-4D9D-9835-B3DE4E036F83
+
+CCopyStringsFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj/ShareSDKLocalizable.strings ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings
+s415182420.459348
+e415182420.557445
+r0
+xCopyStringsFile
+x/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj/ShareSDKLocalizable.strings
+xShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings173"CopyStringsFile Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj/ShareSDKLocalizable.strings ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings47ac75542ebfb841^13bb8e542ebfb841^-263"/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings:0: error: The file “ShareSDKLocalizable.strings” couldn’t be opened because there is no such file.1(21%IDEActivityLogMessage2@94"The file “ShareSDKLocalizable.strings” couldn’t be opened because there is no such file.-415182420#0#253#-2#-23%DVTTextDocumentLocation3@185"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#24"Copy .strings file Error--0#0#1#-19%DVTDocumentLocation4@185"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings00384c19deffdf42^803"CopyStringsFile Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj/ShareSDKLocalizable.strings ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings    cd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/zh-Hans.lproj -- ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings36"A5822CFE-7F87-4441-9B38-746B649FDEFB-
+b7C9539E4-7284-4D9D-9835-B3DE4E036F83
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_internalarray.inl Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/json_internalarray.inl
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_internalmap.inl Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/json_internalmap.inl
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/json_valueiterator.inl Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/json_valueiterator.inl
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/extensions/CocoStudio/Json/lib_json/sconscript Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/sconscript
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/external/chipmunk/src/CMakeLists.txt Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/CMakeLists.txt
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Resources/CloseNormal.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/CloseNormal.png
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Resources/CloseSelected.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/CloseSelected.png
+r0
+
+CCpResource /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/Resources/HelloWorld.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/HelloWorld.png
+r0
+
+CCpResource Default-568h@2x.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default-568h@2x.png
+r0
+
+CCpResource Default.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png
+s415182420.463060
+e415182420.526749
+r1
+xCpResource
+xDefault.png
+xBuild/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"Copy Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png94"CpResource Default.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png0a9e76542ebfb841^cfd986542ebfb841^---0#0#1#-19%DVTDocumentLocation2@201"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png00384c19deffdf42^787"CpResource Default.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default.png    cd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Default.png /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app36"CBDA745C-E4C4-48C4-A5D7-D53474CFF3F9-
+b7C9539E4-7284-4D9D-9835-B3DE4E036F83
+
+CCpResource Default@2x.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Default@2x.png
+r0
+
+CCpResource Icon-114.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Icon-114.png
+r0
+
+CCpResource Icon-144.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Icon-144.png
+r0
+
+CCpResource Icon-57.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Icon-57.png
+r0
+
+CCpResource Icon-72.png Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Icon-72.png
+r0
+
+CCpResource ShareSDK/Connection/InstapaperResource.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle
+s415182420.459364
+e415182420.464166
+r0
+xCpResource
+xShareSDK/Connection/InstapaperResource.bundle
+xBuild/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Copy Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle142"CpResource ShareSDK/Connection/InstapaperResource.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundlef3ab75542ebfb841^74d376542ebfb841^-182"error: /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Connection/InstapaperResource.bundle: No such file or directory1(21%IDEActivityLogMessage2@181"error: /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Connection/InstapaperResource.bundle: No such file or directory-415182420#18446744073709551615#0#-2#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#11"PBXCp Error--0#0#1#-19%DVTDocumentLocation4@215"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle00384c19deffdf42^869"CpResource ShareSDK/Connection/InstapaperResource.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/InstapaperResource.bundle    cd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/Connection/InstapaperResource.bundle /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app36"0C8915E9-48D0-489D-816D-8754C43E43A3-
+b7C9539E4-7284-4D9D-9835-B3DE4E036F83
+
+CCpResource ShareSDK/Core/Resource.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Resource.bundle
+r0
+
+CCpResource ShareSDK/Extend/GooglePlusSDK/GooglePlus.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/GooglePlus.bundle
+r0
+
+CCpResource ShareSDK/Extend/Pinterest.embeddedframework/Resources/PinterestSDKResources.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/PinterestSDKResources.bundle
+r0
+
+CCpResource ShareSDK/Extend/QQConnectSDK/TencentOpenApi_IOS_Bundle.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/TencentOpenApi_IOS_Bundle.bundle
+r0
+
+CCpResource ShareSDK/Extend/RenRenSDK/RennSDK.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/RennSDK.bundle
+r0
+
+CCpResource ShareSDK/Extend/SinaWeiboSDK/WeiboSDK.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/WeiboSDK.bundle
+r0
+
+CCpResource ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle
+s415182420.459344
+e415182420.461873
+r0
+xCpResource
+xShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle
+xBuild/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Copy Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle158"CpResource ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle86ad75542ebfb841^923d76542ebfb841^-186"error: /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle: No such file or directory1(21%IDEActivityLogMessage2@185"error: /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle: No such file or directory-415182420#18446744073709551615#0#-2#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#11"PBXCp Error--0#0#1#-19%DVTDocumentLocation4@227"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle00384c19deffdf42^889"CpResource ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadDefaultShareViewUI.bundle    cd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app36"AD8D0C0B-965D-49C1-B132-C8CCD084162A-
+b7C9539E4-7284-4D9D-9835-B3DE4E036F83
+
+CCpResource ShareSDK/UI/ShareSDKiPadSimpleShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPadSimpleShareViewUI.bundle
+r0
+
+CCpResource ShareSDK/UI/ShareSDKiPhoneDefaultShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPhoneDefaultShareViewUI.bundle
+r0
+
+CCpResource ShareSDK/UI/ShareSDKiPhoneSimpleShareViewUI.bundle Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/ShareSDKiPhoneSimpleShareViewUI.bundle
+r0
+
+CGenerateDSYMFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app.dSYM /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/C2DXShareSDKSample
+r0
+
+CLd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/C2DXShareSDKSample normal i386
+r0
+
+CProcessInfoPlistFile /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist
+s415182420.444462
+e415182420.451332
+r1
+xProcessInfoPlistFile
+x/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist
+x/Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Process /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist102"ProcessInfoPlistFile Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist Info.plist10e771542ebfb841^618d73542ebfb841^---0#0#1#-19%DVTDocumentLocation2@140"file://localhost/Users/vim888/Documents/%E5%B7%A5%E4%BD%9C/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist0000000000000000^969"ProcessInfoPlistFile Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist Info.plist    cd /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Info.plist -genpkginfo /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app/Info.plist36"A7A43A02-6E2C-421B-B975-69904D10881A-
+b7C9539E4-7284-4D9D-9835-B3DE4E036F83
+
+CProcessPCH /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Intermediates/PrecompiledHeaders/Prefix-fponnjgeaofvjrgtytqnzrtdeqzd/Prefix.pch.pch Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Intermediates/PrecompiledHeaders/Prefix-gawchvnncisebrgxkkscztreidxn/Prefix.pch.pch Prefix.pch normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH /Users/vim888/Library/Developer/Xcode/DerivedData/C2DXShareSDKSample-ekwjlofqvfncjagvspxnnpyerrqz/Index/PrecompiledHeaders/Prefix-dyvdodrixemldqatvtrvcerntkzy_ast/Prefix.pch.pch Prefix.pch normal i386 c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /Users/vim888/Library/Developer/Xcode/DerivedData/C2DXShareSDKSample-ekwjlofqvfncjagvspxnnpyerrqz/Index/PrecompiledHeaders/Prefix-eivhwaqkuywptogfaimrppyjhtcl_ast/Prefix.pch.pch Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Intermediates/PrecompiledHeaders/Prefix-adupbjiedbcswufbsgovptclqfjj/Prefix.pch.pch Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH++ /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Intermediates/PrecompiledHeaders/Prefix-fkxhgafhxtjpitfzzhcatuurotrp/Prefix.pch.pch Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH++ /Users/vim888/Library/Developer/Xcode/DerivedData/C2DXShareSDKSample-ekwjlofqvfncjagvspxnnpyerrqz/Index/PrecompiledHeaders/Prefix-bxfphemlkroblifdpbbkvzsqydfy_ast/Prefix.pch.pch Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /Users/vim888/Library/Developer/Xcode/DerivedData/C2DXShareSDKSample-ekwjlofqvfncjagvspxnnpyerrqz/Index/PrecompiledHeaders/Prefix-glllhuzxyfeknkglvyiimgvfmpst_ast/Prefix.pch.pch Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CTouch /Users/vim888/Documents/工作/ShareSDK_Other/Demo/cocos2d-x-2.2/projects/C2DXShareSDKSample/proj.ios/Build/Products/Debug-iphonesimulator/C2DXShareSDKSample.app
+r0
+

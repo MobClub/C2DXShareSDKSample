@@ -39,6 +39,7 @@ import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
+import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.FakeActivity;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
@@ -54,6 +55,7 @@ import cn.sharesdk.framework.utils.UIHandler;
 public class EditPage extends FakeActivity implements OnClickListener, TextWatcher, Callback {
 	private static final int MAX_TEXT_COUNT = 140;
 	private static final int MSG_PLATFORM_LIST_GOT = 1;
+	private static final int MSG_AFTER_IMAGE_DOWNLOAD = 2;
 	private HashMap<String, Object> reqData;
 	private OnekeyShare parent;
 	private LinearLayout llPage;
@@ -120,7 +122,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				ArrayList<Platform> list = new ArrayList<Platform>();
 				for (Platform plat : platformList) {
 					String name = plat.getName();
-					if (ShareCore.isUseClientToShare(activity, name)) {
+					if ((plat instanceof CustomPlatform)
+							|| ShareCore.isUseClientToShare(activity, name)) {
 						continue;
 					}
 					list.add(plat);
@@ -183,10 +186,10 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		if (resId > 0) {
 			ivPin.setImageResource(resId);
 		}
-		int dp_80 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 80);
-		int dp_36 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 36);
+		int dp_80 = dipToPx(getContext(), 80);
+		int dp_36 = dipToPx(getContext(), 36);
 		FrameLayout.LayoutParams lpPin = new FrameLayout.LayoutParams(dp_80, dp_36);
-		lpPin.topMargin = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 6);
+		lpPin.topMargin = dipToPx(getContext(), 6);
 		lpPin.gravity = Gravity.RIGHT | Gravity.TOP;
 		ivPin.setLayoutParams(lpPin);
 		flPage.addView(ivPin);
@@ -201,15 +204,15 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		ivShadow.setLayoutParams(lpSd);
 		flPage.addView(ivShadow);
 
-		LinearLayout llInput = new LinearLayout(getContext());
-		llInput.setMinimumHeight(cn.sharesdk.framework.utils.R.dipToPx(getContext(), 150));
+		final LinearLayout llInput = new LinearLayout(getContext());
+		llInput.setMinimumHeight(dipToPx(getContext(), 150));
 		resId = getBitmapRes(activity, "edittext_back");
 		if (resId > 0) {
 			llInput.setBackgroundResource(resId);
 		}
 		LinearLayout.LayoutParams lpInput = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		int dp_3 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 3);
+		int dp_3 = dipToPx(getContext(), 3);
 		lpInput.setMargins(dp_3, dp_3, dp_3, dp_3);
 		lpInput.weight = 1;
 		llInput.setLayoutParams(lpInput);
@@ -223,7 +226,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		}
 		LinearLayout.LayoutParams lpTb = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		int dp_4 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 4);
+		int dp_4 = dipToPx(getContext(), 4);
 		lpTb.setMargins(dp_4, 0, dp_4, dp_4);
 		llToolBar.setLayoutParams(lpTb);
 		llBody.addView(llToolBar);
@@ -248,52 +251,46 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		String platform = String.valueOf(reqData.get("platform"));
 		checkAtMth(llContent, platform);
 
-		int dp_74 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 74);
-		int dp_16 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 16);
+		int dp_74 = dipToPx(getContext(), 74);
+		int dp_16 = dipToPx(getContext(), 16);
 		String imagePath = String.valueOf(reqData.get("imagePath"));
 		if(!TextUtils.isEmpty(imagePath) && new File(imagePath).exists()){
-			LinearLayout llRight = new LinearLayout(getContext());
-			llRight.setOrientation(LinearLayout.VERTICAL);
-			llRight.setLayoutParams(new LinearLayout.LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
-			llInput.addView(llRight);
-
-			// shared image container
-			ivImage = new ImageView(getContext());
-			resId = getBitmapRes(activity, "btn_back_nor");
-			if (resId > 0) {
-				ivImage.setBackgroundResource(resId);
-			}
-			ivImage.setScaleType(ScaleType.CENTER_INSIDE);
-			ivImage.setVisibility(View.GONE);
-			ivImage.setVisibility(View.VISIBLE);
 			try {
 				shareImage = true;
-				image = cn.sharesdk.framework.utils.R.getBitmap(imagePath);
-				ivImage.setImageBitmap(image);
+				image = getBitmap(imagePath);
 			} catch(Throwable t) {
 				System.gc();
 				try {
-					image = cn.sharesdk.framework.utils.R.getBitmap(imagePath, 2);
-					ivImage.setImageBitmap(image);
+					image = getBitmap(imagePath, 2);
 				} catch(Throwable t1) {
 					t1.printStackTrace();
 					shareImage = false;
 				}
 			}
+			initImage(llInput);
+		} else if (reqData.containsKey("imageUrl")) {
+			ivPin.setVisibility(View.GONE);
+			new Thread(){
+				public void run() {
+					String imageUrl = String.valueOf(reqData.get("imageUrl"));
+					try {
+						shareImage = true;
+						image = getBitmap(activity, imageUrl);
+					} catch(Throwable t) {
+						t.printStackTrace();
+						shareImage = false;
+						image = null;
+					}
 
-			ivImage.setPadding(dp_4, dp_4, dp_4, dp_4);
-			LinearLayout.LayoutParams lpImage = new LinearLayout.LayoutParams(dp_74, dp_74);
-			int dp_8 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 8);
-			lpImage.setMargins(0, dp_16, dp_8, 0);
-			ivImage.setLayoutParams(lpImage);
-			llRight.addView(ivImage);
-			if(!shareImage){
-				ivPin.setVisibility(View.GONE);
-				ivImage.setVisibility(View.GONE);
-			}
-			ivImage.setOnClickListener(this);
-		}else {
+					if (image != null && !image.isRecycled()) {
+						Message msg = new Message();
+						msg.what = MSG_AFTER_IMAGE_DOWNLOAD;
+						msg.obj = llInput;
+						UIHandler.sendMessage(msg, EditPage.this);
+					}
+				}
+			}.start();
+		} else {
 			shareImage = false;
 			ivPin.setVisibility(View.GONE);
 		}
@@ -307,9 +304,9 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			if (resId > 0) {
 				btn.setBackgroundResource(resId);
 			}
-			int dp_20 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 20);
-			int dp_83 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 83);
-			int dp_13 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 13);
+			int dp_20 = dipToPx(getContext(), 20);
+			int dp_83 = dipToPx(getContext(), 83);
+			int dp_13 = dipToPx(getContext(), 13);
 			FrameLayout.LayoutParams lpBtn = new FrameLayout.LayoutParams(dp_20, dp_20);
 			lpBtn.topMargin = dp_83;
 			lpBtn.rightMargin = dp_13;
@@ -341,7 +338,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		}
 		tvShareTo.setTextColor(0xffcfcfcf);
 		tvShareTo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
-		int dp_9 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 9);
+		int dp_9 = dipToPx(getContext(), 9);
 		LinearLayout.LayoutParams lpShareTo = new LinearLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		lpShareTo.gravity = Gravity.CENTER_VERTICAL;
@@ -364,6 +361,40 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		sv.addView(llPlat);
 	}
 
+	private void initImage(LinearLayout llInput) {
+		LinearLayout llRight = new LinearLayout(getContext());
+		llRight.setOrientation(LinearLayout.VERTICAL);
+		llRight.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
+		llInput.addView(llRight);
+
+		// shared image container
+		ivImage = new ImageView(getContext());
+		int resId = getBitmapRes(activity, "btn_back_nor");
+		if (resId > 0) {
+			ivImage.setBackgroundResource(resId);
+		}
+		ivImage.setScaleType(ScaleType.CENTER_INSIDE);
+		ivImage.setVisibility(View.GONE);
+		ivImage.setVisibility(View.VISIBLE);
+		ivImage.setImageBitmap(image);
+
+		int dp_4 = dipToPx(getContext(), 4);
+		ivImage.setPadding(dp_4, dp_4, dp_4, dp_4);
+		int dp_74 = dipToPx(getContext(), 74);
+		LinearLayout.LayoutParams lpImage = new LinearLayout.LayoutParams(dp_74, dp_74);
+		int dp_16 = dipToPx(getContext(), 16);
+		int dp_8 = dipToPx(getContext(), 8);
+		lpImage.setMargins(0, dp_16, dp_8, 0);
+		ivImage.setLayoutParams(lpImage);
+		llRight.addView(ivImage);
+		if(!shareImage){
+			ivPin.setVisibility(View.GONE);
+			ivImage.setVisibility(View.GONE);
+		}
+		ivImage.setOnClickListener(this);
+	}
+
 	// if platform selected form platform gridview is SinaWeibo,
 	// TencentWeibo, Facebook, or Twitter, there will be a button
 	// in the left-bottom of the page, which provides At-friends function
@@ -373,8 +404,8 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			llAt= new LinearLayout(getContext());
 			FrameLayout.LayoutParams lpAt = new FrameLayout.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-			lpAt.leftMargin = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 10);
-			lpAt.bottomMargin = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 10);
+			lpAt.leftMargin = dipToPx(getContext(), 10);
+			lpAt.bottomMargin = dipToPx(getContext(), 10);
 			lpAt.gravity = Gravity.LEFT | Gravity.BOTTOM;
 			llAt.setLayoutParams(lpAt);
 			llAt.setOnClickListener(this);
@@ -385,11 +416,11 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			if (resId > 0) {
 				tvAt.setBackgroundResource(resId);
 			}
-			int dp_32 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 32);
+			int dp_32 = dipToPx(getContext(), 32);
 			tvAt.setLayoutParams(new LinearLayout.LayoutParams(dp_32, dp_32));
 			tvAt.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 			tvAt.setText("@");
-			int dp_2 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 2);
+			int dp_2 = dipToPx(getContext(), 2);
 			tvAt.setPadding(0, 0, 0, dp_2);
 			tvAt.setTypeface(Typeface.DEFAULT_BOLD);
 			tvAt.setTextColor(0xff000000);
@@ -415,7 +446,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			return "";
 		}
 
-		int resId = cn.sharesdk.framework.utils.R.getStringRes(getContext(), platform);
+		int resId = getStringRes(getContext(), platform);
 		return getContext().getString(resId);
 	}
 
@@ -451,7 +482,11 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			String text = etContent.getText().toString();
 			reqData.put("text", text);
 			if(!shareImage){
-				reqData.put("imagePath", null);
+				if (reqData.get("imagePath") == null) {
+					reqData.put("imageUrl", null);
+				} else {
+					reqData.put("imagePath", null);
+				}
 			}
 
 			HashMap<Platform, HashMap<String, Object>> editRes
@@ -515,6 +550,11 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				afterPlatformListGot();
 			}
 			break;
+			case MSG_AFTER_IMAGE_DOWNLOAD: {
+				ivPin.setVisibility(View.VISIBLE);
+				initImage((LinearLayout) msg.obj);
+			}
+			break;
 		}
 		return false;
 	}
@@ -525,9 +565,9 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		int size = platformList == null ? 0 : platformList.length;
 		views = new View[size];
 
-		final int dp_36 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 36);
+		final int dp_36 = dipToPx(getContext(), 36);
 		LinearLayout.LayoutParams lpItem = new LinearLayout.LayoutParams(dp_36, dp_36);
-		final int dp_9 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 9);
+		final int dp_9 = dipToPx(getContext(), 9);
 		lpItem.setMargins(0, 0, dp_9, 0);
 		FrameLayout.LayoutParams lpMask = new FrameLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
