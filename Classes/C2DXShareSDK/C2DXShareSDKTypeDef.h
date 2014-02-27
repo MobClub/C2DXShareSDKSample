@@ -10,6 +10,7 @@
 #define C2DXShareSDKSample_C2DXShareSDKTypeDef_h
 
 #include "cocos2d.h"
+#include <stdint.h>
 
 USING_NS_CC;
 
@@ -88,6 +89,18 @@ namespace cn
             C2DXResponseStateCancel = 3 /**< 取消 */
         };
         
+        /**
+         *	@brief	分享菜单指向
+         */
+        enum C2DXMenuArrowDirection
+        {
+            C2DXMenuArrowDirectionUp = 1UL << 0, /**< 向上 */
+            C2DXMenuArrowDirectionDown = 1UL << 1, /**< 向下 */
+            C2DXMenuArrowDirectionLeft = 1UL << 2, /**< 向左 */
+            C2DXMenuArrowDirectionRight = 1UL << 3, /**< 向右 */
+            C2DXMenuArrowDirectionAny = C2DXMenuArrowDirectionUp | C2DXMenuArrowDirectionDown | C2DXMenuArrowDirectionLeft | C2DXMenuArrowDirectionRight, /**< 任意 */
+            C2DXMenuArrowDirectionUnknown = UINT32_MAX /**< 未知 */
+        };
         
         /**
          *	@brief	授权返回回调事件

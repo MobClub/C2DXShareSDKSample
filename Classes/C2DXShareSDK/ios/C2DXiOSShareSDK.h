@@ -105,6 +105,27 @@ namespace cn
              *	@param 	callback 	回调方法
              */
             static void showShareMenu(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent callback);
+            
+            /**
+             *	@brief	显示分享菜单
+             *
+             *	@param 	platTypes 	平台类型列表
+             *	@param 	content 	分享内容
+             *	@param 	pt          弹出分享菜单参位置，仅用于设置iPad分享菜单弹出
+             *  @param  direction   弹出分享菜单指向，仅用于设置iPad分享菜单弹出
+             *	@param 	callback 	回调方法
+             */
+            static void showShareMenu(CCArray *platTypes, CCDictionary *content, CCPoint pt, C2DXMenuArrowDirection direction, C2DXShareResultEvent callback);
+
+            
+            /**
+             *	@brief	显示分享视图
+             *
+             *	@param 	platType 	平台类型
+             *	@param 	content 	分享内容
+             *	@param 	callback 	回调方法
+             */
+            static void showShareView(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback);
         };
     }
 }
