@@ -213,8 +213,11 @@ void HelloWorld::shareMenuItemClick(CCObject* pSender)
     content -> setObject(CCString::create("测试描述"), "description");
     content -> setObject(CCString::create("http://sharesdk.cn"), "url");
     content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
-	content -> setObject(CCString::create("ShareSDK"), "site");
-	content -> setObject(CCString::create("http://sharesdk.cn"), "siteUrl");
+    content -> setObject(CCString::create("http://sharesdk.cn"), "siteUrl");
+    content -> setObject(CCString::create("ShareSDK"), "site");
+    content -> setObject(CCString::create("http://mp3.mwap8.com/destdir/Music/2009/20090601/ZuiXuanMinZuFeng20090601119.mp3"), "musicUrl");
+    content -> setObject(CCString::create("extInfo"), "extInfo");
     
-    C2DXShareSDK::showShareMenu(NULL, content, shareResultHandler);
+    C2DXShareSDK::showShareMenu(NULL, content, CCPointMake(100, 100), C2DXMenuArrowDirectionLeft, shareResultHandler);
+//    C2DXShareSDK::showShareView(C2DXPlatTypeSinaWeibo, content, shareResultHandler);
 }

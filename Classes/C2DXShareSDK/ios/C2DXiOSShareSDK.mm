@@ -10,6 +10,8 @@
 #import <ShareSDK/ShareSDK.h>
 #import <AGCommon/CMRegexKitLite.h>
 
+static UIView *_refView = nil;
+
 using namespace cn::sharesdk;
 
 /**
@@ -225,13 +227,83 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
         }
     }
     
-    return  [ShareSDK content:message
-               defaultContent:nil
-                        image:image
-                        title:title
-                          url:url
-                  description:desc
-                    mediaType:type];
+    id<ISSContent> contentObj =  [ShareSDK content:message
+                                    defaultContent:nil
+                                             image:image
+                                             title:title
+                                               url:url
+                                       description:desc
+                                         mediaType:type];
+    
+    if (content)
+    {
+        NSString *siteUrlStr = nil;
+        NSString *siteStr = nil;
+        
+        CCString *siteUrl = dynamic_cast<CCString *>(content -> objectForKey("siteUrl"));
+        if (siteUrl)
+        {
+            siteUrlStr = [NSString stringWithCString:siteUrl -> getCString() encoding:NSUTF8StringEncoding];
+        }
+        CCString *site = dynamic_cast<CCString *>(content -> objectForKey("site"));
+        if (site)
+        {
+            siteStr = [NSString stringWithCString:site -> getCString() encoding:NSUTF8StringEncoding];
+        }
+        
+        if (siteUrlStr || siteStr)
+        {
+            [contentObj addQQSpaceUnitWithTitle:INHERIT_VALUE
+                                            url:INHERIT_VALUE
+                                           site:siteStr
+                                        fromUrl:siteUrlStr
+                                        comment:INHERIT_VALUE
+                                        summary:INHERIT_VALUE
+                                          image:INHERIT_VALUE
+                                           type:INHERIT_VALUE
+                                        playUrl:INHERIT_VALUE
+                                           nswb:INHERIT_VALUE];
+        }
+        
+        NSString *extInfoStr = nil;
+        NSString *musicUrlStr = nil;
+        
+        CCString *extInfo = dynamic_cast<CCString *>(content -> objectForKey("extInfo"));
+        if (extInfo)
+        {
+            extInfoStr = [NSString stringWithCString:extInfo -> getCString() encoding:NSUTF8StringEncoding];
+        }
+        CCString *musicUrl = dynamic_cast<CCString *>(content -> objectForKey("musicUrl"));
+        if (site)
+        {
+            musicUrlStr = [NSString stringWithCString:musicUrl -> getCString() encoding:NSUTF8StringEncoding];
+        }
+        
+        if (extInfoStr || musicUrlStr)
+        {
+            [contentObj addWeixinSessionUnitWithType:INHERIT_VALUE
+                                             content:INHERIT_VALUE
+                                               title:INHERIT_VALUE
+                                                 url:INHERIT_VALUE
+                                               image:INHERIT_VALUE
+                                        musicFileUrl:musicUrlStr
+                                             extInfo:extInfoStr
+                                            fileData:INHERIT_VALUE
+                                        emoticonData:INHERIT_VALUE];
+            
+            [contentObj addWeixinTimelineUnitWithType:INHERIT_VALUE
+                                              content:INHERIT_VALUE
+                                                title:INHERIT_VALUE
+                                                  url:INHERIT_VALUE
+                                                image:INHERIT_VALUE
+                                         musicFileUrl:musicUrlStr
+                                              extInfo:extInfoStr
+                                             fileData:INHERIT_VALUE
+                                         emoticonData:INHERIT_VALUE];
+        }
+    }
+    
+    return contentObj;
 }
 
 void C2DXiOSShareSDK::open(CCString *appKey, bool useAppTrusteeship)
@@ -455,7 +527,13 @@ void C2DXiOSShareSDK::oneKeyShareContent(CCArray *platTypes, CCDictionary *conte
 
 void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent callback)
 {
+    C2DXiOSShareSDK::showShareMenu(platTypes, content, CCPointMake(0, 0), C2DXMenuArrowDirectionUnknown, callback);
+}
+
+void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, CCPoint pt, C2DXMenuArrowDirection direction, C2DXShareResultEvent callback)
+{
     id<ISSContent> publishContent = convertPublishContent(content);
+    id<ISSContainer> container = nil;
     
     NSMutableArray *shareList = nil;
     if (platTypes && platTypes -> count() > 0)
@@ -468,7 +546,19 @@ void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C
         }
     }
     
-    [ShareSDK showShareActionSheet:nil
+    //设置iPad菜单位置
+    pt = CCDirector::sharedDirector() -> convertToUI(pt);
+    if (!_refView)
+    {
+        _refView = [[UIView alloc] initWithFrame:CGRectMake(pt.x, pt.y, 1, 1)];
+    }
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:_refView];
+    
+    container = [ShareSDK container];
+    [container setIPadContainerWithView:_refView arrowDirect:direction];
+    
+    [ShareSDK showShareActionSheet:container
                          shareList:shareList
                            content:publishContent
                      statusBarTips:NO
@@ -502,5 +592,52 @@ void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C
                                     callback ((C2DXResponseState)state, (C2DXPlatType)type, shareInfo, errorInfo);
                                 }
                                 
+                                if (_refView)
+                                {
+                                    //移除视图
+                                    [_refView removeFromSuperview];
+                                }
+                                
                             }];
+}
+
+void C2DXiOSShareSDK::showShareView(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback)
+{
+    id<ISSContent> publishContent = convertPublishContent(content);
+    
+    [ShareSDK showShareViewWithType:(ShareType)platType
+                          container:nil
+                            content:publishContent
+                      statusBarTips:NO
+                        authOptions:nil
+                       shareOptions:nil
+                             result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                 
+                                 CCDictionary *shareInfo = NULL;
+                                 CCDictionary *errorInfo = NULL;
+                                 
+                                 if (state == SSResponseStateSuccess)
+                                 {
+                                     shareInfo = convertNSDictToCCDict([statusInfo sourceData]);
+                                 }
+                                 
+                                 if (error)
+                                 {
+                                     NSInteger errCode = [error errorCode];
+                                     NSString *errDesc = [error errorDescription];
+                                     
+                                     errorInfo = CCDictionary::create();
+                                     errorInfo -> setObject(CCInteger::create(errCode), "error_code");
+                                     if (errDesc)
+                                     {
+                                         errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
+                                     }
+                                 }
+                                 
+                                 if (callback)
+                                 {
+                                     callback ((C2DXResponseState)state, (C2DXPlatType)type, shareInfo, errorInfo);
+                                 }
+                                 
+                             }];
 }

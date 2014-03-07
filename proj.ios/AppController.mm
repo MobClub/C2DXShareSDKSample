@@ -61,7 +61,7 @@ static AppDelegate s_sharedApplication;
     viewController.view = __glView;
 
     // Set RootViewController to window
-    if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
+    if ([[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
         // warning: addSubView doesn't work on iOS6
         [window addSubview: viewController.view];

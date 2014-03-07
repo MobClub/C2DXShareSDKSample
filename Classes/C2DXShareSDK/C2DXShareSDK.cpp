@@ -172,3 +172,31 @@ void C2DXShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C2DX
     
 #endif
 }
+
+void C2DXShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, CCPoint pt, C2DXMenuArrowDirection direction, C2DXShareResultEvent callback)
+{
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    
+    //TODO: Android
+    
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    
+    //TODO: iOS
+    C2DXiOSShareSDK::showShareMenu(platTypes, content, pt, direction, callback);
+    
+#endif
+}
+
+void C2DXShareSDK::showShareView(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback)
+{
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    
+    //TODO: Android
+    
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    
+    //TODO: iOS
+    C2DXiOSShareSDK::showShareView(platType, content, callback);
+    
+#endif
+}
