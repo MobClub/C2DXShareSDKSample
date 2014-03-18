@@ -163,7 +163,7 @@ void C2DXShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C2DX
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Andorid
-    onekeyShare(platTypes, content, callback);
+    onekeyShare(0, content, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -178,6 +178,7 @@ void C2DXShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, CCPo
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Android
+    showShareMenu(0, content, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
@@ -192,6 +193,7 @@ void C2DXShareSDK::showShareView(C2DXPlatType platType, CCDictionary *content, C
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
     //TODO: Android
+    onekeyShare((int) platType, content, callback);
     
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     
