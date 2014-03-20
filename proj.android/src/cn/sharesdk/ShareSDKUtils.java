@@ -100,11 +100,17 @@ public class ShareSDKUtils {
 		return map;
 	}
 	
-	public static void initSDK(String appKey, boolean enableStatistics) {
+	public static void initSDK(final String appKey, final boolean enableStatistics) {
 		if (DEBUG) {
 			System.out.println("initSDK");
 		}
-		ShareSDK.initSDK(context, appKey, enableStatistics);
+		UIHandler.sendEmptyMessage(1, new Callback() {			
+			@Override
+			public boolean handleMessage(Message msg) {
+				ShareSDK.initSDK(context, appKey, enableStatistics);
+				return true;
+			}
+		});
 	}
 	
 	public static void stopSDK() {
