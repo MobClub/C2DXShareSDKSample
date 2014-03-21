@@ -26,6 +26,12 @@ extern "C" {
 JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onJavaCallback
   (JNIEnv * env, jclass thiz, jstring resp);
 
+void callBackComplete(int action, int platformId, CCDictionary* res);
+
+void callBackError(int action, int platformId, CCDictionary* res);
+
+void callBackCancel(int action, int platformId, CCDictionary* res);
+
 bool initShareSDK(const char* appKey, bool useAppTrusteeship);
 
 bool getMethod(JniMethodInfo &mi, const char *methodName, const char *paramCode);

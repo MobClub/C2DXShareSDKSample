@@ -38,6 +38,7 @@ public class ShareSDKUtils {
 			public void onComplete(Platform platform, int action, HashMap<String, Object> res) {
 				if (DEBUG) {
 					System.out.println("onComplete");
+					System.out.println(res == null ? "" : res.toString());
 				}
 				HashMap<String, Object> map = new HashMap<String, Object>();
 				map.put("platform", ShareSDK.platformNameToId(platform.getName()));
@@ -52,6 +53,7 @@ public class ShareSDKUtils {
 			public void onError(Platform platform, int action, Throwable t) {
 				if (DEBUG) {
 					System.out.println("onError");
+					t.printStackTrace();
 				}
 				HashMap<String, Object> map = new HashMap<String, Object>();
 				map.put("platform", ShareSDK.platformNameToId(platform.getName()));
