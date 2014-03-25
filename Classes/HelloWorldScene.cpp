@@ -27,6 +27,7 @@ void getUserResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDict
         try
         {
             CCArray *allKeys = userInfo -> allKeys();
+			allKeys->retain();
             for (int i = 0; i < allKeys -> count(); i++)
             {
                 CCString *key = (CCString *)allKeys -> objectAtIndex(i);
@@ -46,6 +47,7 @@ void getUserResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDict
                     CCLog("value = %f", dynamic_cast<CCDouble *>(obj) -> getValue());
                 }
             }
+			allKeys->release();
         }
         catch(...)
         {
