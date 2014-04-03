@@ -233,7 +233,6 @@ public class ShareSDKUtils {
 			System.out.println("OnekeyShare");
 		}
 		HashMap<String, Object> content = hashon.fromJson(contentJson);
-		content = nativeMapToJavaMap(content);
 		HashMap<String, Object> map = nativeMapToJavaMap(content);
 		
 		OnekeyShare oks = new OnekeyShare();
