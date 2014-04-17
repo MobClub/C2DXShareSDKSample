@@ -40,7 +40,7 @@ CCDictionary * CCJSONConverter::dictionaryFrom(const char *str)
         return NULL;
     }
     CCAssert(json && json->type==cJSON_Object, "CCJSONConverter:wrong json format");
-    CCDictionary * dictionary = CCDictionary::create();
+    CCDictionary * dictionary = new CCDictionary();
     convertJsonToDictionary(json, dictionary);
     cJSON_Delete(json);
     return dictionary;
@@ -119,39 +119,39 @@ CCObject * CCJSONConverter::getJsonObj(cJSON * json)
     switch (json->type) {
         case cJSON_Object:
         {
-            CCDictionary * dictionary = CCDictionary::create();
+            CCDictionary * dictionary = new CCDictionary();
             convertJsonToDictionary(json, dictionary);
             return dictionary;
         }
         case cJSON_Array:
         {
-            CCArray * array = CCArray::create();
+            CCArray * array = new CCArray();
             convertJsonToArray(json, array);
             return array;
         }
         case cJSON_String:
         {
-            CCString * string = CCString::create(json->valuestring);
+            CCString * string = new CCString(json->valuestring);
             return string;
         }
         case cJSON_Number:
         {
-            CCNumber * number = CCNumber::create(json->valuedouble);
+            CCNumber * number = new CCNumber(json->valuedouble);
             return number;
         }
         case cJSON_True:
         {
-            CCNumber * boolean = CCNumber::create(1);
+            CCNumber * boolean = new CCNumber(1);
             return boolean;
         }
         case cJSON_False:
         {
-            CCNumber * boolean = CCNumber::create(0);
+            CCNumber * boolean = new CCNumber(0);
             return boolean;
         }
         case cJSON_NULL:
         {
-            CCNull * null = CCNull::create();
+            CCNull * null = new CCNull();
             return null;
         }
         default:
