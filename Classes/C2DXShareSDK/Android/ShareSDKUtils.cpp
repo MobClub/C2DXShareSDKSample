@@ -35,7 +35,7 @@ JNIEXPORT void JNICALL Java_cn_sharesdk_ShareSDKUtils_onJavaCallback
 		callBackCancel(action->getIntValue(), platform->getIntValue(), res);
 	}
 	
-	dic->autorelease();
+	dic->release();
 }
 
 void callBackComplete(int action, int platformId, CCDictionary* res){
