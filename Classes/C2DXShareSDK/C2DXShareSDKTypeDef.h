@@ -12,12 +12,12 @@
 #include "cocos2d.h"
 #include <stdint.h>
 
-USING_NS_CC;
 
 namespace cn
 {
     namespace sharesdk
     {
+        USING_NS_CC;
         /**
          *	@brief	平台类型
          */

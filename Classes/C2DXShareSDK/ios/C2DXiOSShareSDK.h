@@ -13,12 +13,12 @@
 #include "cocos2d.h"
 #include "C2DXShareSDKTypeDef.h"
 
-USING_NS_CC;
 
 namespace cn
 {
     namespace sharesdk
     {
+        USING_NS_CC;
         /**
          *	@brief	ShareSDK (iOS)
          */
