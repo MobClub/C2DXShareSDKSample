@@ -233,6 +233,7 @@
 		379BB9D217F03F3700829B88 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = 379BB98D17F03F3700829B88 /* sconscript */; };
 		379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* CCSGUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* CCSSceneReader.cpp */; };
+		41337C9219012D04007FAC53 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41337C9119012D04007FAC53 /* AddressBook.framework */; };
 		4168D54A1874FBEC003D463B /* CopyConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4168D4FB1874FBEC003D463B /* CopyConnection.framework */; };
 		4168D54B1874FBEC003D463B /* DouBanConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4168D4FC1874FBEC003D463B /* DouBanConnection.framework */; };
 		4168D54C1874FBEC003D463B /* DropboxConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4168D4FD1874FBEC003D463B /* DropboxConnection.framework */; };
@@ -292,6 +293,8 @@
 		4168D5821874FBEE003D463B /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4168D5471874FBEC003D463B /* ShareSDKiPhoneDefaultShareViewUI.framework */; };
 		4168D5831874FBEE003D463B /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4168D5481874FBEC003D463B /* ShareSDKiPhoneSimpleShareViewUI.bundle */; };
 		4168D5841874FBEE003D463B /* ShareSDKiPhoneSimpleShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4168D5491874FBEC003D463B /* ShareSDKiPhoneSimpleShareViewUI.framework */; };
+		41833C0918E962D3004F225E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41833C0818E962D3004F225E /* CoreVideo.framework */; };
+		41833C0B18E962F0004F225E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41833C0A18E962F0004F225E /* CoreMedia.framework */; };
 		41A91CE3186049AF0063C2EF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CE2186049AF0063C2EF /* CoreTelephony.framework */; };
 		41A91CE5186049B50063C2EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CE4186049B50063C2EF /* SystemConfiguration.framework */; };
 		41A91CE7186049C00063C2EF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A91CE6186049C00063C2EF /* MessageUI.framework */; };
@@ -802,6 +805,7 @@
 		379BB99217F03F3700829B88 /* CCSGUIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSGUIReader.h; sourceTree = "<group>"; };
 		379BB99317F03F3700829B88 /* CCSSceneReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSSceneReader.cpp; sourceTree = "<group>"; };
 		379BB99417F03F3700829B88 /* CCSSceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSSceneReader.h; sourceTree = "<group>"; };
+		41337C9119012D04007FAC53 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		4168D4FB1874FBEC003D463B /* CopyConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CopyConnection.framework; sourceTree = "<group>"; };
 		4168D4FC1874FBEC003D463B /* DouBanConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DouBanConnection.framework; sourceTree = "<group>"; };
 		4168D4FD1874FBEC003D463B /* DropboxConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxConnection.framework; sourceTree = "<group>"; };
@@ -868,6 +872,8 @@
 		4168D5471874FBEC003D463B /* ShareSDKiPhoneDefaultShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPhoneDefaultShareViewUI.framework; sourceTree = "<group>"; };
 		4168D5481874FBEC003D463B /* ShareSDKiPhoneSimpleShareViewUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKiPhoneSimpleShareViewUI.bundle; sourceTree = "<group>"; };
 		4168D5491874FBEC003D463B /* ShareSDKiPhoneSimpleShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPhoneSimpleShareViewUI.framework; sourceTree = "<group>"; };
+		41833C0818E962D3004F225E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		41833C0A18E962F0004F225E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		41A91CE2186049AF0063C2EF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		41A91CE4186049B50063C2EF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		41A91CE6186049C00063C2EF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -908,6 +914,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41337C9219012D04007FAC53 /* AddressBook.framework in Frameworks */,
+				41833C0B18E962F0004F225E /* CoreMedia.framework in Frameworks */,
+				41833C0918E962D3004F225E /* CoreVideo.framework in Frameworks */,
 				4168D5651874FBED003D463B /* VKontakteConnection.framework in Frameworks */,
 				4168D54C1874FBEC003D463B /* DropboxConnection.framework in Frameworks */,
 				4168D5671874FBED003D463B /* YiXinConnection.framework in Frameworks */,
@@ -1612,6 +1621,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41337C9119012D04007FAC53 /* AddressBook.framework */,
+				41833C0A18E962F0004F225E /* CoreMedia.framework */,
+				41833C0818E962D3004F225E /* CoreVideo.framework */,
 				41D204F618618B57007AB934 /* AssetsLibrary.framework */,
 				41D204F418618B4F007AB934 /* CoreText.framework */,
 				41D204F218618B47007AB934 /* MediaPlayer.framework */,
@@ -2181,7 +2193,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "C2DXShareSDKSample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2564,7 +2576,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv6 armv7 i386";
+				VALID_ARCHS = "arm64 armv7s armv7 i386";
 			};
 			name = Debug;
 		};
@@ -2628,17 +2640,18 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7s armv7 i386";
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7 i386";
 			};
@@ -2647,7 +2660,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

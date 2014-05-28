@@ -18,7 +18,13 @@
 
 #endif
 
+
 using namespace cn::sharesdk;
+
+const char *C2DXShareSDK::pathString()
+{
+    return C2DXiOSShareSDK::pathString();
+}
 
 void C2DXShareSDK::open(CCString *appKey, bool useAppTrusteeship)
 {

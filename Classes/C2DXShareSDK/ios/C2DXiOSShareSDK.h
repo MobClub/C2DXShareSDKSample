@@ -26,6 +26,8 @@ namespace cn
         {
         public:
             
+            static const char *pathString();
+            
             /**
              *	@brief	初始化ShareSDK
              *

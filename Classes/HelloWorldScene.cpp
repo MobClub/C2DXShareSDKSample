@@ -179,12 +179,12 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
 
 void HelloWorld::authMenuItemClick(CCObject* pSender)
 {
-    C2DXShareSDK::authorize(C2DXPlatTypeSinaWeibo, authResultHandler);
+//    C2DXShareSDK::authorize(C2DXPlatTypeFacebook, authResultHandler);
 }
 
 void HelloWorld::cancelAuthMenuItemClick(CCObject* pSender)
 {
-    C2DXShareSDK::cancelAuthorize(C2DXPlatTypeSinaWeibo);
+//    C2DXShareSDK::cancelAuthorize(C2DXPlatTypeSinaWeibo);
 }
 
 void HelloWorld::hasAuthMenuItemClick(CCObject* pSender)
@@ -208,7 +208,7 @@ void HelloWorld::shareMenuItemClick(CCObject* pSender)
 {
     CCDictionary *content = CCDictionary::create();
     content -> setObject(CCString::create("这是一条测试内容"), "content");
-    content -> setObject(CCString::create("http://img0.bdstatic.com/img/image/308342ac65c10385343da168d569113b07ecb8088ef.jpg"), "image");
+    content -> setObject(CCString::create(C2DXShareSDK::pathString()), "image");
     content -> setObject(CCString::create("测试标题"), "title");
     content -> setObject(CCString::create("测试描述"), "description");
     content -> setObject(CCString::create("http://sharesdk.cn"), "url");
