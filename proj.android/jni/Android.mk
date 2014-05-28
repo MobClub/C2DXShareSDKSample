@@ -10,12 +10,16 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/C2DXShareSDK/Android/ShareSDKUtils.cpp \
 				   ../../Classes/C2DXShareSDK/C2DXShareSDK.cpp \
 				   ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+                   ../../Classes/HelloWorldScene.cpp \
+				   ../../Classes/C2DXShareSDK/Android/JSON/CCJSONConverter.cpp \
+				   ../../Classes/C2DXShareSDK/Android/JSON/cJSON/cJSON.c
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
                     $(LOCAL_PATH)/../../Classes/C2DXShareSDK \
-                    $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android
-
+                    $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android \
+					$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON \
+					$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON/cJSON
+					
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += box2d_static

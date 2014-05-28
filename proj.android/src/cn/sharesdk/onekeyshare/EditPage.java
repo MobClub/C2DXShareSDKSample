@@ -1,22 +1,29 @@
 /*
- * Offical Website:http://www.ShareSDK.cn
- * Support QQ: 4006852216
- * Offical Wechat Account:ShareSDK   (We will inform you our updated news at the first time by Wechat, if we release a new version. If you get any problem, you can also contact us with Wechat, we will reply you within 24 hours.)
+ * 官网地站:http://www.ShareSDK.cn
+ * 技术支持QQ: 4006852216
+ * 官方微信:ShareSDK   （如果发布新版本的话，我们将会第一时间通过微信将版本更新内容推送给您。如果使用过程中有任何问题，也可以通过微信与我们取得联系，我们将会在24小时内给予回复）
  *
- * Copyright (c) 2013 ShareSDK.cn. All rights reserved.
+ * Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
  */
 
 package cn.sharesdk.onekeyshare;
 
 import static cn.sharesdk.framework.utils.R.*;
+import static cn.sharesdk.framework.utils.BitmapHelper.*;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Message;
 import android.os.Handler.Callback;
 import android.text.Editable;
@@ -35,6 +42,7 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout.LayoutParams;
@@ -46,37 +54,35 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.TitleLayout;
 import cn.sharesdk.framework.utils.UIHandler;
 
-/**
- * Photo-text Sharing will be handling in this page
- * <p>
- * note:
- * wechat, yixin, qzone, etc. are shared in their clients, not in this page
- */
-public class EditPage extends FakeActivity implements OnClickListener, TextWatcher, Callback {
+/** 执行图文分享的页面，此页面不支持微信平台的分享 */
+public class EditPage extends FakeActivity implements OnClickListener, TextWatcher {
 	private static final int MAX_TEXT_COUNT = 140;
-	private static final int MSG_PLATFORM_LIST_GOT = 1;
-	private static final int MSG_AFTER_IMAGE_DOWNLOAD = 2;
+	private static final int DIM_COLOR = 0x7f323232;
 	private HashMap<String, Object> reqData;
 	private OnekeyShare parent;
-	private LinearLayout llPage;
+	private RelativeLayout rlPage;
 	private TitleLayout llTitle;
-	// share content editor
+	private LinearLayout llBody;
+	private RelativeLayout rlThumb;
+	// 文本编辑框
 	private EditText etContent;
-	// Words counter
+	// 字数计算器
 	private TextView tvCounter;
-	// the pin
+	// 别针图片
 	private ImageView ivPin;
-	// shared image container
+	// 输入区域的图片
 	private ImageView ivImage;
 	private Bitmap image;
 	private boolean shareImage;
 	private LinearLayout llPlat;
-	private LinearLayout llAt;
-	// platform list
+//	private LinearLayout llAt;
+	// 平台列表
 	private Platform[] platformList;
 	private View[] views;
-	// set to display as a dialog
+	// 设置显示模式为Dialog模式
 	private boolean dialogMode;
+	private View tmpBgView;
+	private Drawable background;
 
 	public void setShareData(HashMap<String, Object> data) {
 		reqData = data;
@@ -86,19 +92,26 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		this.parent = parent;
 	}
 
-	/** set to display as a dialog */
+	/** 设置显示模式为Dialog模式 */
 	public void setDialogMode() {
 		dialogMode = true;
 	}
 
 	public void setActivity(Activity activity) {
 		super.setActivity(activity);
-		if (dialogMode) {
-			activity.setTheme(android.R.style.Theme_Dialog);
-			activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Window win = activity.getWindow();
+		int orientation = activity.getResources().getConfiguration().orientation;
+		if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+			win.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+					| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+		} else {
+			win.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+					| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 		}
-		activity.getWindow().setSoftInputMode(
-			       WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+	}
+
+	public void setBackGround(View bgView) {
+		tmpBgView = bgView;
 	}
 
 	public void onCreate() {
@@ -107,14 +120,15 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			return;
 		}
 
-		initPageView();
-		activity.setContentView(llPage);
+		genBackground();
+		activity.setContentView(getPageView());
 		onTextChanged(etContent.getText(), 0, etContent.length(), 0);
+		showThumb();
 
-		// requests platform list and remove platforms share in their clients
+		// 获取平台列表并过滤微信等使用客户端分享的平台
 		new Thread(){
 			public void run() {
-				platformList = ShareSDK.getPlatformList(activity);
+				platformList = ShareSDK.getPlatformList();
 				if (platformList == null) {
 					return;
 				}
@@ -123,7 +137,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				for (Platform plat : platformList) {
 					String name = plat.getName();
 					if ((plat instanceof CustomPlatform)
-							|| ShareCore.isUseClientToShare(activity, name)) {
+							|| ShareCore.isUseClientToShare(name)) {
 						continue;
 					}
 					list.add(plat);
@@ -133,24 +147,53 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 					platformList[i] = list.get(i);
 				}
 
-				UIHandler.sendEmptyMessage(MSG_PLATFORM_LIST_GOT, EditPage.this);
+				UIHandler.sendEmptyMessage(1, new Callback() {
+					public boolean handleMessage(Message msg) {
+						afterPlatformListGot();
+						return false;
+					}
+				});
 			}
 		}.start();
 	}
 
-	private void initPageView() {
-		llPage = new LinearLayout(getContext());
-		llPage.setBackgroundColor(0xff323232);
-		llPage.setOrientation(LinearLayout.VERTICAL);
+	private RelativeLayout getPageView() {
+		rlPage = new RelativeLayout(getContext());
+		rlPage.setBackgroundDrawable(background);
+		if (dialogMode) {
+			RelativeLayout rlDialog = new RelativeLayout(getContext());
+			rlDialog.setBackgroundColor(0xc0323232);
+			int dp_8 = dipToPx(getContext(), 8);
+			int width = getScreenWidth(getContext()) - dp_8 * 2;
+			RelativeLayout.LayoutParams lpDialog = new RelativeLayout.LayoutParams(
+					width, LayoutParams.WRAP_CONTENT);
+			lpDialog.topMargin = dp_8;
+			lpDialog.bottomMargin = dp_8;
+			lpDialog.addRule(RelativeLayout.CENTER_IN_PARENT);
+			rlDialog.setLayoutParams(lpDialog);
+			rlPage.addView(rlDialog);
 
-		// title bar
-		llTitle = new TitleLayout(getContext());
-		int resId = getBitmapRes(activity, "title_back");
-		if (resId > 0) {
-			llTitle.setBackgroundResource(resId);
+			rlDialog.addView(getPageTitle());
+			rlDialog.addView(getPageBody());
+			rlDialog.addView(getImagePin());
+		} else {
+			rlPage.addView(getPageTitle());
+			rlPage.addView(getPageBody());
+			rlPage.addView(getImagePin());
 		}
+		return rlPage;
+	}
+
+	// 标题栏
+	private TitleLayout getPageTitle() {
+		llTitle = new TitleLayout(getContext());
+		llTitle.setId(1);
+//		int resId = getBitmapRes(activity, "title_back");
+//		if (resId > 0) {
+//			llTitle.setBackgroundResource(resId);
+//		}
 		llTitle.getBtnBack().setOnClickListener(this);
-		resId = getStringRes(activity, "multi_share");
+		int resId = getStringRes(activity, "multi_share");
 		if (resId > 0) {
 			llTitle.getTvTitle().setText(resId);
 		}
@@ -160,101 +203,146 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			llTitle.getBtnRight().setText(resId);
 		}
 		llTitle.getBtnRight().setOnClickListener(this);
-		llTitle.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		llPage.addView(llTitle);
+		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+		lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+		lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		llTitle.setLayoutParams(lp);
 
-		FrameLayout flPage = new FrameLayout(getContext());
-		LinearLayout.LayoutParams lpFl = new LinearLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		lpFl.weight = 1;
-		flPage.setLayoutParams(lpFl);
-		llPage.addView(flPage);
+		return llTitle;
+	}
 
-		// page body
-		LinearLayout llBody = new LinearLayout(getContext());
+	// 页面主体
+	private LinearLayout getPageBody() {
+		llBody = new LinearLayout(getContext());
+		llBody.setId(2);
+		int resId = getBitmapRes(activity, "edittext_back");
+		if (resId > 0) {
+			llBody.setBackgroundResource(resId);
+		}
 		llBody.setOrientation(LinearLayout.VERTICAL);
-		FrameLayout.LayoutParams lpLl = new FrameLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		lpLl.gravity = Gravity.LEFT | Gravity.TOP;
-		llBody.setLayoutParams(lpLl);
-		flPage.addView(llBody);
-
-		// the pin
-		ivPin = new ImageView(getContext());
-		resId = getBitmapRes(activity, "pin");
-		if (resId > 0) {
-			ivPin.setImageResource(resId);
+		RelativeLayout.LayoutParams lpBody = new RelativeLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		lpBody.addRule(RelativeLayout.ALIGN_LEFT, llTitle.getId());
+		lpBody.addRule(RelativeLayout.BELOW, llTitle.getId());
+		lpBody.addRule(RelativeLayout.ALIGN_RIGHT, llTitle.getId());
+		if (!dialogMode) {
+			lpBody.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		}
-		int dp_80 = dipToPx(getContext(), 80);
-		int dp_36 = dipToPx(getContext(), 36);
-		FrameLayout.LayoutParams lpPin = new FrameLayout.LayoutParams(dp_80, dp_36);
-		lpPin.topMargin = dipToPx(getContext(), 6);
-		lpPin.gravity = Gravity.RIGHT | Gravity.TOP;
-		ivPin.setLayoutParams(lpPin);
-		flPage.addView(ivPin);
-
-		ImageView ivShadow = new ImageView(getContext());
-		resId = getBitmapRes(activity, "title_shadow");
-		if (resId > 0) {
-			ivShadow.setBackgroundResource(resId);
-		}
-		FrameLayout.LayoutParams lpSd = new FrameLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		ivShadow.setLayoutParams(lpSd);
-		flPage.addView(ivShadow);
-
-		final LinearLayout llInput = new LinearLayout(getContext());
-		llInput.setMinimumHeight(dipToPx(getContext(), 150));
-		resId = getBitmapRes(activity, "edittext_back");
-		if (resId > 0) {
-			llInput.setBackgroundResource(resId);
-		}
-		LinearLayout.LayoutParams lpInput = new LinearLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		int dp_3 = dipToPx(getContext(), 3);
-		lpInput.setMargins(dp_3, dp_3, dp_3, dp_3);
-		lpInput.weight = 1;
-		llInput.setLayoutParams(lpInput);
-		llBody.addView(llInput);
+		lpBody.setMargins(dp_3, dp_3, dp_3, dp_3);
+		llBody.setLayoutParams(lpBody);
 
-		// platform logos
-		LinearLayout llToolBar = new LinearLayout(getContext());
-		resId = getBitmapRes(activity, "share_tb_back");
-		if (resId > 0) {
-			llToolBar.setBackgroundResource(resId);
-		}
-		LinearLayout.LayoutParams lpTb = new LinearLayout.LayoutParams(
+		llBody.addView(getMainBody());
+		llBody.addView(getSep());
+		llBody.addView(getPlatformList());
+
+		return llBody;
+	}
+
+	private LinearLayout getMainBody() {
+		LinearLayout llMainBody = new LinearLayout(getContext());
+		llMainBody.setOrientation(LinearLayout.VERTICAL);
+		LinearLayout.LayoutParams lpMain = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		lpMain.weight = 1;
 		int dp_4 = dipToPx(getContext(), 4);
-		lpTb.setMargins(dp_4, 0, dp_4, dp_4);
-		llToolBar.setLayoutParams(lpTb);
-		llBody.addView(llToolBar);
+		lpMain.setMargins(dp_4, dp_4, dp_4, dp_4);
+		llMainBody.setLayoutParams(lpMain);
 
 		LinearLayout llContent = new LinearLayout(getContext());
-		llContent.setOrientation(LinearLayout.VERTICAL);
-		LinearLayout.LayoutParams lpEt = new LinearLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		lpEt.weight = 1;
-		llContent.setLayoutParams(lpEt);
-		llInput.addView(llContent);
+		LinearLayout.LayoutParams lpContent = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		lpContent.weight = 1;
+		llMainBody.addView(llContent, lpContent);
 
-		// share content editor
+		// 文字输入区域
 		etContent = new EditText(getContext());
 		etContent.setGravity(Gravity.LEFT | Gravity.TOP);
 		etContent.setBackgroundDrawable(null);
 		etContent.setText(String.valueOf(reqData.get("text")));
 		etContent.addTextChangedListener(this);
+		LinearLayout.LayoutParams lpEt = new LinearLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		lpEt.weight = 1;
 		etContent.setLayoutParams(lpEt);
 		llContent.addView(etContent);
 
-		String platform = String.valueOf(reqData.get("platform"));
-		checkAtMth(llContent, platform);
+		llContent.addView(getThumbView());
+		llMainBody.addView(getBodyBottom());
 
+		return llMainBody;
+	}
+
+	// 输入区域的图片
+	private RelativeLayout getThumbView() {
+		rlThumb = new RelativeLayout(getContext());
+		rlThumb.setId(1);
+		int dp_82 = dipToPx(getContext(), 82);
+		int dp_98 = dipToPx(getContext(), 98);
+		LinearLayout.LayoutParams lpThumb
+				= new LinearLayout.LayoutParams(dp_82, dp_98);
+		rlThumb.setLayoutParams(lpThumb);
+
+		ivImage = new ImageView(getContext());
+		int resId = getBitmapRes(activity, "btn_back_nor");
+		if (resId > 0) {
+			ivImage.setBackgroundResource(resId);
+		}
+		ivImage.setScaleType(ScaleType.CENTER_INSIDE);
+		ivImage.setImageBitmap(image);
+
+		int dp_4 = dipToPx(getContext(), 4);
+		ivImage.setPadding(dp_4, dp_4, dp_4, dp_4);
 		int dp_74 = dipToPx(getContext(), 74);
+		RelativeLayout.LayoutParams lpImage
+				= new RelativeLayout.LayoutParams(dp_74, dp_74);
 		int dp_16 = dipToPx(getContext(), 16);
-		String imagePath = String.valueOf(reqData.get("imagePath"));
-		if(!TextUtils.isEmpty(imagePath) && new File(imagePath).exists()){
+		int dp_8 = dipToPx(getContext(), 8);
+		lpImage.setMargins(0, dp_16, dp_8, 0);
+		ivImage.setLayoutParams(lpImage);
+		ivImage.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if (image != null && !image.isRecycled()) {
+					PicViewer pv = new PicViewer();
+					pv.setImageBitmap(image);
+					pv.show(activity, null);
+				}
+			}
+		});
+		rlThumb.addView(ivImage);
+
+		Button btn = new Button(getContext());
+		btn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// 取消分享图片
+				rlThumb.setVisibility(View.GONE);
+				ivPin.setVisibility(View.GONE);
+				shareImage = false;
+			}
+		});
+		resId = getBitmapRes(activity, "img_cancel");
+		if (resId > 0) {
+			btn.setBackgroundResource(resId);
+		}
+		int dp_20 = dipToPx(getContext(), 20);
+		RelativeLayout.LayoutParams lpBtn
+				= new RelativeLayout.LayoutParams(dp_20, dp_20);
+		lpBtn.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		lpBtn.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		btn.setLayoutParams(lpBtn);
+		rlThumb.addView(btn);
+
+		rlThumb.setVisibility(View.GONE);
+		return rlThumb;
+	}
+
+	private void showThumb() {
+		String imagePath = (String) reqData.get("imagePath");
+		Bitmap viewToShare = (Bitmap) reqData.get("viewToShare");
+		shareImage = false;
+		if(!TextUtils.isEmpty(imagePath) && new File(imagePath).exists()) {
 			try {
 				shareImage = true;
 				image = getBitmap(imagePath);
@@ -267,9 +355,22 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 					shareImage = false;
 				}
 			}
-			initImage(llInput);
+
+			if (shareImage) {
+				rlThumb.setVisibility(View.VISIBLE);
+				ivPin.setVisibility(View.VISIBLE);
+				ivImage.setImageBitmap(image);
+			}
+		} else if(viewToShare != null && !viewToShare.isRecycled()){
+			shareImage = true;
+			image = viewToShare;
+
+			if (shareImage) {
+				rlThumb.setVisibility(View.VISIBLE);
+				ivPin.setVisibility(View.VISIBLE);
+				ivImage.setImageBitmap(image);
+			}
 		} else if (reqData.containsKey("imageUrl")) {
-			ivPin.setVisibility(View.GONE);
 			new Thread(){
 				public void run() {
 					String imageUrl = String.valueOf(reqData.get("imageUrl"));
@@ -282,134 +383,67 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 						image = null;
 					}
 
-					if (image != null && !image.isRecycled()) {
-						Message msg = new Message();
-						msg.what = MSG_AFTER_IMAGE_DOWNLOAD;
-						msg.obj = llInput;
-						UIHandler.sendMessage(msg, EditPage.this);
+					if (shareImage) {
+						UIHandler.sendEmptyMessage(1, new Callback() {
+							public boolean handleMessage(Message msg) {
+								rlThumb.setVisibility(View.VISIBLE);
+								ivPin.setVisibility(View.VISIBLE);
+								ivImage.setImageBitmap(image);
+								return false;
+							}
+						});
 					}
 				}
 			}.start();
-		} else {
-			shareImage = false;
-			ivPin.setVisibility(View.GONE);
+		}
+	}
+
+	private LinearLayout getBodyBottom() {
+		LinearLayout llBottom = new LinearLayout(getContext());
+		llBottom.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+
+		String platform = String.valueOf(reqData.get("platform"));
+		LinearLayout line = getAtLine(platform);
+		if (line != null) {
+			llBottom.addView(line);
 		}
 
-		// shared image container
-		if(shareImage){
-			Button btn = new Button(getContext());
-			btn.setTag("img_cancel");
-			btn.setOnClickListener(this);
-			resId = getBitmapRes(activity, "img_cancel");
-			if (resId > 0) {
-				btn.setBackgroundResource(resId);
-			}
-			int dp_20 = dipToPx(getContext(), 20);
-			int dp_83 = dipToPx(getContext(), 83);
-			int dp_13 = dipToPx(getContext(), 13);
-			FrameLayout.LayoutParams lpBtn = new FrameLayout.LayoutParams(dp_20, dp_20);
-			lpBtn.topMargin = dp_83;
-			lpBtn.rightMargin = dp_13;
-			lpBtn.gravity = Gravity.RIGHT | Gravity.TOP;
-			btn.setPadding(dp_4, dp_4, dp_4, dp_4);
-			btn.setLayoutParams(lpBtn);
-			flPage.addView(btn);
-		}
-
-		// Words counter
+		// 字数统计
 		tvCounter = new TextView(getContext());
 		tvCounter.setText(String.valueOf(MAX_TEXT_COUNT));
 		tvCounter.setTextColor(0xffcfcfcf);
-		tvCounter.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+		tvCounter.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 		tvCounter.setTypeface(Typeface.DEFAULT_BOLD);
-		FrameLayout.LayoutParams lpCounter = new FrameLayout.LayoutParams(
+		LinearLayout.LayoutParams lpCounter = new LinearLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		lpCounter.bottomMargin = dp_74;
-		lpCounter.gravity = Gravity.RIGHT | Gravity.BOTTOM;
-
-		tvCounter.setPadding(0, 0, dp_16, 0);
+		lpCounter.gravity = Gravity.CENTER_VERTICAL;
 		tvCounter.setLayoutParams(lpCounter);
-		flPage.addView(tvCounter);
+		llBottom.addView(tvCounter);
 
-		TextView tvShareTo = new TextView(getContext());
-		resId = getStringRes(activity, "share_to");
-		if (resId > 0) {
-			tvShareTo.setText(resId);
-		}
-		tvShareTo.setTextColor(0xffcfcfcf);
-		tvShareTo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
-		int dp_9 = dipToPx(getContext(), 9);
-		LinearLayout.LayoutParams lpShareTo = new LinearLayout.LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		lpShareTo.gravity = Gravity.CENTER_VERTICAL;
-		lpShareTo.setMargins(dp_9, 0, 0, 0);
-		tvShareTo.setLayoutParams(lpShareTo);
-		llToolBar.addView(tvShareTo);
-
-		HorizontalScrollView sv = new HorizontalScrollView(getContext());
-		sv.setHorizontalScrollBarEnabled(false);
-		sv.setHorizontalFadingEdgeEnabled(false);
-		LinearLayout.LayoutParams lpSv = new LinearLayout.LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		lpSv.setMargins(dp_9, dp_9, dp_9, dp_9);
-		sv.setLayoutParams(lpSv);
-		llToolBar.addView(sv);
-
-		llPlat = new LinearLayout(getContext());
-		llPlat.setLayoutParams(new HorizontalScrollView.LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
-		sv.addView(llPlat);
+		return llBottom;
 	}
 
-	private void initImage(LinearLayout llInput) {
-		LinearLayout llRight = new LinearLayout(getContext());
-		llRight.setOrientation(LinearLayout.VERTICAL);
-		llRight.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
-		llInput.addView(llRight);
-
-		// shared image container
-		ivImage = new ImageView(getContext());
-		int resId = getBitmapRes(activity, "btn_back_nor");
-		if (resId > 0) {
-			ivImage.setBackgroundResource(resId);
-		}
-		ivImage.setScaleType(ScaleType.CENTER_INSIDE);
-		ivImage.setVisibility(View.GONE);
-		ivImage.setVisibility(View.VISIBLE);
-		ivImage.setImageBitmap(image);
-
-		int dp_4 = dipToPx(getContext(), 4);
-		ivImage.setPadding(dp_4, dp_4, dp_4, dp_4);
-		int dp_74 = dipToPx(getContext(), 74);
-		LinearLayout.LayoutParams lpImage = new LinearLayout.LayoutParams(dp_74, dp_74);
-		int dp_16 = dipToPx(getContext(), 16);
-		int dp_8 = dipToPx(getContext(), 8);
-		lpImage.setMargins(0, dp_16, dp_8, 0);
-		ivImage.setLayoutParams(lpImage);
-		llRight.addView(ivImage);
-		if(!shareImage){
-			ivPin.setVisibility(View.GONE);
-			ivImage.setVisibility(View.GONE);
-		}
-		ivImage.setOnClickListener(this);
-	}
-
-	// if platform selected form platform gridview is SinaWeibo,
-	// TencentWeibo, Facebook, or Twitter, there will be a button
-	// in the left-bottom of the page, which provides At-friends function
-	private void checkAtMth(LinearLayout llInput, String platform) {
+	// 进新浪微博、腾讯微博、Facebook和Twitter支持At功能
+	private LinearLayout getAtLine(String platform) {
 		if ("SinaWeibo".equals(platform) || "TencentWeibo".equals(platform)
 				|| "Facebook".equals(platform) || "Twitter".equals(platform)) {
-			llAt= new LinearLayout(getContext());
-			FrameLayout.LayoutParams lpAt = new FrameLayout.LayoutParams(
+			LinearLayout llAt = new LinearLayout(getContext());
+			LinearLayout.LayoutParams lpAt = new LinearLayout.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-			lpAt.leftMargin = dipToPx(getContext(), 10);
-			lpAt.bottomMargin = dipToPx(getContext(), 10);
+			lpAt.rightMargin = dipToPx(getContext(), 4);
 			lpAt.gravity = Gravity.LEFT | Gravity.BOTTOM;
+			lpAt.weight = 1;
 			llAt.setLayoutParams(lpAt);
-			llAt.setOnClickListener(this);
-			llInput.addView(llAt);
+			llAt.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					FollowList subPage = new FollowList();
+					String platform = String.valueOf(reqData.get("platform"));
+					subPage.setPlatform(ShareSDK.getPlatform(platform));
+					subPage.setBackPage(EditPage.this);
+					subPage.show(activity, null);
+				}
+			});
 
 			TextView tvAt = new TextView(getContext());
 			int resId = getBitmapRes(activity, "btn_back_nor");
@@ -438,6 +472,93 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			lpName.gravity = Gravity.CENTER_VERTICAL;
 			tvName.setLayoutParams(lpName);
 			llAt.addView(tvName);
+
+			return llAt;
+		}
+
+		return null;
+	}
+
+	private View getSep() {
+		View vSep = new View(getContext());
+		vSep.setBackgroundColor(0xff000000);
+		int dp_1 = dipToPx(getContext(), 1);
+		LinearLayout.LayoutParams lpSep = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, dp_1);
+		vSep.setLayoutParams(lpSep);
+		return vSep;
+	}
+
+	// 平台Logo列表
+	private LinearLayout getPlatformList() {
+		LinearLayout llToolBar = new LinearLayout(getContext());
+		LinearLayout.LayoutParams lpTb = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		llToolBar.setLayoutParams(lpTb);
+
+		TextView tvShareTo = new TextView(getContext());
+		int resId = getStringRes(activity, "share_to");
+		if (resId > 0) {
+			tvShareTo.setText(resId);
+		}
+		tvShareTo.setTextColor(0xffcfcfcf);
+		tvShareTo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+		int dp_9 = dipToPx(getContext(), 9);
+		LinearLayout.LayoutParams lpShareTo = new LinearLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		lpShareTo.gravity = Gravity.CENTER_VERTICAL;
+		lpShareTo.setMargins(dp_9, 0, 0, 0);
+		tvShareTo.setLayoutParams(lpShareTo);
+		llToolBar.addView(tvShareTo);
+
+		HorizontalScrollView sv = new HorizontalScrollView(getContext());
+		sv.setHorizontalScrollBarEnabled(false);
+		sv.setHorizontalFadingEdgeEnabled(false);
+		LinearLayout.LayoutParams lpSv = new LinearLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		lpSv.setMargins(dp_9, dp_9, dp_9, dp_9);
+		sv.setLayoutParams(lpSv);
+		llToolBar.addView(sv);
+
+		llPlat = new LinearLayout(getContext());
+		llPlat.setLayoutParams(new HorizontalScrollView.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
+		sv.addView(llPlat);
+
+		return llToolBar;
+	}
+
+	// 别针图片
+	private ImageView getImagePin() {
+		ivPin = new ImageView(getContext());
+		int resId = getBitmapRes(activity, "pin");
+		if (resId > 0) {
+			ivPin.setImageResource(resId);
+		}
+		int dp_80 = dipToPx(getContext(), 80);
+		int dp_36 = dipToPx(getContext(), 36);
+		RelativeLayout.LayoutParams lp
+				= new RelativeLayout.LayoutParams(dp_80, dp_36);
+		lp.topMargin = dipToPx(getContext(), 6);
+		lp.addRule(RelativeLayout.ALIGN_TOP, llBody.getId());
+		lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		ivPin.setLayoutParams(lp);
+		ivPin.setVisibility(View.GONE);
+
+		return ivPin;
+	}
+
+	private void genBackground() {
+		background = new ColorDrawable(DIM_COLOR);
+		if (tmpBgView != null) {
+			try {
+				Bitmap bgBm = captureView(tmpBgView, tmpBgView.getWidth(), tmpBgView.getHeight());
+				bgBm = blur(bgBm, 20, 8);
+				BitmapDrawable blurBm = new BitmapDrawable(activity.getResources(), bgBm);
+				background = new LayerDrawable(new Drawable[] {blurBm, background});
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -451,15 +572,6 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 	}
 
 	public void onClick(View v) {
-		if (v.equals(ivImage)) {
-			if (image != null && !image.isRecycled()) {
-				PicViewer pv = new PicViewer();
-				pv.setImageBitmap(image);
-				pv.show(activity, null);
-			}
-			return;
-		}
-
 		if (v.equals(llTitle.getBtnBack())) {
 			Platform plat = null;
 			for (int i = 0; i < views.length; i++) {
@@ -469,7 +581,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				}
 			}
 
-			// a statistics of Cancel-sharing
+			// 取消分享的统计
 			if (plat != null) {
 				ShareSDK.logDemoEvent(5, plat);
 			}
@@ -477,14 +589,19 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			return;
 		}
 
-		// a statistics of Cancel-sharing
+		// 取消分享的统计
 		if (v.equals(llTitle.getBtnRight())) {
 			String text = etContent.getText().toString();
 			reqData.put("text", text);
 			if(!shareImage){
 				if (reqData.get("imagePath") == null) {
+					reqData.put("viewToShare", null);
 					reqData.put("imageUrl", null);
+				} else if (reqData.get("imageUrl") == null) {
+					reqData.put("imagePath", null);
+					reqData.put("viewToShare", null);
 				} else {
+					reqData.put("imageUrl", null);
 					reqData.put("imagePath", null);
 				}
 			}
@@ -504,31 +621,13 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 					parent.share(editRes);
 				}
 				finish();
-			}
-			else {
+			} else {
 				int resId = getStringRes(activity, "select_one_plat_at_least");
 				if (resId > 0) {
 					Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
 				}
 			}
 			return;
-		}
-
-		if (v.equals(llAt)) {
-			FollowList subPage = new FollowList();
-			String platform = String.valueOf(reqData.get("platform"));
-			subPage.setPlatform(ShareSDK.getPlatform(activity, platform));
-			subPage.setBackPage(this);
-			subPage.show(activity, null);
-			return;
-		}
-
-		// remove the photo to share
-		if("img_cancel".equals(v.getTag())){
-			v.setVisibility(View.GONE);
-			ivPin.setVisibility(View.GONE);
-			ivImage.setVisibility(View.GONE);
-			shareImage = false;
 		}
 
 		if (v instanceof FrameLayout) {
@@ -538,35 +637,19 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 
 		if (v.getVisibility() == View.INVISIBLE) {
 			v.setVisibility(View.VISIBLE);
-		}
-		else {
+		} else {
 			v.setVisibility(View.INVISIBLE);
 		}
 	}
 
-	public boolean handleMessage(Message msg) {
-		switch(msg.what) {
-			case MSG_PLATFORM_LIST_GOT: {
-				afterPlatformListGot();
-			}
-			break;
-			case MSG_AFTER_IMAGE_DOWNLOAD: {
-				ivPin.setVisibility(View.VISIBLE);
-				initImage((LinearLayout) msg.obj);
-			}
-			break;
-		}
-		return false;
-	}
-
-	/** display platform list */
+	/** 显示平台列表 */
 	public void afterPlatformListGot() {
 		String name = String.valueOf(reqData.get("platform"));
 		int size = platformList == null ? 0 : platformList.length;
 		views = new View[size];
 
-		final int dp_36 = dipToPx(getContext(), 36);
-		LinearLayout.LayoutParams lpItem = new LinearLayout.LayoutParams(dp_36, dp_36);
+		final int dp_24 = dipToPx(getContext(), 24);
+		LinearLayout.LayoutParams lpItem = new LinearLayout.LayoutParams(dp_24, dp_24);
 		final int dp_9 = dipToPx(getContext(), 9);
 		lpItem.setMargins(0, 0, dp_9, 0);
 		FrameLayout.LayoutParams lpMask = new FrameLayout.LayoutParams(
@@ -577,7 +660,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 			FrameLayout fl = new FrameLayout(getContext());
 			fl.setLayoutParams(lpItem);
 			if (i >= size - 1) {
-				fl.setLayoutParams(new LinearLayout.LayoutParams(dp_36, dp_36));
+				fl.setLayoutParams(new LinearLayout.LayoutParams(dp_24, dp_24));
 			}
 			llPlat.addView(fl);
 			fl.setOnClickListener(this);
@@ -596,7 +679,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 				views[i].setVisibility(View.INVISIBLE);
 				selection = i;
 
-				// a statistics of Sharing
+				// 编辑分享内容的统计
 				ShareSDK.logDemoEvent(3, platformList[i]);
 			}
 			views[i].setLayoutParams(lpMask);
@@ -607,7 +690,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		UIHandler.sendEmptyMessageDelayed(0, 333, new Callback() {
 			public boolean handleMessage(Message msg) {
 				HorizontalScrollView hsv = (HorizontalScrollView)llPlat.getParent();
-				hsv.scrollTo(postSel * (dp_36 + dp_9), 0);
+				hsv.scrollTo(postSel * (dp_24 + dp_9), 0);
 				return false;
 			}
 		});
@@ -625,7 +708,10 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 
 		String resName = "logo_" + plat.getName();
 		int resId = getBitmapRes(activity, resName);
-		return BitmapFactory.decodeResource(activity.getResources(), resId);
+		if(resId > 0) {
+			return BitmapFactory.decodeResource(activity.getResources(), resId);
+		}
+		return null;
 	}
 
 	public void beforeTextChanged(CharSequence s, int start, int count,
@@ -651,7 +737,7 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		etContent.append(sb.toString());
 	}
 
-	public void finish() {
+	private void hideSoftInput() {
 		InputMethodManager imm = null;
 		try {
 			imm = (InputMethodManager) activity.getSystemService(
@@ -664,8 +750,40 @@ public class EditPage extends FakeActivity implements OnClickListener, TextWatch
 		if (imm != null) {
 			imm.hideSoftInputFromWindow(etContent.getWindowToken(), 0);
 		}
+	}
 
+	public void finish() {
+		hideSoftInput();
 		super.finish();
+	}
+
+	public void onConfigurationChanged(Configuration newConfig) {
+		int orientation = activity.getResources().getConfiguration().orientation;
+		if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+			hideSoftInput();
+			Window win = activity.getWindow();
+			win.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+					| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+			rlPage.setBackgroundColor(DIM_COLOR);
+			rlPage.postDelayed(new Runnable() {
+				public void run() {
+					genBackground();
+					rlPage.setBackgroundDrawable(background);
+				}
+			}, 1000);
+		} else {
+			hideSoftInput();
+			Window win = activity.getWindow();
+			win.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+					| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+			rlPage.setBackgroundColor(DIM_COLOR);
+			rlPage.postDelayed(new Runnable() {
+				public void run() {
+					genBackground();
+					rlPage.setBackgroundDrawable(background);
+				}
+			}, 1000);
+		}
 	}
 
 }
