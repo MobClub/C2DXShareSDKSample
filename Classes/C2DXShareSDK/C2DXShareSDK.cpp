@@ -21,10 +21,12 @@
 
 using namespace cn::sharesdk;
 
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 const char *C2DXShareSDK::pathString()
 {
     return C2DXiOSShareSDK::pathString();
 }
+#endif
 
 void C2DXShareSDK::open(CCString *appKey, bool useAppTrusteeship)
 {
