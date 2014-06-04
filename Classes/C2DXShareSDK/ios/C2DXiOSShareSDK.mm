@@ -350,11 +350,6 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
     return contentObj;
 }
 
-const char *C2DXiOSShareSDK::pathString()
-{
-    return [[[NSBundle mainBundle] pathForResource:@"dengni12" ofType:@"jpg"] UTF8String];
-}
-
 void C2DXiOSShareSDK::open(CCString *appKey, bool useAppTrusteeship)
 {
     NSString *appKeyStr = [NSString stringWithCString:appKey -> getCString() encoding:NSUTF8StringEncoding];

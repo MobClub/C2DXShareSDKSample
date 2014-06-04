@@ -210,7 +210,7 @@ void HelloWorld::shareMenuItemClick(CCObject* pSender)
 {
     CCDictionary *content = CCDictionary::create();
     content -> setObject(CCString::create("这是一条测试内容"), "content");
-    content -> setObject(CCString::create(C2DXShareSDK::pathString()), "image");
+    content -> setObject(CCString::create("http://img0.bdstatic.com/img/image/shouye/systsy-11927417755.jpg"), "image");
     content -> setObject(CCString::create("测试标题"), "title");
     content -> setObject(CCString::create("测试描述"), "description");
     content -> setObject(CCString::create("http://sharesdk.cn"), "url");
