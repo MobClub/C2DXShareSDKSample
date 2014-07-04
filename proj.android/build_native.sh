@@ -1,8 +1,7 @@
 APPNAME="HelloCpp"
 # options
 buildexternalsfromsource=
-usage()
-{
+usage() {
 cat << EOF
 usage: $0 [options]
 
