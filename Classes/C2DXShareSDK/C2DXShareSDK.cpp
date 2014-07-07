@@ -18,6 +18,7 @@
 
 #endif
 
+
 using namespace cn::sharesdk;
 
 void C2DXShareSDK::open(CCString *appKey, bool useAppTrusteeship)

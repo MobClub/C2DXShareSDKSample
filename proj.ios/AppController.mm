@@ -54,16 +54,28 @@ static AppDelegate s_sharedApplication;
                                       sharegroup: nil
                                    multiSampling: NO
                                  numberOfSamples: 0];
+    
 
-    // Use RootViewController manage EAGLView 
+    // Use RootViewController manage EAGLView
     viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     viewController.wantsFullScreenLayout = YES;
     viewController.view = __glView;
+    
+    NSLog(@"%@", __glView.layer);
+    
+    ((CAEAGLLayer *)__glView.layer).drawableProperties = @{
+                                                           kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES],
+                                                           kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+                                                           };
 
     // Set RootViewController to window
     if ([[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
         // warning: addSubView doesn't work on iOS6
+        if ([[UIDevice currentDevice].systemVersion floatValue] > 4.0)
+        {
+            [window setRootViewController:viewController];
+        }
         [window addSubview: viewController.view];
     }
     else

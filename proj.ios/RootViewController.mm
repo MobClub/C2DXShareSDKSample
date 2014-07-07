@@ -1,5 +1,5 @@
 #import "RootViewController.h"
-
+#import "C2DXShareSDK.h"
 
 @implementation RootViewController
 
@@ -66,6 +66,5 @@
 - (void)dealloc {
     [super dealloc];
 }
-
 
 @end
