@@ -13,6 +13,7 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
 import android.content.Context;
 import android.os.Message;
 import android.os.Handler.Callback;
+import android.text.TextUtils;
 
 public class ShareSDKUtils {
 	private static boolean DEBUG = true;
