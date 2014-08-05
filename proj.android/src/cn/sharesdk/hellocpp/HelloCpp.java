@@ -25,6 +25,8 @@ package cn.sharesdk.hellocpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
+import org.cocos2dx.plugin.PluginWrapper;
+
 import cn.sharesdk.ShareSDKUtils;
 import android.os.Bundle;
 
@@ -39,7 +41,8 @@ public class HelloCpp extends Cocos2dxActivity{
     	Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
     	// HelloCpp should create stencil buffer
     	glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
-    	
+		PluginWrapper.init(this);
+		PluginWrapper.setGLSurfaceView(glSurfaceView);
     	return glSurfaceView;
     }
 

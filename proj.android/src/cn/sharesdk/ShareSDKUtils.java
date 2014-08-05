@@ -5,6 +5,8 @@ import java.util.HashMap;
 import m.framework.utils.Hashon;
 import m.framework.utils.UIHandler;
 import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.plugin.PluginWrapper;
+
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -30,8 +32,13 @@ public class ShareSDKUtils {
 		context = Cocos2dxActivity.getContext().getApplicationContext();
 		hashon = new Hashon();
 		final Callback cb = new Callback() {
-			public boolean handleMessage(Message msg) {
-				onJavaCallback((String) msg.obj);
+			public boolean handleMessage(final Message msg) {
+				PluginWrapper.runOnGLThread(new Runnable() {
+					public void run() {
+						onJavaCallback((String) msg.obj);
+					}
+				});
+				
 				return false;
 			}
 		};
