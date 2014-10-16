@@ -23,7 +23,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         CCDictionary *sinaConfigDict = CCDictionary::create();
         sinaConfigDict -> setObject(CCString::create("568898243"), "app_key");
         sinaConfigDict -> setObject(CCString::create("38a4f8204cc784f81f9f0daaf31e02e3"), "app_secret");
-        sinaConfigDict -> setObject(CCString::create("http://www.sharesdk.cn"), "redirect_uri");
+        sinaConfigDict -> setObject(CCString::create("http://www.mob.com"), "redirect_uri");
         C2DXShareSDK::setPlatformConfig(C2DXPlatTypeSinaWeibo, sinaConfigDict);
 
         //……
@@ -42,7 +42,7 @@ content -> setObject(CCString::create("This is a test content"), "content");
 content -> setObject(CCString::create("http://img0.bdstatic.com/img/image/308342ac65c10385343da168d569113b07ecb8088ef.jpg"), "image");
 content -> setObject(CCString::create("Test title"), "title");
 content -> setObject(CCString::create("Test description"), "description");
-content -> setObject(CCString::create("http://sharesdk.cn"), "url");
+content -> setObject(CCString::create("http://www.mob.com"), "url");
 content -> setObject(CCInteger::create(C2DXContentTypeNews), "type");
 ```
 
