@@ -592,13 +592,13 @@ void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C
     }
     
     //设置iPad菜单位置
-    pt = CCDirector::sharedDirector() -> convertToUI(pt);
+//    pt = CCDirector::sharedDirector() -> convertToUI(pt);
     if (!_refView)
     {
         _refView = [[UIView alloc] initWithFrame:CGRectMake(pt.x, pt.y, 1, 1)];
     }
-    
-    [[UIApplication sharedApplication].keyWindow addSubview:_refView];
+    _refView.frame = CGRectMake(pt.x, pt.y, 1, 1);
+    [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:_refView];
     
     container = [ShareSDK container];
     [container setIPadContainerWithView:_refView arrowDirect:direction];
