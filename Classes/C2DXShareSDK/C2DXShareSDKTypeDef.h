@@ -59,6 +59,12 @@ namespace cn
             C2DXPlatTypeYiXinSession = 38,     /**< 易信好友 */
             C2DXPlatTypeYiXinTimeline = 39,    /**< 易信朋友圈 */
             C2DXPlatTypeYiXinFav = 40,         /**< 易信收藏 */
+            C2DXPlatTypeYiXinFav = 40,         /**< 易信收藏 */
+            C2DXPlatTypeMingDao = 41,          /**< 明道 */
+            C2DXPlatTypeLine = 42,             /**< Line */
+            C2DXPlatTypeWhatsApp = 43,         /**< Whats App */
+            C2DXPlatTypeKaKaoTalk = 44,        /**< KaKao Talk */
+            C2DXPlatTypeKaKaoStory = 45,       /**< KaKao Story */
             C2DXPlatTypeAny = 99               /**< 任意平台 */
         };
         

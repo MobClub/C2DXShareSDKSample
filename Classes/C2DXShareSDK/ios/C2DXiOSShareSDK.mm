@@ -354,7 +354,7 @@ void C2DXiOSShareSDK::open(CCString *appKey, bool useAppTrusteeship)
 {
     NSString *appKeyStr = [NSString stringWithCString:appKey -> getCString() encoding:NSUTF8StringEncoding];
     [ShareSDK registerApp:appKeyStr useAppTrusteeship:useAppTrusteeship];
-    [ShareSDK ssoEnabled:NO];
+//    [ShareSDK ssoEnabled:NO];
 }
 
 void C2DXiOSShareSDK::close()
