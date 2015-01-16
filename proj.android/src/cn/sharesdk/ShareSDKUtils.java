@@ -245,6 +245,8 @@ public class ShareSDKUtils {
 		return map;
 	}
 
+	
+	
 	private static int iosTypeToAndroidType(int type) {
 		switch (type) {
 		case 1:
