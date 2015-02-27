@@ -14,7 +14,7 @@
 		<string>https://github.com/ShareSDKPlatform/C2DXShareSDKSample.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios/C2DXShareSDKSample.xcodeproj/project.xcworkspace</string>
+	<string>proj.ios/C2DXShareSDKSample.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>794F4DFC177A381DA7AD72C052F7CBD0E2383AFE</key>
