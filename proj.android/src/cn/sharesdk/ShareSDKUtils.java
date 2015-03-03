@@ -59,7 +59,11 @@ public class ShareSDKUtils {
 						ShareSDK.platformNameToId(platform.getName()));
 				map.put("action", action);
 				map.put("status", 1); // Success = 1, Fail = 2, Cancel = 3
-				map.put("res", res);
+				if(action == 8 || action == 2){
+					//action = 2, 8, 获取用户列表与用户信息才放入   
+					map.put("res", res);
+				}
+				map.put("platformDb", getPlatformDB(platform));
 				Message msg = new Message();
 				msg.obj = hashon.fromHashMap(map);
 				UIHandler.sendMessage(msg, cb);
@@ -212,6 +216,29 @@ public class ShareSDKUtils {
 		plat.setPlatformActionListener(paListaner);
 		plat.showUser(null);
 	}
+	
+	public static void listFriend(int platformId, int count, int page, String account){
+		if (DEBUG) {
+			System.out.println("listFriend");
+			System.out.println("count:" + count + " page:" + page + " account:" + account);
+		}
+		String name = ShareSDK.platformIdToName(platformId);
+		Platform plat = ShareSDK.getPlatform(context, name);
+		plat.setPlatformActionListener(paListaner);
+		plat.SSOSetting(true);
+		plat.listFriend(count, page, account);
+	}
+	
+	public static void followFriend(int platformId, String account){
+		if (DEBUG) {
+			System.out.println("followFriend");
+		}
+		String name = ShareSDK.platformIdToName(platformId);
+		Platform plat = ShareSDK.getPlatform(context, name);
+		plat.setPlatformActionListener(paListaner);
+		plat.followFriend(account);
+	}
+
 
 	public static void share(int platformId, String contentJson) {
 		if (DEBUG) {
