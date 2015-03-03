@@ -56,6 +56,8 @@ bool multiShare(CCArray *platTypes, CCDictionary *content, C2DXShareResultEvent 
 
 bool onekeyShare(int platformId, CCDictionary *content, C2DXShareResultEvent callback);
 
+CCDictionary* getAuthInfo(int platformId);
+
 #ifdef __cplusplus
 }
 #endif

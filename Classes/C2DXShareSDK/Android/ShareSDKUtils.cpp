@@ -155,6 +155,20 @@ bool isValid(int platformId) {
 	return valid == JNI_TRUE;
 }
 
+CCDictionary* getAuthInfo(int platformId){
+	JniMethodInfo mi;
+	CCDictionary* dic;
+	bool isHave = getMethod(mi, "getAuthInfo", "(I)Ljava/lang/String;");
+	CCJSONConverter* json = CCJSONConverter::sharedConverter();
+	jstring userInfo = (jstring) mi.env->CallStaticObjectMethod(mi.classID, mi.methodID, platformId);
+	const char* ccResp = mi.env->GetStringUTFChars(userInfo, JNI_FALSE);
+	CCLog("userInfo = %s", ccResp);
+	dic = json->dictionaryFrom(ccResp);
+	releaseMethod(mi);
+
+	return dic;
+}
+
 bool showUser(int platformId, C2DXGetUserInfoResultEvent callback){
 	JniMethodInfo mi;
 	bool isHave = getMethod(mi, "showUser", "(I)V");

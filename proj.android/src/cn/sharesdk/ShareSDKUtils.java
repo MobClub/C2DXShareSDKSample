@@ -2,14 +2,17 @@ package cn.sharesdk;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import m.framework.utils.Hashon;
 import m.framework.utils.UIHandler;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.plugin.PluginWrapper;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.PlatformDb;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import android.content.Context;
@@ -144,6 +147,32 @@ public class ShareSDKUtils {
 		String name = ShareSDK.platformIdToName(platformId);
 		HashMap<String, Object> conf = new Hashon().fromJson(configs);
 		ShareSDK.setPlatformDevInfo(name, conf);
+	}
+	
+	private static HashMap<String, Object> getPlatformDB(Platform platform){
+		HashMap<String, Object> platformDbMap = new HashMap<String, Object>();
+		PlatformDb db = platform.getDb();
+		platformDbMap.put("token", db.getToken());
+		platformDbMap.put("userGender", db.getUserGender());
+		platformDbMap.put("userId", db.getUserId());
+		platformDbMap.put("userName", db.getUserName());
+		platformDbMap.put("userIcon", db.getUserIcon());
+		platformDbMap.put("platformName", db.getPlatformNname());
+		platformDbMap.put("platformVersion", db.getPlatformVersion());
+		return platformDbMap;
+	}
+	
+	public static String getAuthInfo(int platformId){
+		if (DEBUG) {
+			System.out.println("getAuthInfo");
+		}
+		HashMap<String, Object> userInfo = new HashMap<String, Object>();
+		String name = ShareSDK.platformIdToName(platformId);
+		Platform plat = ShareSDK.getPlatform(context, name);
+		if(plat.isValid()){
+			userInfo = getPlatformDB(plat);
+		}
+		return ((String)hashon.fromHashMap(userInfo));
 	}
 
 	public static void authorize(int platformId) {
