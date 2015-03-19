@@ -53,7 +53,8 @@ public class ShareSDKUtils {
 				if (DEBUG) {
 					System.out.println("onComplete");
 					System.out.println(res == null ? "" : res.toString());
-				}
+				} 
+				
 				HashMap<String, Object> map = new HashMap<String, Object>();
 				map.put("platform",
 						ShareSDK.platformNameToId(platform.getName()));
