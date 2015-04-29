@@ -115,7 +115,9 @@ bool HelloWorld::init()
                                                              this,
                                                              menu_selector(HelloWorld::shareMenuItemClick));
 
-    CCMenu *itemsMenu = CCMenu::create(authMenuItem, cancelAuthMenuItem, hasAuthMenuItem, getUserMenuItem, shareMenuItem, NULL);
+    CCMenuItemLabel *checkClientItem = CCMenuItemLabel::create(CCLabelTTF::create("检测客户端","Arial", 40), this, menu_selector(HelloWorld::checkClientItemClick));
+    
+    CCMenu *itemsMenu = CCMenu::create(authMenuItem, cancelAuthMenuItem, hasAuthMenuItem, getUserMenuItem, shareMenuItem, checkClientItem,NULL);
     itemsMenu -> alignItemsHorizontallyWithPadding(20);
     itemsMenu -> setPosition(ccp(CCDirector::sharedDirector() -> getWinSize().width / 2, 100));
     this -> addChild(itemsMenu);
@@ -222,4 +224,15 @@ void HelloWorld::shareMenuItemClick(CCObject* pSender)
     
     C2DXShareSDK::showShareMenu(NULL, content, CCPointMake(100, 100), C2DXMenuArrowDirectionLeft, shareResultHandler);
 //    C2DXShareSDK::showShareView(C2DXPlatTypeSinaWeibo, content, shareResultHandler);
+}
+
+void HelloWorld::checkClientItemClick(CCObject* pSender)
+{
+    if (C2DXShareSDK::isClientInstalled(C2DXPlatTypeQQ))
+    {
+        CCLOG("客户端已安装");
+    }else
+    {
+        CCLOG("客户端未安装");
+    }
 }

@@ -27,6 +27,8 @@ public:
     void getUserInfoMenuItemClick(CCObject* pSender);
     
     void shareMenuItemClick(CCObject* pSender);
+    
+    void checkClientItemClick(CCObject* pSender);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
