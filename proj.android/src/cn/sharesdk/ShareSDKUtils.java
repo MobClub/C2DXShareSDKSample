@@ -3,24 +3,24 @@ package cn.sharesdk;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import m.framework.utils.Hashon;
-import m.framework.utils.UIHandler;
-
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.plugin.PluginWrapper;
 
+import android.content.Context;
+import android.os.Handler.Callback;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.PlatformDb;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
-import android.content.Context;
-import android.os.Message;
-import android.os.Handler.Callback;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
+
+import com.mob.tools.utils.Hashon;
+import com.mob.tools.utils.UIHandler;
 
 public class ShareSDKUtils {
 	private static boolean DEBUG = true;
@@ -33,7 +33,6 @@ public class ShareSDKUtils {
 	}
 
 	public static void prepare() {
-		UIHandler.prepare();
 		context = Cocos2dxActivity.getContext().getApplicationContext();
 		hashon = new Hashon();
 		final Callback cb = new Callback() {
