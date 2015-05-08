@@ -126,6 +126,15 @@ namespace cn
              *	@param 	callback 	回调方法
              */
             static void showShareView(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback);
+            
+            /**
+             *	@brief	检测是否安装客户端
+             *
+             *	@param 	platType 	平台类型
+             *
+             *	@return true 安装有客户端, false 没有安装客户端
+             */
+            static bool isClientInstalled(C2DXPlatType platType);
         };
     }
 }

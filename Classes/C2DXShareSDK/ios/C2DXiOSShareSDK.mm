@@ -686,3 +686,9 @@ void C2DXiOSShareSDK::showShareView(C2DXPlatType platType, CCDictionary *content
                                  
                              }];
 }
+
+bool C2DXiOSShareSDK::isClientInstalled(C2DXPlatType platType)
+{
+    id <ISSPlatformApp> app = [ShareSDK getClientWithType:(ShareType)platType];
+    return  [app isClientInstalled] ? true : false ;
+}
