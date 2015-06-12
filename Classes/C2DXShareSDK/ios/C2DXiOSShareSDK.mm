@@ -233,16 +233,34 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
         if (imagePathStr)
         {
             NSString *imagePath = [NSString stringWithCString:imagePathStr -> getCString() encoding:NSUTF8StringEncoding];
-            NSLog(@"imagePath = %@", imagePath);
             if ([imagePath isMatchedByRegex:@"\\w://.*"])
             {
-                NSLog(@"is url");
+            
                 image = [ShareSDK imageWithUrl:imagePath];
             }
             else
             {
-                NSLog(@"is path");
+                NSString *imageType = [[NSMutableString alloc]initWithString:[imagePath substringFromIndex:[imagePath length] - 4]];
+                NSString *imageName = [[NSMutableString alloc]initWithString:[imagePath substringToIndex:[imagePath length] - 4]];
+                if ([imageType  isEqualToString: @".png"])
+                {
+                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
+                }
+                else if ([imageType  isEqualToString:@".jpg"])
+                {
+                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
+                }else if ([imageType isEqualToString:@"jpeg"])
+                {
+                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpeg"];
+                }else if ([imageType isEqualToString:@".gif"])
+                {
+                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"gif"];
+                }else if ([imageType isEqualToString:@".bmp"])
+                {
+                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"bmp"];
+                }
                 image = [ShareSDK imageWithPath:imagePath];
+              
             }
         }
         
@@ -311,7 +329,7 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
         
         NSString *extInfoStr = nil;
         NSString *musicUrlStr = nil;
-        
+        NSString *gifPathStr = nil;
         CCString *extInfo = dynamic_cast<CCString *>(content -> objectForKey("extInfo"));
         if (extInfo)
         {
@@ -322,8 +340,15 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
         {
             musicUrlStr = [NSString stringWithCString:musicUrl -> getCString() encoding:NSUTF8StringEncoding];
         }
+        CCString *gifPath = dynamic_cast<CCString *>(content ->objectForKey("gifName"));
+        if (gifPath) {
+            NSString *gifFileName = [NSString stringWithCString:gifPath -> getCString() encoding:NSUTF8StringEncoding];
+            NSString *gifName = [[NSMutableString alloc]initWithString:[gifFileName substringToIndex:[gifFileName length] - 4]];
+            gifPathStr = [[NSBundle mainBundle] pathForResource:gifName ofType:@"gif"];
         
-        if (extInfoStr || musicUrlStr)
+        }
+        
+        if (extInfoStr || musicUrlStr || gifPathStr)
         {
             [contentObj addWeixinSessionUnitWithType:INHERIT_VALUE
                                              content:INHERIT_VALUE
@@ -333,7 +358,7 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
                                         musicFileUrl:musicUrlStr
                                              extInfo:extInfoStr
                                             fileData:INHERIT_VALUE
-                                        emoticonData:INHERIT_VALUE];
+                                        emoticonData:[NSData dataWithContentsOfFile:gifPathStr]];
             
             [contentObj addWeixinTimelineUnitWithType:INHERIT_VALUE
                                               content:INHERIT_VALUE
