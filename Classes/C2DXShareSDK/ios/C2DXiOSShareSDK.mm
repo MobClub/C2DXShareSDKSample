@@ -240,27 +240,32 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
             }
             else
             {
-                NSString *imageType = [[NSMutableString alloc]initWithString:[imagePath substringFromIndex:[imagePath length] - 4]];
-                NSString *imageName = [[NSMutableString alloc]initWithString:[imagePath substringToIndex:[imagePath length] - 4]];
-                if ([imageType  isEqualToString: @".png"])
-                {
-                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
+                NSString* imageHead = [[NSMutableString alloc]initWithString:[imagePath substringToIndex:4]];
+                
+                if ([imageHead isEqualToString:@"/var"]) {
+                    image = [ShareSDK imageWithPath:imagePath];
+                }else{
+                    NSString *imageType = [[NSMutableString alloc]initWithString:[imagePath substringFromIndex:[imagePath length] - 4]];
+                    NSString *imageName = [[NSMutableString alloc]initWithString:[imagePath substringToIndex:[imagePath length] - 4]];
+                    if ([imageType  isEqualToString: @".png"])
+                    {
+                        imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
+                    }
+                    else if ([imageType  isEqualToString:@".jpg"])
+                    {
+                        imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
+                    }else if ([imageType isEqualToString:@"jpeg"])
+                    {
+                        imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpeg"];
+                    }else if ([imageType isEqualToString:@".gif"])
+                    {
+                        imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"gif"];
+                    }else if ([imageType isEqualToString:@".bmp"])
+                    {
+                        imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"bmp"];
+                    }
+                    image = [ShareSDK imageWithPath:imagePath];
                 }
-                else if ([imageType  isEqualToString:@".jpg"])
-                {
-                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
-                }else if ([imageType isEqualToString:@"jpeg"])
-                {
-                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpeg"];
-                }else if ([imageType isEqualToString:@".gif"])
-                {
-                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"gif"];
-                }else if ([imageType isEqualToString:@".bmp"])
-                {
-                    imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"bmp"];
-                }
-                image = [ShareSDK imageWithPath:imagePath];
-              
             }
         }
         
