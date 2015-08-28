@@ -240,11 +240,11 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
             }
             else
             {
-                NSString* imageHead = [[NSMutableString alloc]initWithString:[imagePath substringToIndex:4]];
-                
-                if ([imageHead isEqualToString:@"/var"]) {
+                if ([imagePath hasPrefix:@"/var"] || [imagePath hasPrefix:@"/private"])
+                {
                     image = [ShareSDK imageWithPath:imagePath];
-                }else{
+                }
+                else{
                     NSString *imageType = [[NSMutableString alloc]initWithString:[imagePath substringFromIndex:[imagePath length] - 4]];
                     NSString *imageName = [[NSMutableString alloc]initWithString:[imagePath substringToIndex:[imagePath length] - 4]];
                     if ([imageType  isEqualToString: @".png"])
@@ -266,6 +266,7 @@ id<ISSContent> convertPublishContent(CCDictionary *content)
                     }
                     image = [ShareSDK imageWithPath:imagePath];
                 }
+              
             }
         }
         
@@ -503,7 +504,7 @@ void C2DXiOSShareSDK::getUserInfo(C2DXPlatType platType, C2DXGetUserInfoResultEv
                                
                                if (callback)
                                {
-                                   callback (result ? C2DXResponseStateSuccess : C2DXResponseStateFail, platType, userInfoDict, errorInfo);
+                                   callback (result ? C2DXResponseStateSuccess  : C2DXResponseStateFail, platType, userInfoDict, errorInfo);
                                }
                                
                            }];
